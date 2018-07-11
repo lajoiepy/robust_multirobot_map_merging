@@ -7,14 +7,13 @@
 
 namespace graph_utils {
 
-std::map<std::pair<size_t,size_t>, graph_utils::Transform> parse_g2o_file(const std::string &filename, size_t &num_poses) {
-
-  // Preallocate output map
-  std::map<std::pair<size_t,size_t>, graph_utils::Transform> transforms;
+void parse_g2o_file(const std::string &filename, size_t &num_poses, 
+    std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms,
+    std::list<std::pair<size_t,size_t>>& loop_closure_list) {
 
   // A single pose that will be filled
   graph_utils::Transform transform;
-  transform.is_interrobot = false;
+  transform.is_loop_closure = false;
 
   // A string used to contain the contents of a single line
   std::string line;
@@ -127,7 +126,8 @@ std::map<std::pair<size_t,size_t>, graph_utils::Transform> parse_g2o_file(const 
     size_t max_pair = std::max<double>(transform.i, transform.j);
     
     if (max_pair <= num_poses) {
-      transform.is_interrobot = true;
+      transform.is_loop_closure = true;
+      loop_closure_list.emplace_back(std::make_pair(i,j));
     } else {
       num_poses = max_pair;
     }
@@ -138,8 +138,6 @@ std::map<std::pair<size_t,size_t>, graph_utils::Transform> parse_g2o_file(const 
   infile.close();
 
   num_poses++; // Account for the use of zero-based indexing
-
-  return transforms;
 }
 
 }

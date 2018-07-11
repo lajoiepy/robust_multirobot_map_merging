@@ -4,6 +4,7 @@
 #include "geometry_msgs/PoseWithCovariance.h"
 
 #include <map>
+#include <list>
 
 namespace graph_utils {
 
@@ -11,10 +12,12 @@ namespace graph_utils {
 struct Transform {
     size_t i, j;
     geometry_msgs::PoseWithCovariance pose;
-    bool is_interrobot;
+    bool is_loop_closure;
 };
 
-std::map<std::pair<size_t,size_t>, graph_utils::Transform> parse_g2o_file(const std::string &filename, size_t &num_poses);
+void parse_g2o_file(const std::string &filename, size_t &num_poses, 
+    std::map<std::pair<size_t,size_t>, graph_utils::Transform>& tranforms,
+    std::list<std::pair<size_t,size_t>>& loop_closure_list);
 
 }
 

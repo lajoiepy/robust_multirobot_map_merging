@@ -4,7 +4,7 @@
 namespace robust_multirobot_slam {
 
     Eigen::MatrixXd computeConsistentMeasurementsMatrix(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms) {
-
+        
     }
     
     geometry_msgs::PoseWithCovariance computeConsistencyPose(const geometry_msgs::PoseWithCovariance& aXij, 
