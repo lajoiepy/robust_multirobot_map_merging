@@ -9,10 +9,21 @@ add_compile_options(-std=c++11)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED
     geometry_msgs
-    pose_cov_ops
     roscpp
     tf2
+    mrpt_bridge
     )
+
+find_package(MRPT REQUIRED)
+message(STATUS "Found MRPT: " ${MRPT_VERSION})
+if("${MRPT_VERSION}" VERSION_LESS "1.9.9")
+  # MRPT<2.0
+  find_package(MRPT REQUIRED base)
+else()
+  # MRPT>=2.0
+  set (CMAKE_CXX_STANDARD 14) # C++14 actually only needed when building
+  find_package(MRPT REQUIRED poses)
+endif()
 
 find_package(Eigen3 REQUIRED)
 include_directories(${Eigen_INCLUDE_DIRS})
@@ -109,7 +120,7 @@ link_directories(/usr/local/include)
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES robust_multirobot_slam graph_utils
-  CATKIN_DEPENDS roscpp geometry_msgs pose_cov_ops tf2
+  CATKIN_DEPENDS roscpp geometry_msgs tf2 mrpt_bridge
 #  DEPENDS system_lib
 )
 

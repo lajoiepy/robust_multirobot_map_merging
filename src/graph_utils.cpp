@@ -5,6 +5,9 @@
 #include <math.h>
 #include <eigen3/Eigen/Geometry>
 
+using namespace mrpt::poses;
+using namespace mrpt::math;
+
 namespace graph_utils {
 
 void parseG2ofile(const std::string &filename, size_t &num_poses, 
@@ -138,6 +141,41 @@ void parseG2ofile(const std::string &filename, size_t &num_poses,
   infile.close();
 
   num_poses++; // Account for the use of zero-based indexing
+}
+
+void poseCompose(const geometry_msgs::PoseWithCovariance &a,
+                const geometry_msgs::PoseWithCovariance &b,
+                geometry_msgs::PoseWithCovariance &out) {
+  CPose3DPDFGaussian A(UNINITIALIZED_POSE), B(UNINITIALIZED_POSE);
+
+  mrpt_bridge::convert(a, A);
+  mrpt_bridge::convert(b, B);
+
+  const CPose3DPDFGaussian OUT = A + B;
+  mrpt_bridge::convert(OUT, out);
+}
+
+void poseInverse(const geometry_msgs::PoseWithCovariance &a,
+                geometry_msgs::PoseWithCovariance &out) {
+  CPose3DPDFGaussian A(UNINITIALIZED_POSE);
+
+  mrpt_bridge::convert(a, A);
+
+  CPose3DPDFGaussian OUT;
+  A.inverse(OUT);
+  mrpt_bridge::convert(OUT, out);
+}
+
+void poseInverseCompose(const geometry_msgs::PoseWithCovariance &a,
+                                  const geometry_msgs::PoseWithCovariance &b,
+                                  geometry_msgs::PoseWithCovariance &out) {
+  CPose3DPDFGaussian A(UNINITIALIZED_POSE), B(UNINITIALIZED_POSE);
+
+  mrpt_bridge::convert(a, A);
+  mrpt_bridge::convert(b, B);
+
+  const CPose3DPDFGaussian OUT = A - B;
+  mrpt_bridge::convert(OUT, out);
 }
 
 }
