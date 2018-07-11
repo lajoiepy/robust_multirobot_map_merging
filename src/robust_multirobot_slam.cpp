@@ -1,4 +1,5 @@
 #include "robust_multirobot_slam.h"
+#include "pose_cov_ops/pose_cov_ops.h"
 
 namespace robust_multirobot_slam {
 
@@ -10,7 +11,13 @@ namespace robust_multirobot_slam {
                                                             const geometry_msgs::PoseWithCovariance& bXlk, 
                                                             const geometry_msgs::PoseWithCovariance& abZik, 
                                                             const geometry_msgs::PoseWithCovariance& abZjl) {
+        // Consistency loop : aXij + abZjl + bXlk - abZik
+        geometry_msgs::PoseWithCovariance out1, out2, result;
+        pose_cov_ops::compose(aXij, abZjl, out1);
+        pose_cov_ops::compose(out1, bXlk, out2);
+        pose_cov_ops::inverseCompose(out2, abZik, result);
 
+        return result;
     }
 
     double computeSquaredMahalanobisDistance(const geometry_msgs::PoseWithCovariance& pose) {
