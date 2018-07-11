@@ -1,1 +1,1 @@
-# robust_multi-robot_mapping
+# robust_multirobot_slam

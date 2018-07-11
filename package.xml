@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>robust_multirobot_mapping</name>
+  <name>robust_multirobot_slam</name>
   <version>0.0.0</version>
-  <description>The robust_multirobot_mapping package</description>
+  <description>The robust_multirobot_slam package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->

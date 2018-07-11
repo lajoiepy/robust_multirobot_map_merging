@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(robust_multirobot_mapping)
+project(robust_multirobot_slam)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -108,7 +108,7 @@ link_directories(/usr/local/include)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES robust_multirobot_mapping graph_utils
+  LIBRARIES robust_multirobot_slam graph_utils
   CATKIN_DEPENDS roscpp geometry_msgs pose_cov_ops tf2
 #  DEPENDS system_lib
 )
@@ -126,7 +126,7 @@ include_directories(
 
 ## Declare a C++ library
 add_library(${PROJECT_NAME}
-   src/robust_multirobot_mapping.cpp
+   src/robust_multirobot_slam.cpp
 )
 add_library(graph_utils
    src/graph_utils.cpp
