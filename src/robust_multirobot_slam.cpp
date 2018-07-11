@@ -21,8 +21,8 @@ namespace robust_multirobot_slam {
                     l = (*it_col).second;
                     geometry_msgs::PoseWithCovariance abZik = (*transforms.find(*it_row)).second.pose;
                     geometry_msgs::PoseWithCovariance abZjl = (*transforms.find(*it_col)).second.pose; 
-                    geometry_msgs::PoseWithCovariance aXij = (*transforms.find(std::make_pair(i,k))).second.pose;  
-                    geometry_msgs::PoseWithCovariance bXlk = (*transforms.find(std::make_pair(j,l))).second.pose; 
+                    geometry_msgs::PoseWithCovariance aXij = (*transforms.find(std::make_pair(i,j))).second.pose;  
+                    geometry_msgs::PoseWithCovariance bXlk = (*transforms.find(std::make_pair(k,l))).second.pose; 
                     geometry_msgs::PoseWithCovariance consistency_pose = computeConsistencyPose(aXij, bXlk, abZik, abZjl);
                     double distance = computeSquaredMahalanobisDistance(consistency_pose);
                     consistency_matrix(u,v) = distance;
@@ -71,4 +71,32 @@ namespace robust_multirobot_slam {
         return distance;
     }
 
+    geometry_msgs::PoseWithCovariance composeOnTrajectory(const size_t& first_pose_id, const size_t& second_pose_id, 
+                                const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms) {
+        // Make sure to compose in ascending order
+        size_t start_pose_id, end_pose_id;
+        if (first_pose_id < second_pose_id) {
+            start_pose_id = first_pose_id;
+            end_pose_id = second_pose_id;
+        } else {
+            start_pose_id = second_pose_id;
+            end_pose_id = first_pose_id;
+        }
+
+        // Initialization
+        std::pair<size_t, size_t> start_pair = std::make_pair(start_pose_id, start_pose_id+1);
+        size_t current_pose_id = start_pose_id + 1;
+        geometry_msgs::PoseWithCovariance temp_pose, total_pose;
+        temp_pose = (*transforms.find(start_pair)).second.pose;
+
+        // Compositions in chain
+        while (current_pose_id < end_pose_id) {
+            std::pair<size_t, size_t> temp_pair = std::make_pair(current_pose_id, current_pose_id + 1);
+            pose_cov_ops::compose(temp_pose, (*transforms.find(temp_pair)).second.pose, total_pose);
+            temp_pose = total_pose;
+            current_pose_id++;
+        }
+
+        return total_pose;
+    }
 }

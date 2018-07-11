@@ -18,6 +18,8 @@ namespace robust_multirobot_slam {
 
     double computeSquaredMahalanobisDistance(const geometry_msgs::PoseWithCovariance& pose);
 
+    geometry_msgs::PoseWithCovariance composeOnTrajectory(const size_t& start_pose, const size_t& end_pose);
+
 }
 
 #endif
