@@ -15,7 +15,7 @@ struct Transform {
     bool is_loop_closure;
 };
 
-void parse_g2o_file(const std::string &filename, size_t &num_poses, 
+void parseG2ofile(const std::string &filename, size_t &num_poses, 
     std::map<std::pair<size_t,size_t>, graph_utils::Transform>& tranforms,
     std::list<std::pair<size_t,size_t>>& loop_closure_list);
 

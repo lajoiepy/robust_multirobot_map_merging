@@ -16,13 +16,13 @@ namespace robust_multirobot_slam {
                 if (u != v) {
                     size_t i,j,k,l;
                     i = (*it_row).first;
-                    j = (*it_row).second;
-                    k = (*it_col).first;
+                    k = (*it_row).second;
+                    j = (*it_col).first;
                     l = (*it_col).second;
-                    geometry_msgs::PoseWithCovariance aXij = (*transforms.find(*it_row)).second.pose;
-                    geometry_msgs::PoseWithCovariance bXlk = (*transforms.find(*it_col)).second.pose; 
-                    geometry_msgs::PoseWithCovariance abZik = (*transforms.find(std::make_pair(i,k))).second.pose;  
-                    geometry_msgs::PoseWithCovariance abZjl = (*transforms.find(std::make_pair(j,l))).second.pose; 
+                    geometry_msgs::PoseWithCovariance abZik = (*transforms.find(*it_row)).second.pose;
+                    geometry_msgs::PoseWithCovariance abZjl = (*transforms.find(*it_col)).second.pose; 
+                    geometry_msgs::PoseWithCovariance aXij = (*transforms.find(std::make_pair(i,k))).second.pose;  
+                    geometry_msgs::PoseWithCovariance bXlk = (*transforms.find(std::make_pair(j,l))).second.pose; 
                     geometry_msgs::PoseWithCovariance consistency_pose = computeConsistencyPose(aXij, bXlk, abZik, abZjl);
                     double distance = computeSquaredMahalanobisDistance(consistency_pose);
                     consistency_matrix(u,v) = distance;
@@ -32,7 +32,7 @@ namespace robust_multirobot_slam {
             }
             u++;
         }
-
+        return consistency_matrix;
     }
     
     geometry_msgs::PoseWithCovariance computeConsistencyPose(const geometry_msgs::PoseWithCovariance& aXij, 
