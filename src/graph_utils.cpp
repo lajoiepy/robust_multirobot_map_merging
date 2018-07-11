@@ -7,10 +7,10 @@
 
 namespace graph_utils {
 
-std::vector<graph_utils::Transform> parse_g2o_file(const std::string &filename, size_t &num_poses) {
+std::map<std::pair<size_t,size_t>, graph_utils::Transform> parse_g2o_file(const std::string &filename, size_t &num_poses) {
 
-  // Preallocate output vector
-  std::vector<graph_utils::Transform> transforms;
+  // Preallocate output map
+  std::map<std::pair<size_t,size_t>, graph_utils::Transform> transforms;
 
   // A single pose that will be filled
   graph_utils::Transform transform;
@@ -132,7 +132,7 @@ std::vector<graph_utils::Transform> parse_g2o_file(const std::string &filename, 
       num_poses = max_pair;
     }
 
-    transforms.push_back(transform);
+    transforms.emplace(std::make_pair(std::make_pair(i,j), transform));
   } // while
 
   infile.close();

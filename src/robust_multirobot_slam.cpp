@@ -3,7 +3,7 @@
 
 namespace robust_multirobot_slam {
 
-    Eigen::MatrixXd computeConsistentMeasurementsMatrix(const std::vector<graph_utils::Transform>& transforms) {
+    Eigen::MatrixXd computeConsistentMeasurementsMatrix(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms) {
 
     }
     

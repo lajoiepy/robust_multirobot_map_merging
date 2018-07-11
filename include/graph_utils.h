@@ -3,7 +3,7 @@
 
 #include "geometry_msgs/PoseWithCovariance.h"
 
-#include <vector>
+#include <map>
 
 namespace graph_utils {
 
@@ -14,7 +14,7 @@ struct Transform {
     bool is_interrobot;
 };
 
-std::vector<Transform> parse_g2o_file(const std::string &filename, size_t &num_poses);
+std::map<std::pair<size_t,size_t>, graph_utils::Transform> parse_g2o_file(const std::string &filename, size_t &num_poses);
 
 }
 
