@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>robust_multi-robot_mapping</name>
+  <name>robust_multirobot_mapping</name>
   <version>0.0.0</version>
-  <description>The robust_multi-robot_mapping package</description>
+  <description>The robust_multirobot_mapping package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="lajoiepy@todo.todo">lajoiepy</maintainer>
+  <maintainer email="lajoie.py@gmail.com">lajoiepy</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
@@ -32,7 +32,10 @@
   <!-- Dependencies can be catkin packages or system dependencies -->
   <!-- Examples: -->
   <!-- Use depend as a shortcut for packages that are both build and exec dependencies -->
-  <!--   <depend>roscpp</depend> -->
+  <depend>roscpp</depend> 
+  <depend>geometry_msgs</depend>
+  <depend>pose_cov_ops</depend>
+  <depend>tf2</depend>
   <!--   Note that this is equivalent to the following: -->
   <!--   <build_depend>roscpp</build_depend> -->
   <!--   <exec_depend>roscpp</exec_depend> -->
