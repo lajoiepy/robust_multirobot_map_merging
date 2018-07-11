@@ -3,8 +3,11 @@
 
 namespace robust_multirobot_slam {
 
+
+
     Eigen::MatrixXd computeConsistentMeasurementsMatrix(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms,
-                                                        const std::list<std::pair<size_t,size_t>>& loop_closure_list) {
+                                                        const std::list<std::pair<size_t,size_t>>& loop_closure_list,
+                                                        const std::map<size_t, graph_utils::TrajectoryPose>& trajectory) {
         // Preallocate consistency matrix
         Eigen::MatrixXd consistency_matrix(loop_closure_list.size(), loop_closure_list.size());
 
@@ -21,8 +24,8 @@ namespace robust_multirobot_slam {
                     l = (*it_col).second;
                     geometry_msgs::PoseWithCovariance abZik = (*transforms.find(*it_row)).second.pose;
                     geometry_msgs::PoseWithCovariance abZjl = (*transforms.find(*it_col)).second.pose; 
-                    geometry_msgs::PoseWithCovariance aXij = composeOnTrajectory(i, j, transforms);  
-                    geometry_msgs::PoseWithCovariance bXlk = composeOnTrajectory(l, k, transforms);; 
+                    geometry_msgs::PoseWithCovariance aXij = composeOnTrajectory(i, j, trajectory);  
+                    geometry_msgs::PoseWithCovariance bXlk = composeOnTrajectory(l, k, trajectory);; 
                     geometry_msgs::PoseWithCovariance consistency_pose = computeConsistencyPose(aXij, bXlk, abZik, abZjl);
                     double distance = computeSquaredMahalanobisDistance(consistency_pose);
                     consistency_matrix(u,v) = distance;
@@ -71,50 +74,13 @@ namespace robust_multirobot_slam {
         return distance;
     }
 
-    geometry_msgs::PoseWithCovariance composeOnTrajectory(const size_t& first_pose_id, const size_t& second_pose_id, 
-                                const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms) {
-        // Make sure to compose in correct order
-        size_t start_pose_id, end_pose_id;
-        if (first_pose_id < second_pose_id) {
-            start_pose_id = first_pose_id;
-            end_pose_id = second_pose_id;
-        } else {
-            start_pose_id = second_pose_id;
-            end_pose_id = first_pose_id;
-        }
+    geometry_msgs::PoseWithCovariance composeOnTrajectory(const size_t& id1, const size_t& id2,
+                                 const std::map<size_t, graph_utils::TrajectoryPose>& trajectory) {
+        graph_utils::TrajectoryPose pose1 = (*trajectory.find(id1)).second;
+        graph_utils::TrajectoryPose pose2 = (*trajectory.find(id2)).second;
 
-        // Initialization
-        std::pair<size_t, size_t> start_pair = std::make_pair(start_pose_id, start_pose_id + 1);
-        size_t current_pose_id = start_pose_id + 1;
-        geometry_msgs::PoseWithCovariance temp_pose, total_pose;
-        auto temp_it = transforms.find(start_pair);
-        if (temp_it != transforms.end()) {
-            temp_pose = (*temp_it).second.pose;
-            total_pose = temp_pose;
-        } else {
-            std::cerr << "Error in composeOnTrajectory() : start_pair pose doesn't exist." << std::endl;
-            std::abort();
-        }
-
-        // Compositions in chain
-        while (current_pose_id < end_pose_id) {
-            std::pair<size_t, size_t> temp_pair = std::make_pair(current_pose_id, current_pose_id + 1);
-            auto temp_it = transforms.find(temp_pair);
-            if (temp_it != transforms.end()) {
-                graph_utils::poseCompose(temp_pose, (*temp_it).second.pose, total_pose);             
-                temp_pose = total_pose;
-                current_pose_id++;
-            } else {
-                std::cerr << "Error in composeOnTrajectory() : start_pair pose doesn't exist." << std::endl;
-                std::abort();
-            }
-        }
-
-        if (first_pose_id > second_pose_id) {
-            auto temp = total_pose;
-            graph_utils::poseInverse(temp, total_pose);
-        }
-
-        return total_pose;
+        geometry_msgs::PoseWithCovariance result;
+        graph_utils::poseInverseCompose(pose2.pose, pose1.pose, result);
+        return result;
     }
 }

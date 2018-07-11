@@ -20,7 +20,7 @@ struct Transform {
 
 /** Struct defining a pose in a trav */
 struct TrajectoryPose {
-    size_t i;
+    size_t id;
     geometry_msgs::PoseWithCovariance pose;
 };
 
@@ -38,6 +38,8 @@ void poseInverseCompose(const geometry_msgs::PoseWithCovariance &a,
 
 void poseInverse(const geometry_msgs::PoseWithCovariance &a,
                 geometry_msgs::PoseWithCovariance &out);
+
+std::map<size_t, graph_utils::TrajectoryPose> buildTrajectory(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms);
 
 }
 

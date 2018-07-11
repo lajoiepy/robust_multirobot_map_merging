@@ -178,4 +178,29 @@ void poseInverseCompose(const geometry_msgs::PoseWithCovariance &a,
   mrpt_bridge::convert(OUT, out);
 }
 
+std::map<size_t, graph_utils::TrajectoryPose> buildTrajectory(const std::map<std::pair<size_t,size_t>, 
+                                                                graph_utils::Transform>& transforms) {
+    // Initialization
+    std::map<size_t, graph_utils::TrajectoryPose> trajectory;
+
+    size_t current_pose_id = 0;
+    geometry_msgs::PoseWithCovariance temp_pose, total_pose;
+    std::pair<size_t, size_t> temp_pair = std::make_pair(current_pose_id, current_pose_id + 1);
+    auto temp_it = transforms.find(temp_pair);
+    // Compositions in chain
+    while (temp_it != transforms.end() && !(*temp_it).second.is_loop_closure) {
+        graph_utils::poseCompose(temp_pose, (*temp_it).second.pose, total_pose);             
+        temp_pose = total_pose;
+        graph_utils::TrajectoryPose current_pose;
+        current_pose.id = current_pose_id;
+        current_pose.pose = total_pose;
+        trajectory.insert(std::make_pair(current_pose_id, current_pose));
+        current_pose_id++;
+        temp_pair = std::make_pair(current_pose_id, current_pose_id + 1);
+        temp_it = transforms.find(temp_pair);
+    }
+
+    return trajectory;
+}
+
 }
