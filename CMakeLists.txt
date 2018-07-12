@@ -137,7 +137,7 @@ include_directories(
 
 ## Declare a C++ library
 add_library(${PROJECT_NAME}
-    src/pairwise_consistency_maximization.cpp
+    src/pairwise_consistency.cpp
 )
 target_link_libraries(${PROJECT_NAME}
    ${catkin_LIBRARIES}

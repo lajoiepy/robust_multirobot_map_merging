@@ -1,3 +1,5 @@
+// author: Pierre-Yves Lajoie <lajoie.py@gmail.com>
+
 #include "graph_utils.h"
 
 #include <fstream>
@@ -136,11 +138,11 @@ void parseG2ofile(const std::string &filename, size_t &num_poses,
     }
 
     transforms.emplace(std::make_pair(std::make_pair(i,j), transform));
-  } // while
+  }
 
   infile.close();
 
-  num_poses++; // Account for the use of zero-based indexing
+  num_poses++; 
 }
 
 void poseCompose(const geometry_msgs::PoseWithCovariance &a,
@@ -182,7 +184,6 @@ std::map<size_t, graph_utils::TrajectoryPose> buildTrajectory(const std::map<std
                                                                 graph_utils::Transform>& transforms) {
     // Initialization
     std::map<size_t, graph_utils::TrajectoryPose> trajectory;
-
     size_t current_pose_id = 0;
     geometry_msgs::PoseWithCovariance temp_pose, total_pose;
 
@@ -213,8 +214,10 @@ std::map<size_t, graph_utils::TrajectoryPose> buildTrajectory(const std::map<std
 }
 
 void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix) {
+    // Intialization
     int nb_consistent_measurements = 0;
     
+    // Format edges.
     std::stringstream ss;
     for (int i = 0; i < consistency_matrix.rows(); i++) {
       for (int j = 0; j < consistency_matrix.cols(); j++) {
@@ -225,15 +228,12 @@ void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix) {
       }
     }
     
+    // Write to file
     std::ofstream output_file;
     output_file.open("consistency_matrix.clq.mtx");
-
     output_file << "%%MatrixMarket matrix coordinate pattern symmetric" << std::endl;
-
     output_file << consistency_matrix.rows() << " " << consistency_matrix.cols() << " " << nb_consistent_measurements << std::endl;
-
     output_file << ss.str();
-
     output_file.close();
 }
 

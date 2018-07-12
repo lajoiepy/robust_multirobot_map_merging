@@ -1,5 +1,7 @@
-#ifndef PAIRWISE_CONSISTENCY_MAXIMIZATION_H
-#define PAIRWISE_CONSISTENCY_MAXIMIZATION_H
+// author: Pierre-Yves Lajoie <lajoie.py@gmail.com>
+
+#ifndef PAIRWISE_CONSISTENCY_H
+#define PAIRWISE_CONSISTENCY_H
 
 #include "graph_utils.h"
 #include "geometry_msgs/PoseWithCovariance.h"
@@ -8,14 +10,22 @@
 
 namespace robust_multirobot_slam {
 
-    class PairwiseConsistencyMaximization {
+    /**
+     * Class for the computation of the pairwise consistency of loop closure edges
+     */ 
+    class PairwiseConsistency {
       public:
-
-        PairwiseConsistencyMaximization(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms,
+        /**
+         * Constructor
+         */
+        PairwiseConsistency(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms,
                                         const std::list<std::pair<size_t,size_t>>& loop_closure_list,
                                         const std::map<size_t, graph_utils::TrajectoryPose>& trajectory):
                                         loop_closure_list_(loop_closure_list), transforms_(transforms), trajectory_(trajectory){};
 
+        /**
+         * Computation of the consistency matrix
+         */ 
         Eigen::MatrixXi computeConsistentMeasurementsMatrix();
 
       private:
