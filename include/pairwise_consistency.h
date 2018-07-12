@@ -26,7 +26,7 @@ namespace robust_multirobot_slam {
         /**
          * Computation of the consistency matrix
          */ 
-        Eigen::MatrixXi computeConsistentMeasurementsMatrix();
+        Eigen::MatrixXi computeConsistentMeasurementsMatrix(const double& threshold);
 
       private:
 

@@ -2,11 +2,10 @@
 
 #include "pairwise_consistency.h"
 #include "pose_cov_ops/pose_cov_ops.h"
-#define THRESHOLD 1.635
 
 namespace robust_multirobot_slam {
 
-    Eigen::MatrixXi PairwiseConsistency::computeConsistentMeasurementsMatrix() {
+    Eigen::MatrixXi PairwiseConsistency::computeConsistentMeasurementsMatrix(const double& threshold) {
         // Preallocate consistency matrix
         Eigen::MatrixXi consistency_matrix(loop_closure_list_.size(), loop_closure_list_.size());
 
@@ -32,7 +31,7 @@ namespace robust_multirobot_slam {
                     // Compute the Mahalanobis distance
                     double distance = computeSquaredMahalanobisDistance(consistency_pose);
                     // Apply threshold on the chi-squared distribution
-                    if (distance < THRESHOLD) {
+                    if (distance < threshold) {
                         consistency_matrix(u,v) = 1;
                     } else {
                         consistency_matrix(u,v) = 0;

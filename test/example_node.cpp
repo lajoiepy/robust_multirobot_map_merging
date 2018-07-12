@@ -7,6 +7,8 @@
 #include <iostream>
 #include <eigen3/Eigen/Geometry>
 
+#define THRESHOLD 1.635
+
 int main(int argc, char* argv[])
 {
   // Preallocate output variables
@@ -22,8 +24,9 @@ int main(int argc, char* argv[])
 
   // Compute the pairwise consistency
   robust_multirobot_slam::PairwiseConsistency pairwise_consistency(transforms, loop_closure_list, trajectory);
-  Eigen::MatrixXi consistency_matrix = pairwise_consistency.computeConsistentMeasurementsMatrix();
+  Eigen::MatrixXi consistency_matrix = pairwise_consistency.computeConsistentMeasurementsMatrix(THRESHOLD);
 
+  // Print the result to compute the maximum clique
   graph_utils::printConsistencyGraph(consistency_matrix);
 
   return 0;
