@@ -213,20 +213,26 @@ std::map<size_t, graph_utils::TrajectoryPose> buildTrajectory(const std::map<std
 }
 
 void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix) {
+    int nb_consistent_measurements = 0;
+    
+    std::stringstream ss;
+    for (int i = 0; i < consistency_matrix.rows(); i++) {
+      for (int j = 0; j < consistency_matrix.cols(); j++) {
+        if (consistency_matrix(i,j) == 1) {
+          ss << i+1 << " " << j+1 << std::endl;
+          nb_consistent_measurements++;
+        }
+      }
+    }
+    
     std::ofstream output_file;
     output_file.open("consistency_matrix.clq.mtx");
 
     output_file << "%%MatrixMarket matrix coordinate pattern symmetric" << std::endl;
 
-    output_file << consistency_matrix.rows() << " " << consistency_matrix.cols() << std::endl;
+    output_file << consistency_matrix.rows() << " " << consistency_matrix.cols() << " " << nb_consistent_measurements << std::endl;
 
-    for (int i = 0; i < consistency_matrix.rows(); i++) {
-      for (int j = 0; j < consistency_matrix.cols(); j++) {
-        if (consistency_matrix(i,j) == 1) {
-          output_file << i+1 << " " << j+1 << std::endl;
-        }
-      }
-    }
+    output_file << ss.str();
 
     output_file.close();
 }
