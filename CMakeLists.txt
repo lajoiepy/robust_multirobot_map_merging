@@ -137,7 +137,7 @@ include_directories(
 
 ## Declare a C++ library
 add_library(${PROJECT_NAME}
-    src/robust_multirobot_slam.cpp
+    src/pairwise_consistency_maximization.cpp
 )
 target_link_libraries(${PROJECT_NAME}
    ${catkin_LIBRARIES}

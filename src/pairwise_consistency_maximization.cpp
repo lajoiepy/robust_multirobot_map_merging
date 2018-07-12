@@ -1,32 +1,28 @@
-#include "robust_multirobot_slam.h"
+#include "pairwise_consistency_maximization.h"
 #include "pose_cov_ops/pose_cov_ops.h"
 #define THRESHOLD 1.635
 
 namespace robust_multirobot_slam {
 
-
-
-    Eigen::MatrixXi computeConsistentMeasurementsMatrix(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms,
-                                                        const std::list<std::pair<size_t,size_t>>& loop_closure_list,
-                                                        const std::map<size_t, graph_utils::TrajectoryPose>& trajectory) {
+    Eigen::MatrixXi PairwiseConsistencyMaximization::computeConsistentMeasurementsMatrix() {
         // Preallocate consistency matrix
-        Eigen::MatrixXi consistency_matrix(loop_closure_list.size(), loop_closure_list.size());
+        Eigen::MatrixXi consistency_matrix(loop_closure_list_.size(), loop_closure_list_.size());
 
         // Iterate on loop closures
         size_t u = 0;
-        for (std::list<std::pair<size_t,size_t>>::const_iterator it_row = loop_closure_list.begin(); it_row != loop_closure_list.end(); ++it_row) {
+        for (std::list<std::pair<size_t,size_t>>::const_iterator it_row = loop_closure_list_.begin(); it_row != loop_closure_list_.end(); ++it_row) {
             size_t v = 0;
-            for (std::list<std::pair<size_t,size_t>>::const_iterator it_col = loop_closure_list.begin(); it_col != loop_closure_list.end(); ++it_col) {
+            for (std::list<std::pair<size_t,size_t>>::const_iterator it_col = loop_closure_list_.begin(); it_col != loop_closure_list_.end(); ++it_col) {
                 if (u != v) {
                     size_t i,j,k,l;
                     i = (*it_row).first;
                     k = (*it_row).second;
                     j = (*it_col).first;
                     l = (*it_col).second;
-                    geometry_msgs::PoseWithCovariance abZik = (*transforms.find(*it_row)).second.pose;
-                    geometry_msgs::PoseWithCovariance abZjl = (*transforms.find(*it_col)).second.pose; 
-                    geometry_msgs::PoseWithCovariance aXij = composeOnTrajectory(i, j, trajectory);  
-                    geometry_msgs::PoseWithCovariance bXlk = composeOnTrajectory(l, k, trajectory); 
+                    geometry_msgs::PoseWithCovariance abZik = (*transforms_.find(*it_row)).second.pose;
+                    geometry_msgs::PoseWithCovariance abZjl = (*transforms_.find(*it_col)).second.pose; 
+                    geometry_msgs::PoseWithCovariance aXij = composeOnTrajectory(i, j);  
+                    geometry_msgs::PoseWithCovariance bXlk = composeOnTrajectory(l, k); 
                     geometry_msgs::PoseWithCovariance consistency_pose = computeConsistencyPose(aXij, bXlk, abZik, abZjl);
                     double distance = computeSquaredMahalanobisDistance(consistency_pose);
                     if (distance < THRESHOLD) {
@@ -42,7 +38,7 @@ namespace robust_multirobot_slam {
         return consistency_matrix;
     }
     
-    geometry_msgs::PoseWithCovariance computeConsistencyPose(const geometry_msgs::PoseWithCovariance& aXij, 
+    geometry_msgs::PoseWithCovariance PairwiseConsistencyMaximization::computeConsistencyPose(const geometry_msgs::PoseWithCovariance& aXij, 
                                                             const geometry_msgs::PoseWithCovariance& bXlk, 
                                                             const geometry_msgs::PoseWithCovariance& abZik, 
                                                             const geometry_msgs::PoseWithCovariance& abZjl) {
@@ -55,7 +51,7 @@ namespace robust_multirobot_slam {
         return result;
     }
 
-    double computeSquaredMahalanobisDistance(const geometry_msgs::PoseWithCovariance& pose) {
+    double PairwiseConsistencyMaximization::computeSquaredMahalanobisDistance(const geometry_msgs::PoseWithCovariance& pose) {
         // Extraction of the covariance matrix
         Eigen::Matrix<double, 6, 6> covariance_matrix;
         for (int i = 0; i < 6; i++) {
@@ -78,10 +74,9 @@ namespace robust_multirobot_slam {
         return distance;
     }
 
-    geometry_msgs::PoseWithCovariance composeOnTrajectory(const size_t& id1, const size_t& id2,
-                                 const std::map<size_t, graph_utils::TrajectoryPose>& trajectory) {
-        graph_utils::TrajectoryPose pose1 = (*trajectory.find(id1)).second;
-        graph_utils::TrajectoryPose pose2 = (*trajectory.find(id2)).second;
+    geometry_msgs::PoseWithCovariance PairwiseConsistencyMaximization::composeOnTrajectory(const size_t& id1, const size_t& id2) {
+        graph_utils::TrajectoryPose pose1 = (*trajectory_.find(id1)).second;
+        graph_utils::TrajectoryPose pose2 = (*trajectory_.find(id2)).second;
 
         geometry_msgs::PoseWithCovariance result;
         graph_utils::poseInverseCompose(pose2.pose, pose1.pose, result);

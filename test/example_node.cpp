@@ -1,5 +1,5 @@
 #include "graph_utils.h"
-#include "robust_multirobot_slam.h"
+#include "pairwise_consistency_maximization.h"
 
 #include <string>
 #include <iostream>
@@ -16,7 +16,8 @@ int main(int argc, char* argv[])
   
   std::map<size_t, graph_utils::TrajectoryPose> trajectory = graph_utils::buildTrajectory(transforms);
 
-  Eigen::MatrixXi consistency_matrix = robust_multirobot_slam::computeConsistentMeasurementsMatrix(transforms, loop_closure_list, trajectory);
+  robust_multirobot_slam::PairwiseConsistencyMaximization pairwise_consistency_maximization(transforms, loop_closure_list, trajectory);
+  Eigen::MatrixXi consistency_matrix = pairwise_consistency_maximization.computeConsistentMeasurementsMatrix();
 
   graph_utils::printConsistencyGraph(consistency_matrix);
 
