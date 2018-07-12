@@ -18,5 +18,7 @@ int main(int argc, char* argv[])
 
   Eigen::MatrixXi consistency_matrix = robust_multirobot_slam::computeConsistentMeasurementsMatrix(transforms, loop_closure_list, trajectory);
 
+  graph_utils::printConsistencyGraph(consistency_matrix);
+
   return 0;
 }

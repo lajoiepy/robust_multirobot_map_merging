@@ -8,6 +8,8 @@
 #include <mrpt/poses/CPose3D.h>
 #include <mrpt/poses/CPose3DPDFGaussian.h>
 #include <mrpt_bridge/pose.h>
+#include <iostream>
+#include <fstream>
 
 namespace graph_utils {
 
@@ -40,6 +42,8 @@ void poseInverse(const geometry_msgs::PoseWithCovariance &a,
                 geometry_msgs::PoseWithCovariance &out);
 
 std::map<size_t, graph_utils::TrajectoryPose> buildTrajectory(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms);
+
+void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix);
 
 }
 
