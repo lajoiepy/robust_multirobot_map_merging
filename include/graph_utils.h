@@ -71,7 +71,7 @@ std::map<size_t, graph_utils::TrajectoryPose> buildTrajectory(const std::map<std
  * This function prints the consistency matrix to the format expected by the maximum clique solver
  * Fast Max-Cliquer (http://cucis.ece.northwestern.edu/projects/MAXCLIQUE/) 
  */ 
-void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix);
+void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix, std::string file_name);
 
 }
 

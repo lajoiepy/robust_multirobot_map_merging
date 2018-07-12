@@ -35,6 +35,11 @@ void parseG2ofile(const std::string &filename, size_t &num_poses,
   // Open the file for reading
   std::ifstream infile(filename);
 
+  if (!infile.is_open()) {
+    std::cerr << "Error while opening the file" << std::endl;
+    std::abort();
+  }
+
   num_poses = 0;
 
   while (std::getline(infile, line)) {
@@ -213,7 +218,7 @@ std::map<size_t, graph_utils::TrajectoryPose> buildTrajectory(const std::map<std
     return trajectory;
 }
 
-void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix) {
+void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix, std::string file_name) {
     // Intialization
     int nb_consistent_measurements = 0;
     
@@ -230,7 +235,7 @@ void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix) {
     
     // Write to file
     std::ofstream output_file;
-    output_file.open("consistency_matrix.clq.mtx");
+    output_file.open(file_name);
     output_file << "%%MatrixMarket matrix coordinate pattern symmetric" << std::endl;
     output_file << consistency_matrix.rows() << " " << consistency_matrix.cols() << " " << nb_consistent_measurements << std::endl;
     output_file << ss.str();
