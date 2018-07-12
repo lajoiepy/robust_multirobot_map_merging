@@ -1,15 +1,16 @@
 #include "robust_multirobot_slam.h"
 #include "pose_cov_ops/pose_cov_ops.h"
+#define THRESHOLD 1.635
 
 namespace robust_multirobot_slam {
 
 
 
-    Eigen::MatrixXd computeConsistentMeasurementsMatrix(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms,
+    Eigen::MatrixXi computeConsistentMeasurementsMatrix(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms,
                                                         const std::list<std::pair<size_t,size_t>>& loop_closure_list,
                                                         const std::map<size_t, graph_utils::TrajectoryPose>& trajectory) {
         // Preallocate consistency matrix
-        Eigen::MatrixXd consistency_matrix(loop_closure_list.size(), loop_closure_list.size());
+        Eigen::MatrixXi consistency_matrix(loop_closure_list.size(), loop_closure_list.size());
 
         // Iterate on loop closures
         size_t u = 0;
@@ -25,11 +26,14 @@ namespace robust_multirobot_slam {
                     geometry_msgs::PoseWithCovariance abZik = (*transforms.find(*it_row)).second.pose;
                     geometry_msgs::PoseWithCovariance abZjl = (*transforms.find(*it_col)).second.pose; 
                     geometry_msgs::PoseWithCovariance aXij = composeOnTrajectory(i, j, trajectory);  
-                    geometry_msgs::PoseWithCovariance bXlk = composeOnTrajectory(l, k, trajectory);; 
+                    geometry_msgs::PoseWithCovariance bXlk = composeOnTrajectory(l, k, trajectory); 
                     geometry_msgs::PoseWithCovariance consistency_pose = computeConsistencyPose(aXij, bXlk, abZik, abZjl);
                     double distance = computeSquaredMahalanobisDistance(consistency_pose);
-                    consistency_matrix(u,v) = distance;
-                    // TODO: thresholding
+                    if (distance < THRESHOLD) {
+                        consistency_matrix(u,v) = 1;
+                    } else {
+                        consistency_matrix(u,v) = 0;
+                    }
                 }
                 v++;
             }
@@ -61,7 +65,7 @@ namespace robust_multirobot_slam {
         }
 
         // Extraction of the pose vector
-        Eigen::VectorXd pose_vector(6);
+        Eigen::Matrix<double, 6, 1> pose_vector(6);
         pose_vector(0) = pose.pose.position.x;
         pose_vector(1) = pose.pose.position.y;
         pose_vector(2) = pose.pose.position.z;

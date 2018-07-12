@@ -8,7 +8,7 @@
 
 namespace robust_multirobot_slam {
 
-    Eigen::MatrixXd computeConsistentMeasurementsMatrix(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms,
+    Eigen::MatrixXi computeConsistentMeasurementsMatrix(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms,
                                                         const std::list<std::pair<size_t,size_t>>& loop_closure_list,
                                                         const std::map<size_t, graph_utils::TrajectoryPose>& trajectory);
     

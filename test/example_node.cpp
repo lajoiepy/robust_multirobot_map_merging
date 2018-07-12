@@ -14,9 +14,9 @@ int main(int argc, char* argv[])
 
   graph_utils::parseG2ofile("/home/lajoiepy/Documents/master/mit/graph_data/CSAIL.g2o", num_poses, transforms, loop_closure_list);
   
-  std::map<size_t, graph_utils::TrajectoryPose> trajectory = buildTrajectory(transforms);
+  std::map<size_t, graph_utils::TrajectoryPose> trajectory = graph_utils::buildTrajectory(transforms);
 
-  Eigen::MatrixXd consistency_matrix = robust_multirobot_slam::computeConsistentMeasurementsMatrix(transforms, loop_closure_list, trajectory);
+  Eigen::MatrixXi consistency_matrix = robust_multirobot_slam::computeConsistentMeasurementsMatrix(transforms, loop_closure_list, trajectory);
 
   return 0;
 }
