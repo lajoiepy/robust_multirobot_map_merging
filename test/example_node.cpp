@@ -6,11 +6,13 @@
 #include <string>
 #include <iostream>
 #include <eigen3/Eigen/Geometry>
+#include <chrono>
 
 #define THRESHOLD 1.635
 
 int main(int argc, char* argv[])
 {
+  std::cout << "---------------------------------------------------------" << std::endl;
   // Parse arguments
   std::string input_file_name, output_file_name;
   if (argc < 2) {
@@ -31,21 +33,37 @@ int main(int argc, char* argv[])
   std::list<std::pair<size_t,size_t>> loop_closure_list;
 
   // Parse the graph file
-  std::cout << "Parsing of file : " << input_file_name << std::endl;
+  std::cout << "Parsing of file : " << input_file_name;
+  auto start = std::chrono::high_resolution_clock::now();
   graph_utils::parseG2ofile(input_file_name, num_poses, transforms, loop_closure_list);
+  auto finish = std::chrono::high_resolution_clock::now();
+  auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
+  std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
   
   // Compute the non-optimized trajectory
-  std::cout << "Trajectory computation." << std::endl;
+  std::cout << "Trajectory computation." ;
+  start = std::chrono::high_resolution_clock::now();
   std::map<size_t, graph_utils::TrajectoryPose> trajectory = graph_utils::buildTrajectory(transforms);
+  finish = std::chrono::high_resolution_clock::now();
+  milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
+  std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
 
   // Compute the pairwise consistency
-  std::cout << "Pairwise consistency computation." << std::endl;
+  std::cout << "Pairwise consistency computation.";
+  start = std::chrono::high_resolution_clock::now();
   robust_multirobot_slam::PairwiseConsistency pairwise_consistency(transforms, loop_closure_list, trajectory);
   Eigen::MatrixXi consistency_matrix = pairwise_consistency.computeConsistentMeasurementsMatrix(THRESHOLD);
+  finish = std::chrono::high_resolution_clock::now();
+  milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
+  std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
 
   // Print the result to compute the maximum clique in a file
-  std::cout << "Print result in " << output_file_name << std::endl;
+  std::cout << "Print result in " << output_file_name;
+  start = std::chrono::high_resolution_clock::now();
   graph_utils::printConsistencyGraph(consistency_matrix, output_file_name);
+  finish = std::chrono::high_resolution_clock::now();
+  milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
+  std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
 
   return 0;
 }
