@@ -220,7 +220,7 @@ void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix) {
     // Format edges.
     std::stringstream ss;
     for (int i = 0; i < consistency_matrix.rows(); i++) {
-      for (int j = 0; j < consistency_matrix.cols(); j++) {
+      for (int j = i; j < consistency_matrix.cols(); j++) {
         if (consistency_matrix(i,j) == 1) {
           ss << i+1 << " " << j+1 << std::endl;
           nb_consistent_measurements++;

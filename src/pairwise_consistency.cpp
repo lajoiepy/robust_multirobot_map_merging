@@ -15,7 +15,7 @@ namespace robust_multirobot_slam {
         for (std::list<std::pair<size_t,size_t>>::const_iterator it_row = loop_closure_list_.begin(); it_row != loop_closure_list_.end(); ++it_row) {
             size_t v = 0;
             for (std::list<std::pair<size_t,size_t>>::const_iterator it_col = loop_closure_list_.begin(); it_col != loop_closure_list_.end(); ++it_col) {
-                if (u != v) {
+                if (u < v) {
                     // Extract pose indexes
                     size_t i,j,k,l;
                     i = (*it_row).first;
