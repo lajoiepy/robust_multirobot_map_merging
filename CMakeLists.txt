@@ -137,7 +137,7 @@ include_directories(
 
 ## Declare a C++ library
 add_library(${PROJECT_NAME}
-    src/pairwise_consistency.cpp
+    src/pairwise_consistency/pairwise_consistency.cpp
 )
 target_link_libraries(${PROJECT_NAME}
    ${catkin_LIBRARIES}
@@ -145,7 +145,7 @@ target_link_libraries(${PROJECT_NAME}
 )
 
 add_library(graph_utils
-    src/graph_utils.cpp
+    src/graph_utils/graph_utils.cpp
 )
 
 ## Add cmake target dependencies of the library
