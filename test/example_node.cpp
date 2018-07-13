@@ -76,7 +76,7 @@ int main(int argc, char* argv[])
   int iMaxClique = 0;
   std::vector<int> max_clique_data;
   iMaxClique = maxClique(gio, iMaxClique, max_clique_data);
-  std::cout << "Max clique Size : " << iMaxClique;
+  std::cout << " - Max clique Size : " << iMaxClique;
   finish = std::chrono::high_resolution_clock::now();
   milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
   std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
