@@ -21,20 +21,37 @@ namespace robust_multirobot_slam {
                     k = (*it_row).second;
                     j = (*it_col).first;
                     l = (*it_col).second;
-                    // Extract transforms
-                    geometry_msgs::PoseWithCovariance abZik = (*transforms_.find(*it_row)).second.pose;
-                    geometry_msgs::PoseWithCovariance abZjl = (*transforms_.find(*it_col)).second.pose; 
-                    geometry_msgs::PoseWithCovariance aXij = composeOnTrajectory(i, j);  
-                    geometry_msgs::PoseWithCovariance bXlk = composeOnTrajectory(l, k); 
-                    // Compute the consistency pose (should be near Identity if consistent)
-                    geometry_msgs::PoseWithCovariance consistency_pose = computeConsistencyPose(aXij, bXlk, abZik, abZjl);
-                    // Compute the Mahalanobis distance
-                    double distance = computeSquaredMahalanobisDistance(consistency_pose);
-                    // Apply threshold on the chi-squared distribution
-                    if (distance < threshold) {
-                        consistency_matrix(u,v) = 1;
-                    } else {
-                        consistency_matrix(u,v) = 0;
+
+                    // Check if the loop closures are interrobot. 
+                    // It is the case if {i,j} are elements of trajectory_robot1 and {k,l} are elements of trajectory_robot2.
+                    // Or the inverse.
+                    bool is_config_r12 = graph_utils::isInTrajectory(trajectory_robot1_, i) && graph_utils::isInTrajectory(trajectory_robot1_, j) &&
+                        graph_utils::isInTrajectory(trajectory_robot2_, k) && graph_utils::isInTrajectory(trajectory_robot2_, l);
+                    bool is_config_r21 = graph_utils::isInTrajectory(trajectory_robot2_, i) && graph_utils::isInTrajectory(trajectory_robot2_, j) &&
+                        graph_utils::isInTrajectory(trajectory_robot1_, k) && graph_utils::isInTrajectory(trajectory_robot1_, l);
+                    // Compute only if they are interrobot loop closures
+                    if (is_config_r12 || is_config_r21) {
+                        // Extract transforms
+                        geometry_msgs::PoseWithCovariance abZik = (*transforms_interrobot_.transforms.find(*it_row)).second.pose;
+                        geometry_msgs::PoseWithCovariance abZjl = (*transforms_interrobot_.transforms.find(*it_col)).second.pose; 
+                        geometry_msgs::PoseWithCovariance aXij, bXlk;
+                        if (is_config_r12) {
+                            aXij = composeOnTrajectory(i, j, 1);  
+                            bXlk = composeOnTrajectory(l, k, 2); 
+                        } else {
+                            aXij = composeOnTrajectory(i, j, 2);  
+                            bXlk = composeOnTrajectory(l, k, 1); 
+                        }
+                        // Compute the consistency pose (should be near Identity if consistent)
+                        geometry_msgs::PoseWithCovariance consistency_pose = computeConsistencyPose(aXij, bXlk, abZik, abZjl);
+                        // Compute the Mahalanobis distance
+                        double distance = computeSquaredMahalanobisDistance(consistency_pose);
+                        // Apply threshold on the chi-squared distribution
+                        if (distance < threshold) {
+                            consistency_matrix(u,v) = 1;
+                        } else {
+                            consistency_matrix(u,v) = 0;
+                        }
                     }
                 }
                 v++;
@@ -80,10 +97,18 @@ namespace robust_multirobot_slam {
         return distance;
     }
 
-    geometry_msgs::PoseWithCovariance PairwiseConsistency::composeOnTrajectory(const size_t& id1, const size_t& id2) {
+    geometry_msgs::PoseWithCovariance PairwiseConsistency::composeOnTrajectory(const size_t& id1, const size_t& id2, const size_t& robot_id) {
+        // Select trajectory
+        graph_utils::Trajectory trajectory;
+        if (robot_id == 1) {
+            trajectory = trajectory_robot1_;
+        } else {
+            trajectory = trajectory_robot2_;
+        }
+        
         // Extraction of the poses on the trajectory
-        graph_utils::TrajectoryPose pose1 = (*trajectory_.find(id1)).second;
-        graph_utils::TrajectoryPose pose2 = (*trajectory_.find(id2)).second;
+        graph_utils::TrajectoryPose pose1 = (*trajectory.trajectory_poses.find(id1)).second;
+        graph_utils::TrajectoryPose pose2 = (*trajectory.trajectory_poses.find(id2)).second;
         // Computation of the transformation
         geometry_msgs::PoseWithCovariance result;
         graph_utils::poseInverseCompose(pose2.pose, pose1.pose, result);

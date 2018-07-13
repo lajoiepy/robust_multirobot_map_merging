@@ -17,28 +17,34 @@ int main(int argc, char* argv[])
 {
   std::cout << "---------------------------------------------------------" << std::endl;
   // Parse arguments
-  std::string input_file_name, output_file_name;
-  if (argc < 2) {
-    std::cout << "Not enough arguments, please specify an input file. (format supported : .g2o)" << std::endl;
+  std::string robot1_file_name, robot2_file_name, interrobot_file_name, output_file_name;
+  if (argc < 4) {
+    std::cout << "Not enough arguments, please specify at least 3 input files. (format supported : .g2o)" << std::endl;
     return -1;
   } else {
-    input_file_name = argv[1];
-    if (argc > 2) {
-      output_file_name = argv[2];
+    robot1_file_name = argv[1];
+    robot2_file_name = argv[2];
+    interrobot_file_name = argv[3];
+
+    if (argc > 4) {
+      output_file_name = argv[4];
     }
     else {
       output_file_name = "results.txt";
     }
   }
+
   // Preallocate output variables
-  size_t num_poses;
-  std::map<std::pair<size_t,size_t>, graph_utils::Transform> transforms;
+  size_t num_poses_robot1, num_poses_robot2, num_poses_interrobot;
+  graph_utils::TransformMap transforms_robot1, transforms_robot2, transforms_interrobot;
   std::list<std::pair<size_t,size_t>> loop_closure_list;
 
   // Parse the graph file
-  std::cout << "Parsing of file : " << input_file_name;
+  std::cout << "Parsing of the following files : " << robot1_file_name << ", " << robot2_file_name << ", " << interrobot_file_name;
   auto start = std::chrono::high_resolution_clock::now();
-  graph_utils::parseG2ofile(input_file_name, num_poses, transforms, loop_closure_list);
+  graph_utils::parseG2ofile(robot1_file_name, num_poses_robot1, transforms_robot1, loop_closure_list, false);
+  graph_utils::parseG2ofile(robot2_file_name, num_poses_robot2, transforms_robot2, loop_closure_list, false);
+  graph_utils::parseG2ofile(interrobot_file_name, num_poses_interrobot, transforms_interrobot, loop_closure_list, true);
   auto finish = std::chrono::high_resolution_clock::now();
   auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
   std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
@@ -46,7 +52,8 @@ int main(int argc, char* argv[])
   // Compute the non-optimized trajectory
   std::cout << "Trajectory computation." ;
   start = std::chrono::high_resolution_clock::now();
-  std::map<size_t, graph_utils::TrajectoryPose> trajectory = graph_utils::buildTrajectory(transforms);
+  auto trajectory_robot1 = graph_utils::buildTrajectory(transforms_robot1);
+  auto trajectory_robot2 = graph_utils::buildTrajectory(transforms_robot2);
   finish = std::chrono::high_resolution_clock::now();
   milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
   std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
@@ -54,7 +61,7 @@ int main(int argc, char* argv[])
   // Compute the pairwise consistency
   std::cout << "Pairwise consistency computation.";
   start = std::chrono::high_resolution_clock::now();
-  robust_multirobot_slam::PairwiseConsistency pairwise_consistency(transforms, loop_closure_list, trajectory);
+  robust_multirobot_slam::PairwiseConsistency pairwise_consistency(transforms_robot1, transforms_robot2, transforms_interrobot, loop_closure_list, trajectory_robot1, trajectory_robot2);
   Eigen::MatrixXi consistency_matrix = pairwise_consistency.computeConsistentMeasurementsMatrix(THRESHOLD);
   finish = std::chrono::high_resolution_clock::now();
   milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);

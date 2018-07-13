@@ -13,8 +13,9 @@ using namespace mrpt::math;
 namespace graph_utils {
 
 void parseG2ofile(const std::string &filename, size_t &num_poses, 
-    std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms,
-    std::list<std::pair<size_t,size_t>>& loop_closure_list) {
+    TransformMap& transform_map,
+    std::list<std::pair<size_t,size_t>>& loop_closure_list, 
+    const bool& only_loop_closures) {
 
   // A single pose that will be filled
   graph_utils::Transform transform;
@@ -41,7 +42,7 @@ void parseG2ofile(const std::string &filename, size_t &num_poses,
   }
 
   num_poses = 0;
-
+  bool is_first_iteration = true;
   while (std::getline(infile, line)) {
     // Construct a stream from the string
     std::stringstream strstrm(line);
@@ -135,14 +136,20 @@ void parseG2ofile(const std::string &filename, size_t &num_poses,
     // Update maximum value of poses found so far
     size_t max_pair = std::max<double>(transform.i, transform.j);
     
-    if (max_pair <= num_poses) {
+    if (only_loop_closures || max_pair <= num_poses) {
       transform.is_loop_closure = true;
       loop_closure_list.emplace_back(std::make_pair(i,j));
     } else {
       num_poses = max_pair;
+      transform_map.end_id = j;
     }
 
-    transforms.emplace(std::make_pair(std::make_pair(i,j), transform));
+    if (is_first_iteration) {
+      transform_map.start_id = i;
+      is_first_iteration = false;
+    }
+
+    transform_map.transforms.emplace(std::make_pair(std::make_pair(i,j), transform));
   }
 
   infile.close();
@@ -185,11 +192,12 @@ void poseInverseCompose(const geometry_msgs::PoseWithCovariance &a,
   mrpt_bridge::convert(OUT, out);
 }
 
-std::map<size_t, graph_utils::TrajectoryPose> buildTrajectory(const std::map<std::pair<size_t,size_t>, 
-                                                                graph_utils::Transform>& transforms) {
+Trajectory buildTrajectory(const TransformMap& transform_map) {
     // Initialization
-    std::map<size_t, graph_utils::TrajectoryPose> trajectory;
-    size_t current_pose_id = 0;
+    Trajectory trajectory;
+    trajectory.start_id = transform_map.start_id;
+    trajectory.end_id = transform_map.end_id;
+    size_t current_pose_id = trajectory.start_id;
     geometry_msgs::PoseWithCovariance temp_pose, total_pose;
 
     // Add first pose at the origin
@@ -197,22 +205,22 @@ std::map<size_t, graph_utils::TrajectoryPose> buildTrajectory(const std::map<std
     current_pose.id = current_pose_id;
     current_pose.pose.pose.orientation.w = 1;
     temp_pose = current_pose.pose;
-    trajectory.insert(std::make_pair(current_pose_id, current_pose));
+    trajectory.trajectory_poses.insert(std::make_pair(current_pose_id, current_pose));
 
     // Initialization
     std::pair<size_t, size_t> temp_pair = std::make_pair(current_pose_id, current_pose_id + 1);
-    auto temp_it = transforms.find(temp_pair);
+    auto temp_it = transform_map.transforms.find(temp_pair);
 
     // Compositions in chain on the trajectory transforms.
-    while (temp_it != transforms.end() && !(*temp_it).second.is_loop_closure) {
+    while (temp_it != transform_map.transforms.end() && !(*temp_it).second.is_loop_closure) {
         graph_utils::poseCompose(temp_pose, (*temp_it).second.pose, total_pose);             
         temp_pose = total_pose;
         current_pose_id++;
         current_pose.id = current_pose_id;
         current_pose.pose = total_pose;
-        trajectory.insert(std::make_pair(current_pose_id, current_pose));
+        trajectory.trajectory_poses.insert(std::make_pair(current_pose_id, current_pose));
         temp_pair = std::make_pair(current_pose_id, current_pose_id + 1);
-        temp_it = transforms.find(temp_pair);
+        temp_it = transform_map.transforms.find(temp_pair);
     }
 
     return trajectory;
@@ -240,6 +248,10 @@ void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix, std::strin
     output_file << consistency_matrix.rows() << " " << consistency_matrix.cols() << " " << nb_consistent_measurements << std::endl;
     output_file << ss.str();
     output_file.close();
+}
+
+bool isInTrajectory(const Trajectory& trajectory, const size_t& pose_id) {
+  return trajectory.trajectory_poses.find(pose_id) != trajectory.trajectory_poses.end();
 }
 
 }

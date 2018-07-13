@@ -18,10 +18,15 @@ namespace robust_multirobot_slam {
         /**
          * Constructor
          */
-        PairwiseConsistency(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms,
-                                        const std::list<std::pair<size_t,size_t>>& loop_closure_list,
-                                        const std::map<size_t, graph_utils::TrajectoryPose>& trajectory):
-                                        loop_closure_list_(loop_closure_list), transforms_(transforms), trajectory_(trajectory){};
+        PairwiseConsistency(const graph_utils::TransformMap& transforms_robot1,
+                            const graph_utils::TransformMap& transforms_robot2,
+                            const graph_utils::TransformMap& transforms_interrobot,
+                            const std::list<std::pair<size_t,size_t>>& loop_closure_list,
+                            const graph_utils::Trajectory& trajectory_robot1,
+                            const graph_utils::Trajectory& trajectory_robot2):
+                            loop_closure_list_(loop_closure_list), transforms_robot1_(transforms_robot1), 
+                            transforms_robot2_(transforms_robot2), transforms_interrobot_(transforms_interrobot),
+                            trajectory_robot1_(trajectory_robot1), trajectory_robot2_(trajectory_robot2){};
 
         /**
          * Computation of the consistency matrix
@@ -37,13 +42,13 @@ namespace robust_multirobot_slam {
 
         double computeSquaredMahalanobisDistance(const geometry_msgs::PoseWithCovariance& pose);
 
-        geometry_msgs::PoseWithCovariance composeOnTrajectory(const size_t& id1, const size_t& id2);
+        geometry_msgs::PoseWithCovariance composeOnTrajectory(const size_t& id1, const size_t& id2, const size_t& robot_id);
 
-        std::map<size_t, graph_utils::TrajectoryPose> trajectory_;
+        graph_utils::Trajectory trajectory_robot1_, trajectory_robot2_;
 
         std::list<std::pair<size_t,size_t>> loop_closure_list_;
 
-        std::map<std::pair<size_t,size_t>, graph_utils::Transform> transforms_;
+        graph_utils::TransformMap transforms_robot1_, transforms_robot2_, transforms_interrobot_;
 
     };          
 

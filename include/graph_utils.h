@@ -22,10 +22,22 @@ struct Transform {
     bool is_loop_closure;
 };
 
+/** Struct defining a map of transformation */
+struct TransformMap {
+    size_t start_id, end_id;
+    std::map<std::pair<size_t,size_t>, graph_utils::Transform> transforms;
+};
+
 /** Struct defining a pose in a trajectory */
 struct TrajectoryPose {
     size_t id;
     geometry_msgs::PoseWithCovariance pose;
+};
+
+/** Struct defining a trajectory */
+struct Trajectory {
+    size_t start_id, end_id;
+    std::map<size_t, graph_utils::TrajectoryPose> trajectory_poses;
 };
 
 /**
@@ -33,8 +45,9 @@ struct TrajectoryPose {
  * The specification of this format is available here : https://github.com/RainerKuemmerle/g2o/wiki/File-Format
  */
 void parseG2ofile(const std::string &filename, size_t &num_poses, 
-    std::map<std::pair<size_t,size_t>, graph_utils::Transform>& tranforms,
-    std::list<std::pair<size_t,size_t>>& loop_closure_list);
+    TransformMap& tranform_map,
+    std::list<std::pair<size_t,size_t>>& loop_closure_list, 
+    const bool& only_loop_closures);
 
 /**
  * This function combine to geometric poses with covariance.
@@ -65,13 +78,19 @@ void poseInverse(const geometry_msgs::PoseWithCovariance &a,
 /**
  * This function precompute the trajectory by composing the sucessive poses.
  */ 
-std::map<size_t, graph_utils::TrajectoryPose> buildTrajectory(const std::map<std::pair<size_t,size_t>, graph_utils::Transform>& transforms);
+Trajectory buildTrajectory(const TransformMap& transform_map);
 
 /**
  * This function prints the consistency matrix to the format expected by the maximum clique solver
  * Fast Max-Cliquer (http://cucis.ece.northwestern.edu/projects/MAXCLIQUE/) 
  */ 
 void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix, std::string file_name);
+
+/**
+ * This function check if a pose is include in a trajectory.
+ */
+bool isInTrajectory(const Trajectory& trajectory, const size_t& pose_id);
+
 
 }
 
