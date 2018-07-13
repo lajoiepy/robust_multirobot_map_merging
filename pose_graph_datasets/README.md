@@ -1,1 +1,1 @@
-The datasets in this folder are either original or altered datasets from : https://lucacarlone.mit.edu/datasets/
+The datasets in this folder are either original or altered versions of datasets found at : https://lucacarlone.mit.edu/datasets/
