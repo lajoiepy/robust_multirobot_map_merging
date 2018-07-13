@@ -14,7 +14,7 @@ namespace graph_utils {
 
 void parseG2ofile(const std::string &filename, size_t &num_poses, 
     TransformMap& transform_map,
-    std::list<std::pair<size_t,size_t>>& loop_closure_list, 
+    LoopClosureList& loop_closure_list, 
     const bool& only_loop_closures) {
 
   // A single pose that will be filled

@@ -21,7 +21,7 @@ namespace robust_multirobot_slam {
         PairwiseConsistency(const graph_utils::TransformMap& transforms_robot1,
                             const graph_utils::TransformMap& transforms_robot2,
                             const graph_utils::TransformMap& transforms_interrobot,
-                            const std::list<std::pair<size_t,size_t>>& loop_closure_list,
+                            const graph_utils::LoopClosureList& loop_closure_list,
                             const graph_utils::Trajectory& trajectory_robot1,
                             const graph_utils::Trajectory& trajectory_robot2):
                             loop_closure_list_(loop_closure_list), transforms_robot1_(transforms_robot1), 
@@ -46,7 +46,7 @@ namespace robust_multirobot_slam {
 
         graph_utils::Trajectory trajectory_robot1_, trajectory_robot2_;
 
-        std::list<std::pair<size_t,size_t>> loop_closure_list_;
+        graph_utils::LoopClosureList loop_closure_list_;
 
         graph_utils::TransformMap transforms_robot1_, transforms_robot2_, transforms_interrobot_;
 

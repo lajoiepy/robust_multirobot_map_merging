@@ -40,13 +40,16 @@ struct Trajectory {
     std::map<size_t, graph_utils::TrajectoryPose> trajectory_poses;
 };
 
+/** Type defining a list of pair of poses with a loop closure */
+typedef std::list<std::pair<size_t,size_t>> LoopClosureList;
+
 /**
  * This function parse .g2o files.
  * The specification of this format is available here : https://github.com/RainerKuemmerle/g2o/wiki/File-Format
  */
 void parseG2ofile(const std::string &filename, size_t &num_poses, 
     TransformMap& tranform_map,
-    std::list<std::pair<size_t,size_t>>& loop_closure_list, 
+    LoopClosureList& loop_closure_list, 
     const bool& only_loop_closures);
 
 /**
@@ -90,7 +93,6 @@ void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix, std::strin
  * This function check if a pose is include in a trajectory.
  */
 bool isInTrajectory(const Trajectory& trajectory, const size_t& pose_id);
-
 
 }
 

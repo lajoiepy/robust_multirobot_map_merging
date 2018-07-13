@@ -11,9 +11,9 @@ namespace robust_multirobot_slam {
 
         // Iterate on loop closures
         size_t u = 0;
-        for (std::list<std::pair<size_t,size_t>>::const_iterator it_row = loop_closure_list_.begin(); it_row != loop_closure_list_.end(); ++it_row) {
+        for (graph_utils::LoopClosureList::const_iterator it_row = loop_closure_list_.begin(); it_row != loop_closure_list_.end(); ++it_row) {
             size_t v = 0;
-            for (std::list<std::pair<size_t,size_t>>::const_iterator it_col = loop_closure_list_.begin(); it_col != loop_closure_list_.end(); ++it_col) {
+            for (graph_utils::LoopClosureList::const_iterator it_col = loop_closure_list_.begin(); it_col != loop_closure_list_.end(); ++it_col) {
                 if (u < v) {
                     // Extract pose indexes
                     size_t i,j,k,l;

@@ -87,7 +87,11 @@ int main(int argc, char* argv[])
   finish = std::chrono::high_resolution_clock::now();
   milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
   std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
+  print_max_clique(max_clique_data);
   max_clique_data.clear();
+
+  // Reassign result and print consistent loop closures in output file
+  
 
   return 0;
 }
