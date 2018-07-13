@@ -161,7 +161,7 @@ bool CGraphIO::ReadMatrixMarketAdjacencyGraph(string s_InputFile, float connStre
 		}
 	}
 
-	cout << "No. of upper triangular pruned: " << num_upper_triangular << endl;
+	//cout << "No. of upper triangular pruned: " << num_upper_triangular << endl;
 	m_vi_Vertices.push_back(m_vi_Edges.size());
 
 	for(int i=0;i < row; i++) 

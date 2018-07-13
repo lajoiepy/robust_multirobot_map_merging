@@ -90,7 +90,7 @@ int maxClique( CGraphIO& gio, int l_bound, vector<int>& max_clique_data )
 	int maxClq = l_bound;
    int prev_maxClq;
 
-	cout << "Computing Max Clique... with lower bound " << maxClq << endl;
+	//cout << "Computing Max Clique... with lower bound " << maxClq << endl;
 	pruned1 = 0;
 	pruned2 = 0;
 	pruned3 = 0;
@@ -153,7 +153,7 @@ int maxClique( CGraphIO& gio, int l_bound, vector<int>& max_clique_data )
 
 void print_max_clique(vector<int>& max_clique_data)
 {
-   cout << "Maximum clique: ";
+   //cout << "Maximum clique: ";
    for(int i = 0; i < max_clique_data.size(); i++)
       cout << max_clique_data[i] + 1 << " ";
    cout << endl;

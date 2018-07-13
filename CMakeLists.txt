@@ -3,6 +3,13 @@ project(robust_multirobot_map_merging)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Debug)
+endif()
+
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -132,6 +139,7 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
   include
+  src/third_parties/fast_max-clique_finder/src/
  ${catkin_INCLUDE_DIRS}
 )
 
@@ -146,6 +154,15 @@ target_link_libraries(${PROJECT_NAME}
 
 add_library(graph_utils
     src/graph_utils/graph_utils.cpp
+)
+
+add_library(fast_max-clique_finder
+    src/third_parties/fast_max-clique_finder/src/findClique.h
+    src/third_parties/fast_max-clique_finder/src/graphIO.h
+    src/third_parties/fast_max-clique_finder/src/findClique.cpp
+    src/third_parties/fast_max-clique_finder/src/findCliqueHeu.cpp 
+    src/third_parties/fast_max-clique_finder/src/utils.cpp 
+    src/third_parties/fast_max-clique_finder/src/graphIO.cpp
 )
 
 ## Add cmake target dependencies of the library
@@ -173,6 +190,7 @@ target_link_libraries(${PROJECT_NAME}_node
    ${catkin_LIBRARIES}
    ${PROJECT_NAME}
    graph_utils
+   fast_max-clique_finder
 )
 
 #############

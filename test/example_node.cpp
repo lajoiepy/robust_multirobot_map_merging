@@ -2,6 +2,7 @@
 
 #include "graph_utils.h"
 #include "pairwise_consistency.h"
+#include "findClique.h"
 
 #include <string>
 #include <iostream>
@@ -9,6 +10,8 @@
 #include <chrono>
 
 #define THRESHOLD 1.635
+
+const std::string CONSISTENCY_MATRIX_FILE_NAME = "consistency_matrix.clq.mtx";
 
 int main(int argc, char* argv[])
 {
@@ -24,7 +27,7 @@ int main(int argc, char* argv[])
       output_file_name = argv[2];
     }
     else {
-      output_file_name = "consistency_matrix.clq.mtx";
+      output_file_name = "results.txt";
     }
   }
   // Preallocate output variables
@@ -58,12 +61,26 @@ int main(int argc, char* argv[])
   std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
 
   // Print the result to compute the maximum clique in a file
-  std::cout << "Print result in " << output_file_name;
+  std::cout << "Print result in " << CONSISTENCY_MATRIX_FILE_NAME;
   start = std::chrono::high_resolution_clock::now();
-  graph_utils::printConsistencyGraph(consistency_matrix, output_file_name);
+  graph_utils::printConsistencyGraph(consistency_matrix, CONSISTENCY_MATRIX_FILE_NAME);
   finish = std::chrono::high_resolution_clock::now();
   milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
   std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
+
+  // Pass results to fast max-clique finder library
+  std::cout << "Compute max-clique problem";
+  start = std::chrono::high_resolution_clock::now();
+  CGraphIO gio;
+  gio.readGraph(CONSISTENCY_MATRIX_FILE_NAME);
+  int iMaxClique = 0;
+  std::vector<int> max_clique_data;
+  iMaxClique = maxClique(gio, iMaxClique, max_clique_data);
+  std::cout << "Max clique Size : " << iMaxClique;
+  finish = std::chrono::high_resolution_clock::now();
+  milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
+  std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
+  max_clique_data.clear();
 
   return 0;
 }

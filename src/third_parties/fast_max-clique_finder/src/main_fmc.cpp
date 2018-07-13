@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
 	}
 
 	double seconds = wtime();
-   vector <int> max_clique_data;
+   	vector <int> max_clique_data;
 
 	switch (algType)
 	{
