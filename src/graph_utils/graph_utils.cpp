@@ -14,7 +14,7 @@ namespace graph_utils {
 
 void parseG2ofile(const std::string &filename, size_t &num_poses, 
     TransformMap& transform_map,
-    LoopClosureList& loop_closure_list, 
+    LoopClosures& loop_closures, 
     const bool& only_loop_closures) {
 
   // A single pose that will be filled
@@ -138,7 +138,7 @@ void parseG2ofile(const std::string &filename, size_t &num_poses,
     
     if (only_loop_closures || max_pair <= num_poses) {
       transform.is_loop_closure = true;
-      loop_closure_list.emplace_back(std::make_pair(i,j));
+      loop_closures.emplace_back(std::make_pair(i,j));
     } else {
       num_poses = max_pair;
       transform_map.end_id = j;
@@ -226,7 +226,7 @@ Trajectory buildTrajectory(const TransformMap& transform_map) {
     return trajectory;
 }
 
-void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix, std::string file_name) {
+void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix, const std::string& file_name) {
     // Intialization
     int nb_consistent_measurements = 0;
     
@@ -254,4 +254,13 @@ bool isInTrajectory(const Trajectory& trajectory, const size_t& pose_id) {
   return trajectory.trajectory_poses.find(pose_id) != trajectory.trajectory_poses.end();
 }
 
+void printConsistentLoopClosures(const LoopClosures& loop_closures, const std::vector<int>& max_clique_data, const std::string& file_name){
+  std::ofstream output_file;
+  output_file.open(file_name);
+  for (auto loop_closure_id: max_clique_data) {
+    // -1 because fast max-clique finder is one-based.
+    output_file << loop_closures[loop_closure_id-1].first << " " << loop_closures[loop_closure_id-1].second << std::endl;
+  }
+  output_file.close();
+}
 }

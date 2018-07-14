@@ -7,13 +7,13 @@ namespace robust_multirobot_slam {
 
     Eigen::MatrixXi PairwiseConsistency::computeConsistentMeasurementsMatrix(const double& threshold) {
         // Preallocate consistency matrix
-        Eigen::MatrixXi consistency_matrix(loop_closure_list_.size(), loop_closure_list_.size());
+        Eigen::MatrixXi consistency_matrix(loop_closures_.size(), loop_closures_.size());
 
         // Iterate on loop closures
         size_t u = 0;
-        for (graph_utils::LoopClosureList::const_iterator it_row = loop_closure_list_.begin(); it_row != loop_closure_list_.end(); ++it_row) {
+        for (graph_utils::LoopClosures::const_iterator it_row = loop_closures_.begin(); it_row != loop_closures_.end(); ++it_row) {
             size_t v = 0;
-            for (graph_utils::LoopClosureList::const_iterator it_col = loop_closure_list_.begin(); it_col != loop_closure_list_.end(); ++it_col) {
+            for (graph_utils::LoopClosures::const_iterator it_col = loop_closures_.begin(); it_col != loop_closures_.end(); ++it_col) {
                 if (u < v) {
                     // Extract pose indexes
                     size_t i,j,k,l;

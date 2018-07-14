@@ -6,7 +6,7 @@
 #include "geometry_msgs/PoseWithCovariance.h"
 
 #include <map>
-#include <list>
+#include <vector>
 #include <mrpt/poses/CPose3D.h>
 #include <mrpt/poses/CPose3DPDFGaussian.h>
 #include <mrpt_bridge/pose.h>
@@ -41,7 +41,7 @@ struct Trajectory {
 };
 
 /** Type defining a list of pair of poses with a loop closure */
-typedef std::list<std::pair<size_t,size_t>> LoopClosureList;
+typedef std::vector<std::pair<size_t,size_t>> LoopClosures;
 
 /**
  * This function parse .g2o files.
@@ -49,7 +49,7 @@ typedef std::list<std::pair<size_t,size_t>> LoopClosureList;
  */
 void parseG2ofile(const std::string &filename, size_t &num_poses, 
     TransformMap& tranform_map,
-    LoopClosureList& loop_closure_list, 
+    LoopClosures& loop_closures, 
     const bool& only_loop_closures);
 
 /**
@@ -87,13 +87,17 @@ Trajectory buildTrajectory(const TransformMap& transform_map);
  * This function prints the consistency matrix to the format expected by the maximum clique solver
  * Fast Max-Cliquer (http://cucis.ece.northwestern.edu/projects/MAXCLIQUE/) 
  */ 
-void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix, std::string file_name);
+void printConsistencyGraph(const Eigen::MatrixXi& consistency_matrix, const std::string& file_name);
 
 /**
  * This function check if a pose is include in a trajectory.
  */
 bool isInTrajectory(const Trajectory& trajectory, const size_t& pose_id);
 
+/**
+ * This function prints a list of consistent loop closures.
+ */
+void printConsistentLoopClosures(const LoopClosures& loop_closures, const std::vector<int>& max_clique_data, const std::string& file_name);
 }
 
 #endif
