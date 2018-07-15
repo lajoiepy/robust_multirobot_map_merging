@@ -212,9 +212,9 @@ public:
   // We inline this function in order to take advantage of Eigen's ability
   // to optimize matrix expressions as compile time
   inline Matrix Pi_product(const Matrix &X) const {
-    if (projection_factorization_ == ProjectionFactorization::Cholesky)
-      return X - SqrtOmega_AredT_ * L_.solve(Ared_SqrtOmega_ * X);
-    else {
+    //if (projection_factorization_ == ProjectionFactorization::Cholesky)
+    //return X - SqrtOmega_AredT_ * L_.solve(Ared_SqrtOmega_ * X);
+    //else {
       Eigen::MatrixXd PiX = X;
       for (unsigned int c = 0; c < X.cols(); c++) {
         // Eigen's SPQR support only supports solving with vectors(!) (i.e.
@@ -222,7 +222,7 @@ public:
         PiX.col(c) = X.col(c) - SqrtOmega_AredT_ * QR_->solve(X.col(c));
       }
       return PiX;
-    }
+    //}
   }
 
   /** This function computes and returns the product QX */

@@ -8,33 +8,48 @@
 #include <iostream>
 #include <eigen3/Eigen/Geometry>
 #include <chrono>
+#include <fstream>
+
+#include "SESync/SESync.h"
+#include "SESync/SESync_utils.h"
 
 #define THRESHOLD 1.635
 
 const std::string CONSISTENCY_MATRIX_FILE_NAME = "consistency_matrix.clq.mtx";
 
+using namespace std;
+using namespace SESync;
+
 int main(int argc, char* argv[])
 {
   std::cout << "---------------------------------------------------------" << std::endl;
   // Parse arguments
-  std::string robot1_file_name, robot2_file_name, interrobot_file_name, output_file_name;
-  if (argc < 4) {
-    std::cout << "Not enough arguments, please specify at least 3 input files. (format supported : .g2o)" << std::endl;
+  /*std::string original_file_name, robot1_file_name, robot2_file_name, interrobot_file_name, inliers_file_name, poses_file_name;
+  if (argc < 5) {
+    std::cout << "Not enough arguments, please specify at least 4 input files. (format supported : .g2o)" << std::endl;
     return -1;
   } else {
-    robot1_file_name = argv[1];
-    robot2_file_name = argv[2];
-    interrobot_file_name = argv[3];
+    original_file_name = argv[1];
+    robot1_file_name = argv[2];
+    robot2_file_name = argv[3];
+    interrobot_file_name = argv[4];
 
-    if (argc > 4) {
-      output_file_name = argv[4];
+    if (argc > 5) {
+      inliers_file_name = argv[5];
     }
     else {
-      output_file_name = "results.txt";
+      inliers_file_name = "inliers.txt";
     }
-  }
 
-  // Preallocate output variables
+    if (argc > 6) {
+      poses_file_name = argv[6];
+    }
+    else {
+      poses_file_name = "poses.txt";
+    }
+  }*/
+
+  /*// Preallocate output variables
   size_t num_poses_robot1, num_poses_robot2, num_poses_interrobot;
   graph_utils::TransformMap transforms_robot1, transforms_robot2, transforms_interrobot;
   graph_utils::LoopClosures loop_closures;
@@ -89,10 +104,33 @@ int main(int argc, char* argv[])
   std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
   
   // Reassign result and print consistent loop closures in output file
-  graph_utils::printConsistentLoopClosures(loop_closures, max_clique_data, output_file_name);
+  graph_utils::printConsistentLoopClosures(loop_closures, max_clique_data, inliers_file_name);
 
   // Clean up
-  max_clique_data.clear();
+  max_clique_data.clear();*/
 
+  // Use SE-Sync to solve the graph
+  size_t total_num_poses;
+  measurements_t measurements = read_g2o_file("/home/lajoiepy/Documents/master/mit/baseline_ws/src/robust_multirobot_mapping/pose_graph_datasets/CSAIL.g2o", total_num_poses);
+  cout << "Loaded " << measurements.size() << " measurements between "
+       << total_num_poses << " poses from file " << argv[1] << endl
+       << endl;
+  if (measurements.size() == 0) {
+    cout << "Error: No measurements were read!"
+         << " Are you sure the file exists?" << endl;
+    exit(1);
+  }
+
+  SESyncOpts opts;
+  opts.verbose = false; // Print output to stdout
+  opts.num_threads = 4;
+
+  /// RUN SE-SYNC!
+  SESyncResult results = SESync::SESync(measurements, opts);
+
+  // Write output
+  ofstream poses_file("poses.txt");
+  poses_file << results.xhat;
+  poses_file.close();
   return 0;
 }

@@ -10,10 +10,7 @@
 
 namespace SESync {
 
-measurements_t read_g2o_file(const std::string &filename, size_t &num_poses) {
-
-  // Preallocate output vector
-  measurements_t measurements;
+void read_g2o_file(const std::string &filename, size_t &num_poses, measurements_t& measurements) {
 
   // A single measurement, whose values we will fill in
   SESync::RelativePoseMeasurement measurement;
@@ -130,14 +127,14 @@ measurements_t read_g2o_file(const std::string &filename, size_t &num_poses) {
     size_t max_pair = std::max<double>(measurement.i, measurement.j);
 
     num_poses = ((max_pair > num_poses) ? max_pair : num_poses);
-    measurements.push_back(measurement);
+    measurements.emplace_back(measurement);
   } // while
 
   infile.close();
 
   num_poses++; // Account for the use of zero-based indexing
 
-  return measurements;
+  //return measurements;
 }
 
 SparseMatrix

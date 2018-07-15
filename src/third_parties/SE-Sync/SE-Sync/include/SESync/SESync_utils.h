@@ -16,7 +16,7 @@ matrices used in the SE-Sync algorithm.
 
 namespace SESync {
 
-measurements_t read_g2o_file(const std::string &filename, size_t &num_poses);
+void read_g2o_file(const std::string &filename, size_t &num_poses, measurements_t& measurements);
 
 /** Given a vector of relative pose measurements, this function computes and
  * returns the corresponding rotational connection Laplacian */

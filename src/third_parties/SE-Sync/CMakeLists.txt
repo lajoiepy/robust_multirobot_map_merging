@@ -7,6 +7,7 @@ project(SESync C CXX)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON) # We require C++ 14
 
+
 # Set build type to 'RelWithDebInfo' if one was not specified by the user
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel." FORCE)
@@ -51,7 +52,7 @@ message(STATUS "")
 set( ENV{EIGEN3_ROOT_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/eigen)
 find_package(Eigen3 3.3.3 REQUIRED)
 if(EIGEN3_FOUND)
-message(STATUS "Found Eigen3 library (version ${EIGEN3_VERSION})")
+message(STATUS "Found Eigen3 library (version ${EIGEN3_VERSION_STRING})")
 message(STATUS "Eigen3 include directory: ${EIGEN3_INCLUDE_DIR}\n")
 else()
 message(STATUS "Eigen library not found!")
@@ -133,3 +134,11 @@ export(TARGETS SESync Optimization FILE SESync.cmake)
 # BUILD EXAMPLE DRIVER
 add_subdirectory(examples)
 
+
+
+find_package(catkin REQUIRED)
+
+catkin_package(
+  INCLUDE_DIRS SE-Sync/include Optimization/include
+  CATKIN_DEPENDS
+)

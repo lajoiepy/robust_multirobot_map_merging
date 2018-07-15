@@ -49,5 +49,4 @@ int main(int argc, char **argv) {
   ofstream poses_file(filename);
   poses_file << results.xhat;
   poses_file.close();
-  cout << "END!!!" << endl;
 }

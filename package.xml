@@ -35,6 +35,7 @@
   <depend>roscpp</depend> 
   <depend>geometry_msgs</depend>
   <depend>tf2</depend>
+  <depend>SESync</depend>
   <depend>mrpt_bridge</depend>
   <!--   Note that this is equivalent to the following: -->
   <!--   <build_depend>roscpp</build_depend> -->

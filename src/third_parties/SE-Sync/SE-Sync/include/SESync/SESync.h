@@ -98,7 +98,7 @@ struct SESyncOpts {
   /** Whether to use the Cholesky or QR factorization when computing the
    * orthogonal projection */
   ProjectionFactorization projection_factorization =
-      ProjectionFactorization::Cholesky;
+      ProjectionFactorization::QR;
 
   /** The preconditioning strategy to use in the Riemannian trust-region
    * algorithm*/
