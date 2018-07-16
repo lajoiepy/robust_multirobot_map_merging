@@ -32,8 +32,9 @@ namespace global_map_solver {
 
         /**
          * Functions that solves the global maps according to the current constraints
+         * returns the size of the maximum clique.
          */
-        void solveGlobalMap();
+        int solveGlobalMap();
 
       private:
         pairwise_consistency::PairwiseConsistency pairwise_consistency_;

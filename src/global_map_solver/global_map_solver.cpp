@@ -16,7 +16,7 @@ GlobalMapSolver::GlobalMapSolver(const robot_local_map::RobotLocalMap& robot1_lo
                             robot1_local_map.getTrajectory(), robot2_local_map.getTrajectory(),
                             robot1_local_map.getNbDegreeFreedom()){}
 
-void GlobalMapSolver::solveGlobalMap() {
+int GlobalMapSolver::solveGlobalMap() {
     // Compute consistency matrix
     Eigen::MatrixXi consistency_matrix = pairwise_consistency_.computeConsistentMeasurementsMatrix();
     graph_utils::printConsistencyGraph(consistency_matrix, CONSISTENCY_MATRIX_FILE_NAME);
@@ -24,15 +24,17 @@ void GlobalMapSolver::solveGlobalMap() {
     // Compute maximum clique
     FMC::CGraphIO gio;
     gio.readGraph(CONSISTENCY_MATRIX_FILE_NAME);
-    int iMaxClique = 0;
+    int max_clique_size = 0;
     std::vector<int> max_clique_data;
-    iMaxClique = FMC::maxClique(gio, iMaxClique, max_clique_data);
+    max_clique_size = FMC::maxClique(gio, max_clique_size, max_clique_data);
 
     // Print results
     graph_utils::printConsistentLoopClosures(pairwise_consistency_.getLoopClosures(), max_clique_data, CONSISTENCY_LOOP_CLOSURES_FILE_NAME);
 
     // Clean up
     max_clique_data.clear();
+
+    return max_clique_size;
 }
 
 }

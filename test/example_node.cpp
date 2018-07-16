@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
 {
   std::cout << "---------------------------------------------------------" << std::endl;
   // Parse arguments
-  std::string robot1_file_name, robot2_file_name, interrobot_file_name, output_file_name;
+  std::string robot1_file_name, robot2_file_name, interrobot_file_name;
   if (argc < 4) {
     std::cout << "Not enough arguments, please specify at least 3 input files. (format supported : .g2o)" << std::endl;
     return -1;
@@ -27,39 +27,33 @@ int main(int argc, char* argv[])
     robot1_file_name = argv[1];
     robot2_file_name = argv[2];
     interrobot_file_name = argv[3];
-
-    if (argc > 4) {
-      output_file_name = argv[4];
-    }
-    else {
-      output_file_name = "results.txt";
-    }
   }
 
-  // Preallocate output variables
-  graph_utils::TransformMap transforms_interrobot;
-  graph_utils::LoopClosures loop_closures;
-
-  // Parse the graph files
-  std::cout << "Parsing of the following files : " << robot1_file_name << ", " << robot2_file_name << ", " << interrobot_file_name;
+  std::cout << "Construction of local maps from the following files : " << robot1_file_name << ", " << std::endl << robot2_file_name << ", " << std::endl << interrobot_file_name;
   auto start = std::chrono::high_resolution_clock::now();
+
+  //--- Map construction
+  auto robot1_local_map = robot_local_map::RobotLocalMap(robot1_file_name);
+  auto robot2_local_map = robot_local_map::RobotLocalMap(robot2_file_name);
   auto interrobot_measurements = robot_local_map::RobotMeasurements(interrobot_file_name, true);
+  //---
+  
   auto finish = std::chrono::high_resolution_clock::now();
   auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
   std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
   
-  // Compute the non-optimized trajectory
-  std::cout << "Trajectory computation." ;
+  std::cout << "Solving global map." ;
   start = std::chrono::high_resolution_clock::now();
-  auto robot1_local_map = robot_local_map::RobotLocalMap(robot1_file_name);
-  auto robot2_local_map = robot_local_map::RobotLocalMap(robot2_file_name);
+
+  //--- Solve global map
+  auto solver = global_map_solver::GlobalMapSolver(robot1_local_map, robot2_local_map, interrobot_measurements); 
+  int max_clique_size = solver.solveGlobalMap();
+  //---
+
   finish = std::chrono::high_resolution_clock::now();
   milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
   std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
-
-  // Solve global map
-  auto solver = global_map_solver::GlobalMapSolver(robot1_local_map, robot2_local_map, interrobot_measurements); 
-  solver.solveGlobalMap();
+  std::cout << "Maximum clique size = " << max_clique_size << std::endl;
 
   return 0;
 }
