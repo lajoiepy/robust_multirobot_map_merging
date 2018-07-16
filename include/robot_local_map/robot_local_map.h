@@ -23,12 +23,14 @@ namespace robot_local_map {
         const size_t& getNumPoses() const;
         const graph_utils::LoopClosures& getLoopClosures() const;
         const graph_utils::Trajectory& getTrajectory() const;
+        const uint8_t& getNbDegreeFreedom() const;
 
       private:
         graph_utils::TransformMap transforms_;
         size_t num_poses_;
         graph_utils::LoopClosures loop_closures_;
         graph_utils::Trajectory trajectory_;
+        uint8_t nb_degree_freedom_;
     };          
 }
 

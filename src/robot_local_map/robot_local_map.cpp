@@ -6,7 +6,7 @@
 namespace robot_local_map {
 
 RobotLocalMap::RobotLocalMap(const std::string & file_name){
-    graph_utils::parseG2ofile(file_name, num_poses_, transforms_, loop_closures_, false);
+    nb_degree_freedom_ = graph_utils::parseG2ofile(file_name, num_poses_, transforms_, loop_closures_, false);
     trajectory_ = graph_utils::buildTrajectory(transforms_);
 }
 
@@ -24,6 +24,10 @@ const graph_utils::LoopClosures& RobotLocalMap::getLoopClosures() const {
 
 const graph_utils::Trajectory& RobotLocalMap::getTrajectory() const {
     return trajectory_;
+}
+
+const uint8_t& RobotLocalMap::getNbDegreeFreedom() const {
+    return nb_degree_freedom_;
 }
 
 }

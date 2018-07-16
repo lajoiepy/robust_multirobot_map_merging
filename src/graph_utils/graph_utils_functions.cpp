@@ -12,7 +12,7 @@ using namespace mrpt::math;
 
 namespace graph_utils {
 
-void parseG2ofile(const std::string &file_name, size_t &num_poses, 
+uint8_t parseG2ofile(const std::string &file_name, size_t &num_poses, 
     TransformMap& transform_map,
     LoopClosures& loop_closures, 
     const bool& only_loop_closures) {
@@ -33,6 +33,8 @@ void parseG2ofile(const std::string &file_name, size_t &num_poses,
 
   size_t i, j;
 
+  uint8_t nb_degrees_freedom = -1;
+
   // Open the file for reading
   std::ifstream infile(file_name);
 
@@ -52,6 +54,7 @@ void parseG2ofile(const std::string &file_name, size_t &num_poses,
 
     if (token == "EDGE_SE2") {
       // This is a 2D pose measurement
+      nb_degrees_freedom = 3;
 
       // Extract formatted output
       strstrm >> i >> j >> dx >> dy >> dtheta >> I11 >> I12 >> I13 >> I22 >>
@@ -88,6 +91,7 @@ void parseG2ofile(const std::string &file_name, size_t &num_poses,
 
     } else if (token == "EDGE_SE3:QUAT") {
       // This is a 3D pose measurement
+      nb_degrees_freedom = 6;
 
       // Extract formatted output
       strstrm >> i >> j >> dx >> dy >> dz >> dqx >> dqy >> dqz >> dqw >> I11 >>
@@ -155,6 +159,7 @@ void parseG2ofile(const std::string &file_name, size_t &num_poses,
   infile.close();
 
   num_poses++; 
+  return nb_degrees_freedom;
 }
 
 void poseCompose(const geometry_msgs::PoseWithCovariance &a,

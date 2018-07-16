@@ -14,8 +14,9 @@ namespace graph_utils {
 /**
  * This function parse .g2o files.
  * The specification of this format is available here : https://github.com/RainerKuemmerle/g2o/wiki/File-Format
+ * returns the degrees of freedom (3 in 2D, 6 in 3D)
  */
-void parseG2ofile(const std::string &file_name, size_t &num_poses, 
+uint8_t parseG2ofile(const std::string &file_name, size_t &num_poses, 
     TransformMap& tranform_map,
     LoopClosures& loop_closures, 
     const bool& only_loop_closures);
