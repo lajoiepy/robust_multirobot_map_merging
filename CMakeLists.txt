@@ -62,6 +62,7 @@ add_library(fast_max-clique_finder
     src/third_parties/fast_max-clique_finder/src/utils.cpp 
     src/third_parties/fast_max-clique_finder/src/graphIO.cpp
 )
+target_compile_options(fast_max-clique_finder PRIVATE -w)
 
 add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 

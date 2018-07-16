@@ -44,12 +44,11 @@ namespace robust_multirobot_slam {
 
         geometry_msgs::PoseWithCovariance composeOnTrajectory(const size_t& id1, const size_t& id2, const size_t& robot_id);
 
-        graph_utils::Trajectory trajectory_robot1_, trajectory_robot2_;
-
         graph_utils::LoopClosures loop_closures_;
 
         graph_utils::TransformMap transforms_robot1_, transforms_robot2_, transforms_interrobot_;
 
+        graph_utils::Trajectory trajectory_robot1_, trajectory_robot2_;
     };          
 
 }

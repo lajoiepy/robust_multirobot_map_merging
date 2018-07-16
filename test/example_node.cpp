@@ -89,7 +89,12 @@ int main(int argc, char* argv[])
   std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
   
   // Reassign result and print consistent loop closures in output file
+  std::cout << "Print result in " << output_file_name;
+  start = std::chrono::high_resolution_clock::now();
   graph_utils::printConsistentLoopClosures(loop_closures, max_clique_data, output_file_name);
+  finish = std::chrono::high_resolution_clock::now();
+  milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
+  std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
 
   // Clean up
   max_clique_data.clear();
