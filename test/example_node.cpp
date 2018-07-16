@@ -1,4 +1,4 @@
-// author: Pierre-Yves Lajoie <lajoie.py@gmail.com>
+// Copyright (C) 2018 by Pierre-Yves Lajoie <lajoie.py@gmail.com>
 
 #include "graph_utils/graph_utils_functions.h"
 #include "pairwise_consistency/pairwise_consistency.h"

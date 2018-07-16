@@ -1,4 +1,4 @@
-// author: Pierre-Yves Lajoie <lajoie.py@gmail.com>
+// Copyright (C) 2018 by Pierre-Yves Lajoie <lajoie.py@gmail.com>
 
 #include "pairwise_consistency/pairwise_consistency.h"
 #include "pose_cov_ops/pose_cov_ops.h"

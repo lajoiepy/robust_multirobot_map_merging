@@ -1,4 +1,4 @@
-// author: Pierre-Yves Lajoie <lajoie.py@gmail.com>
+// Copyright (C) 2018 by Pierre-Yves Lajoie <lajoie.py@gmail.com>
 
 #ifndef PAIRWISE_CONSISTENCY_H
 #define PAIRWISE_CONSISTENCY_H

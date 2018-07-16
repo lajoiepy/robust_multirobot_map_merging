@@ -1,4 +1,4 @@
-// author: Pierre-Yves Lajoie <lajoie.py@gmail.com>
+// Copyright (C) 2018 by Pierre-Yves Lajoie <lajoie.py@gmail.com>
 
 #ifndef GRAPH_UTILS_FUNCTIONS_H
 #define GRAPH_UTILS_FUNCTIONS_H
