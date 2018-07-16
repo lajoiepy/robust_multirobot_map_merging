@@ -1,12 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(robust_multirobot_map_merging)
 
-# SE-Sync library
-#Find SE_Sync library
-set(SE_SYNC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/third_parties/SE-Sync/ CACHE PATH "Path to top-level directory of SE-Sync (the one containing CMakeLists.txt)")
-# Run this project's CMakeLists file
-add_subdirectory(${SE_SYNC_DIR})
-
 ## Compile as C++14
 add_compile_options(-std=c++14)
 if(NOT CMAKE_BUILD_TYPE)
