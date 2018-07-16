@@ -78,11 +78,11 @@ int main(int argc, char* argv[])
   // Pass results to fast max-clique finder library
   std::cout << "Compute max-clique problem";
   start = std::chrono::high_resolution_clock::now();
-  CGraphIO gio;
+  FMC::CGraphIO gio;
   gio.readGraph(CONSISTENCY_MATRIX_FILE_NAME);
   int iMaxClique = 0;
   std::vector<int> max_clique_data;
-  iMaxClique = maxClique(gio, iMaxClique, max_clique_data);
+  iMaxClique = FMC::maxClique(gio, iMaxClique, max_clique_data);
   std::cout << " - Max clique Size : " << iMaxClique;
   finish = std::chrono::high_resolution_clock::now();
   milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);

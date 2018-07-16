@@ -32,6 +32,8 @@ using namespace std;
 int DEBUG=1;
 #endif
 
+namespace FMC {
+    
 //Function Definitions
 bool fexists(const char *filename);
 double wtime();
@@ -43,6 +45,7 @@ int maxClique( CGraphIO& gio, int l_bound, vector<int>& max_clique_data );
 void maxCliqueHelper( CGraphIO& gio, vector<int>* U, int sizeOfClique, int& maxClq, vector<int>& max_clique_data_inter );
 
 int maxCliqueHeu( CGraphIO& gio );
-void maxCliqueHelperHeu( CGraphIO& gio, vector<int>* U, int sizeOfClique, int& maxClq, vector<int>& max_clique_data_inter ); 
+void maxCliqueHelperHeu( CGraphIO& gio, vector<int>* U, int sizeOfClique, int& maxClq, vector<int>& max_clique_data_inter );
 
+}
 #endif 

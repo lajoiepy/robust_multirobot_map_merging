@@ -19,6 +19,7 @@
 
 #include "findClique.h"
 
+namespace FMC {
 bool fexists(const char *filename)
 {
 	ifstream ifile(filename);
@@ -47,4 +48,5 @@ void usage(char *argv0)
 int getDegree(vector<int>* ptrVtx, int idx)
 {
 	return ( (*ptrVtx)[idx+1] - (*ptrVtx)[idx] );
+}
 }

@@ -32,6 +32,7 @@
 
 using namespace std;
 
+namespace FMC {
 typedef std::vector<int> IntVector;
 
 class CGraphIO
@@ -69,5 +70,5 @@ public:
 	vector<int> 	m_vi_Edges;
 	vector<double> 	m_vd_Values;
 };
-
+}
 #endif

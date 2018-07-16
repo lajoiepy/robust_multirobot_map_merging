@@ -18,6 +18,8 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include "findClique.h"
+
+namespace FMC {
 int pruned1;
 int pruned2;
 int pruned3;
@@ -157,4 +159,5 @@ void print_max_clique(vector<int>& max_clique_data)
    for(int i = 0; i < max_clique_data.size(); i++)
       cout << max_clique_data[i] + 1 << " ";
    cout << endl;
+}
 }

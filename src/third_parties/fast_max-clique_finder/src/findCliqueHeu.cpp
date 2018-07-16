@@ -23,6 +23,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+namespace FMC {
 int maxDegree, maxClq;
 
 /* Algorithm 2: MaxCliqueHeu: A heuristic to find maximum clique */
@@ -112,4 +113,5 @@ int maxCliqueHeu(CGraphIO& gio)
 	}
 
 	return maxClq;
+}
 }

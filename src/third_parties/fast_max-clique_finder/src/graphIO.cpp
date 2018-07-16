@@ -19,6 +19,7 @@
 
 #include "graphIO.h"
 
+namespace FMC {
 CGraphIO::~CGraphIO()
 {
 	m_vi_Vertices.clear();
@@ -254,4 +255,4 @@ string CGraphIO::getFileExtension(string fileName)
 
 	return fileExtension;
 }
-
+}
