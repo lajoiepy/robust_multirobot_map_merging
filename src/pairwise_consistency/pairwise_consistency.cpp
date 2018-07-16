@@ -5,7 +5,15 @@
 
 namespace pairwise_consistency {
 
-Eigen::MatrixXi PairwiseConsistency::computeConsistentMeasurementsMatrix(const double& threshold) {
+Eigen::MatrixXi PairwiseConsistency::computeConsistentMeasurementsMatrix() {
+    // Determination of the chi squared threshold (numbers from chi-squared table)
+    double threshold;
+    if (nb_degree_freedom_ == 3){
+        threshold = 0.58;
+    } else {
+        threshold = 2.20;
+    }
+
     // Preallocate consistency matrix
     Eigen::MatrixXi consistency_matrix(loop_closures_.size(), loop_closures_.size());
 
@@ -113,6 +121,10 @@ geometry_msgs::PoseWithCovariance PairwiseConsistency::composeOnTrajectory(const
     geometry_msgs::PoseWithCovariance result;
     graph_utils::poseInverseCompose(pose2.pose, pose1.pose, result);
     return result;
+}
+
+const graph_utils::LoopClosures& PairwiseConsistency::getLoopClosures() const {
+    return loop_closures_;
 }
 
 }

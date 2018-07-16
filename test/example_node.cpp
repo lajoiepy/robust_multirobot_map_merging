@@ -3,6 +3,7 @@
 #include "graph_utils/graph_utils_functions.h"
 #include "pairwise_consistency/pairwise_consistency.h"
 #include "robot_local_map/robot_local_map.h"
+#include "global_map_solver/global_map_solver.h"
 #include "findClique.h"
 
 #include <string>
@@ -36,7 +37,6 @@ int main(int argc, char* argv[])
   }
 
   // Preallocate output variables
-  size_t num_poses_interrobot;
   graph_utils::TransformMap transforms_interrobot;
   graph_utils::LoopClosures loop_closures;
 
@@ -57,46 +57,9 @@ int main(int argc, char* argv[])
   milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
   std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
 
-  // Compute the pairwise consistency
-  std::cout << "Pairwise consistency computation.";
-  start = std::chrono::high_resolution_clock::now();
-  pairwise_consistency::PairwiseConsistency pairwise_consistency(robot1_local_map.getTransforms(), robot2_local_map.getTransforms(), interrobot_measurements.getTransforms(), interrobot_measurements.getLoopClosures(), robot1_local_map.getTrajectory(), robot2_local_map.getTrajectory());
-  Eigen::MatrixXi consistency_matrix = pairwise_consistency.computeConsistentMeasurementsMatrix(THRESHOLD);
-  finish = std::chrono::high_resolution_clock::now();
-  milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
-  std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
-
-  // Print the result to compute the maximum clique in a file
-  std::cout << "Print result in " << CONSISTENCY_MATRIX_FILE_NAME;
-  start = std::chrono::high_resolution_clock::now();
-  graph_utils::printConsistencyGraph(consistency_matrix, CONSISTENCY_MATRIX_FILE_NAME);
-  finish = std::chrono::high_resolution_clock::now();
-  milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
-  std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
-
-  // Pass results to fast max-clique finder library
-  std::cout << "Compute max-clique problem";
-  start = std::chrono::high_resolution_clock::now();
-  FMC::CGraphIO gio;
-  gio.readGraph(CONSISTENCY_MATRIX_FILE_NAME);
-  int iMaxClique = 0;
-  std::vector<int> max_clique_data;
-  iMaxClique = FMC::maxClique(gio, iMaxClique, max_clique_data);
-  std::cout << " - Max clique Size : " << iMaxClique;
-  finish = std::chrono::high_resolution_clock::now();
-  milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
-  std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
-  
-  // Reassign result and print consistent loop closures in output file
-  std::cout << "Print result in " << output_file_name;
-  start = std::chrono::high_resolution_clock::now();
-  graph_utils::printConsistentLoopClosures(loop_closures, max_clique_data, output_file_name);
-  finish = std::chrono::high_resolution_clock::now();
-  milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
-  std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
-
-  // Clean up
-  max_clique_data.clear();
+  // Solve global map
+  auto solver = global_map_solver::GlobalMapSolver(robot1_local_map, robot2_local_map, interrobot_measurements); 
+  solver.solveGlobalMap();
 
   return 0;
 }

@@ -23,15 +23,22 @@ namespace pairwise_consistency {
                             const graph_utils::TransformMap& transforms_interrobot,
                             const graph_utils::LoopClosures& loop_closures,
                             const graph_utils::Trajectory& trajectory_robot1,
-                            const graph_utils::Trajectory& trajectory_robot2):
+                            const graph_utils::Trajectory& trajectory_robot2,
+                            uint8_t nb_degree_freedom):
                             loop_closures_(loop_closures), transforms_robot1_(transforms_robot1), 
                             transforms_robot2_(transforms_robot2), transforms_interrobot_(transforms_interrobot),
-                            trajectory_robot1_(trajectory_robot1), trajectory_robot2_(trajectory_robot2){};
+                            trajectory_robot1_(trajectory_robot1), trajectory_robot2_(trajectory_robot2),
+                            nb_degree_freedom_(nb_degree_freedom){};
 
         /**
          * Computation of the consistency matrix
          */ 
-        Eigen::MatrixXi computeConsistentMeasurementsMatrix(const double& threshold);
+        Eigen::MatrixXi computeConsistentMeasurementsMatrix();
+
+        /**
+         * Accessors
+         */
+        const graph_utils::LoopClosures& getLoopClosures() const; 
 
       private:
 
@@ -49,6 +56,8 @@ namespace pairwise_consistency {
         graph_utils::TransformMap transforms_robot1_, transforms_robot2_, transforms_interrobot_;
 
         graph_utils::Trajectory trajectory_robot1_, trajectory_robot2_;
+
+        uint8_t nb_degree_freedom_;
     };          
 
 }

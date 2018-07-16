@@ -91,6 +91,8 @@ src/global_map_solver/global_map_solver.cpp
 target_link_libraries(global_map_solver
    ${catkin_LIBRARIES}
    graph_utils
+   pairwise_consistency
+   fast_max-clique_finder
 )
 
 # Example program
@@ -98,9 +100,7 @@ add_executable(${PROJECT_NAME}_node test/example_node.cpp)
 
 target_link_libraries(${PROJECT_NAME}_node
    ${catkin_LIBRARIES}
-   pairwise_consistency
    graph_utils
-   fast_max-clique_finder
    robot_local_map
    global_map_solver
 )
