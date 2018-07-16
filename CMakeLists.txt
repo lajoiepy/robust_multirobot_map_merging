@@ -76,6 +76,7 @@ target_compile_options(fast_max-clique_finder PRIVATE -w)
 
 # Robot local map library
 add_library(robot_local_map
+src/robot_local_map/robot_measurements.cpp
 src/robot_local_map/robot_local_map.cpp
 )
 target_link_libraries(robot_local_map
