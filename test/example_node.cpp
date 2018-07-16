@@ -2,6 +2,7 @@
 
 #include "graph_utils/graph_utils_functions.h"
 #include "pairwise_consistency/pairwise_consistency.h"
+#include "robot_local_map/robot_local_map.h"
 #include "findClique.h"
 
 #include <string>
@@ -35,15 +36,13 @@ int main(int argc, char* argv[])
   }
 
   // Preallocate output variables
-  size_t num_poses_robot1, num_poses_robot2, num_poses_interrobot;
-  graph_utils::TransformMap transforms_robot1, transforms_robot2, transforms_interrobot;
+  size_t num_poses_interrobot;
+  graph_utils::TransformMap transforms_interrobot;
   graph_utils::LoopClosures loop_closures;
 
   // Parse the graph files
   std::cout << "Parsing of the following files : " << robot1_file_name << ", " << robot2_file_name << ", " << interrobot_file_name;
   auto start = std::chrono::high_resolution_clock::now();
-  graph_utils::parseG2ofile(robot1_file_name, num_poses_robot1, transforms_robot1, loop_closures, false);
-  graph_utils::parseG2ofile(robot2_file_name, num_poses_robot2, transforms_robot2, loop_closures, false);
   graph_utils::parseG2ofile(interrobot_file_name, num_poses_interrobot, transforms_interrobot, loop_closures, true);
   auto finish = std::chrono::high_resolution_clock::now();
   auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
@@ -52,8 +51,8 @@ int main(int argc, char* argv[])
   // Compute the non-optimized trajectory
   std::cout << "Trajectory computation." ;
   start = std::chrono::high_resolution_clock::now();
-  auto trajectory_robot1 = graph_utils::buildTrajectory(transforms_robot1);
-  auto trajectory_robot2 = graph_utils::buildTrajectory(transforms_robot2);
+  auto robot1_local_map = robot_local_map::RobotLocalMap(robot1_file_name);
+  auto robot2_local_map = robot_local_map::RobotLocalMap(robot2_file_name);
   finish = std::chrono::high_resolution_clock::now();
   milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
   std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
@@ -61,7 +60,7 @@ int main(int argc, char* argv[])
   // Compute the pairwise consistency
   std::cout << "Pairwise consistency computation.";
   start = std::chrono::high_resolution_clock::now();
-  pairwise_consistency::PairwiseConsistency pairwise_consistency(transforms_robot1, transforms_robot2, transforms_interrobot, loop_closures, trajectory_robot1, trajectory_robot2);
+  pairwise_consistency::PairwiseConsistency pairwise_consistency(robot1_local_map.getTransforms(), robot2_local_map.getTransforms(), transforms_interrobot, loop_closures, robot1_local_map.getTrajectory(), robot2_local_map.getTrajectory());
   Eigen::MatrixXi consistency_matrix = pairwise_consistency.computeConsistentMeasurementsMatrix(THRESHOLD);
   finish = std::chrono::high_resolution_clock::now();
   milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);

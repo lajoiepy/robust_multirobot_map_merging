@@ -59,6 +59,9 @@ add_dependencies(pairwise_consistency ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catk
 add_library(graph_utils
     src/graph_utils/graph_utils_functions.cpp
 )
+target_link_libraries(graph_utils
+   ${catkin_LIBRARIES}
+)
 
 # Maximum Clique Solver
 add_library(fast_max-clique_finder
@@ -71,6 +74,24 @@ add_library(fast_max-clique_finder
 )
 target_compile_options(fast_max-clique_finder PRIVATE -w)
 
+# Robot local map library
+add_library(robot_local_map
+src/robot_local_map/robot_local_map.cpp
+)
+target_link_libraries(robot_local_map
+   ${catkin_LIBRARIES}
+   graph_utils
+)
+
+# Global map solver library
+add_library(global_map_solver
+src/global_map_solver/global_map_solver.cpp
+)
+target_link_libraries(global_map_solver
+   ${catkin_LIBRARIES}
+   graph_utils
+)
+
 # Example program
 add_executable(${PROJECT_NAME}_node test/example_node.cpp)
 
@@ -79,4 +100,6 @@ target_link_libraries(${PROJECT_NAME}_node
    pairwise_consistency
    graph_utils
    fast_max-clique_finder
+   robot_local_map
+   global_map_solver
 )

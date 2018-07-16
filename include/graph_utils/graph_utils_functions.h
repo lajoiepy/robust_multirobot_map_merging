@@ -15,7 +15,7 @@ namespace graph_utils {
  * This function parse .g2o files.
  * The specification of this format is available here : https://github.com/RainerKuemmerle/g2o/wiki/File-Format
  */
-void parseG2ofile(const std::string &filename, size_t &num_poses, 
+void parseG2ofile(const std::string &file_name, size_t &num_poses, 
     TransformMap& tranform_map,
     LoopClosures& loop_closures, 
     const bool& only_loop_closures);

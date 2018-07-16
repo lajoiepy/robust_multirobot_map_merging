@@ -12,7 +12,7 @@ using namespace mrpt::math;
 
 namespace graph_utils {
 
-void parseG2ofile(const std::string &filename, size_t &num_poses, 
+void parseG2ofile(const std::string &file_name, size_t &num_poses, 
     TransformMap& transform_map,
     LoopClosures& loop_closures, 
     const bool& only_loop_closures) {
@@ -34,7 +34,7 @@ void parseG2ofile(const std::string &filename, size_t &num_poses,
   size_t i, j;
 
   // Open the file for reading
-  std::ifstream infile(filename);
+  std::ifstream infile(file_name);
 
   if (!infile.is_open()) {
     std::cerr << "Error while opening the file" << std::endl;
