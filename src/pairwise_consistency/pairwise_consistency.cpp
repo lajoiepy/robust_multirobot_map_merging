@@ -1,9 +1,9 @@
 // author: Pierre-Yves Lajoie <lajoie.py@gmail.com>
 
-#include "pairwise_consistency.h"
+#include "pairwise_consistency/pairwise_consistency.h"
 #include "pose_cov_ops/pose_cov_ops.h"
 
-namespace robust_multirobot_slam {
+namespace pairwise_consistency {
 
     Eigen::MatrixXi PairwiseConsistency::computeConsistentMeasurementsMatrix(const double& threshold) {
         // Preallocate consistency matrix

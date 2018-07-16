@@ -57,7 +57,7 @@ add_dependencies(pairwise_consistency ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catk
 
 # Graph utils library
 add_library(graph_utils
-    src/graph_utils/graph_utils.cpp
+    src/graph_utils/graph_utils_functions.cpp
 )
 
 # Maximum Clique Solver

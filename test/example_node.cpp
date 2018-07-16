@@ -1,7 +1,7 @@
 // author: Pierre-Yves Lajoie <lajoie.py@gmail.com>
 
-#include "graph_utils.h"
-#include "pairwise_consistency.h"
+#include "graph_utils/graph_utils_functions.h"
+#include "pairwise_consistency/pairwise_consistency.h"
 #include "findClique.h"
 
 #include <string>
@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
   graph_utils::TransformMap transforms_robot1, transforms_robot2, transforms_interrobot;
   graph_utils::LoopClosures loop_closures;
 
-  // Parse the graph file
+  // Parse the graph files
   std::cout << "Parsing of the following files : " << robot1_file_name << ", " << robot2_file_name << ", " << interrobot_file_name;
   auto start = std::chrono::high_resolution_clock::now();
   graph_utils::parseG2ofile(robot1_file_name, num_poses_robot1, transforms_robot1, loop_closures, false);
@@ -61,7 +61,7 @@ int main(int argc, char* argv[])
   // Compute the pairwise consistency
   std::cout << "Pairwise consistency computation.";
   start = std::chrono::high_resolution_clock::now();
-  robust_multirobot_slam::PairwiseConsistency pairwise_consistency(transforms_robot1, transforms_robot2, transforms_interrobot, loop_closures, trajectory_robot1, trajectory_robot2);
+  pairwise_consistency::PairwiseConsistency pairwise_consistency(transforms_robot1, transforms_robot2, transforms_interrobot, loop_closures, trajectory_robot1, trajectory_robot2);
   Eigen::MatrixXi consistency_matrix = pairwise_consistency.computeConsistentMeasurementsMatrix(THRESHOLD);
   finish = std::chrono::high_resolution_clock::now();
   milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);

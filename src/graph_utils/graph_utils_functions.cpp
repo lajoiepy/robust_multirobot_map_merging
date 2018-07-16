@@ -1,6 +1,6 @@
 // author: Pierre-Yves Lajoie <lajoie.py@gmail.com>
 
-#include "graph_utils.h"
+#include "graph_utils/graph_utils_functions.h"
 
 #include <fstream>
 #include <iostream>

@@ -3,12 +3,12 @@
 #ifndef PAIRWISE_CONSISTENCY_H
 #define PAIRWISE_CONSISTENCY_H
 
-#include "graph_utils.h"
+#include "graph_utils/graph_utils_functions.h"
 #include "geometry_msgs/PoseWithCovariance.h"
 
 #include <eigen3/Eigen/Geometry>
 
-namespace robust_multirobot_slam {
+namespace pairwise_consistency {
 
     /**
      * Class for the computation of the pairwise consistency of loop closure edges
