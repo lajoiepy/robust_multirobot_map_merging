@@ -39,9 +39,6 @@ catkin_package(
 include_directories(
   include
   ${CMAKE_CURRENT_SOURCE_DIR}/src/third_parties/fast_max-clique_finder/src/
-  #${CMAKE_CURRENT_SOURCE_DIR}/src/third_parties/SE-Sync/SE-Sync/include/
-  #${CMAKE_CURRENT_SOURCE_DIR}/src/third_parties/SE-Sync/spectra/include/
-  #${CMAKE_CURRENT_SOURCE_DIR}/src/third_parties/SE-Sync/Optimization/include/
  ${catkin_INCLUDE_DIRS}
 )
 

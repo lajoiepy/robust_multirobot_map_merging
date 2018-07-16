@@ -11,16 +11,16 @@ namespace robust_multirobot_slam {
 
         // Iterate on loop closures
         size_t u = 0;
-        for (graph_utils::LoopClosures::const_iterator it_row = loop_closures_.begin(); it_row != loop_closures_.end(); ++it_row) {
+        for (const auto& loop_closure_1: loop_closures_) {
             size_t v = 0;
-            for (graph_utils::LoopClosures::const_iterator it_col = loop_closures_.begin(); it_col != loop_closures_.end(); ++it_col) {
+            for (const auto& loop_closure_2: loop_closures_) {
                 if (u < v) {
                     // Extract pose indexes
                     size_t i,j,k,l;
-                    i = (*it_row).first;
-                    k = (*it_row).second;
-                    j = (*it_col).first;
-                    l = (*it_col).second;
+                    i = loop_closure_1.first;
+                    k = loop_closure_1.second;
+                    j = loop_closure_2.first;
+                    l = loop_closure_2.second;
 
                     // Check if the loop closures are interrobot. 
                     // It is the case if {i,j} are elements of trajectory_robot1 and {k,l} are elements of trajectory_robot2.
@@ -32,8 +32,8 @@ namespace robust_multirobot_slam {
                     // Compute only if they are interrobot loop closures
                     if (is_config_r12 || is_config_r21) {
                         // Extract transforms
-                        geometry_msgs::PoseWithCovariance abZik = (*transforms_interrobot_.transforms.find(*it_row)).second.pose;
-                        geometry_msgs::PoseWithCovariance abZjl = (*transforms_interrobot_.transforms.find(*it_col)).second.pose; 
+                        geometry_msgs::PoseWithCovariance abZik = (*transforms_interrobot_.transforms.find(loop_closure_1)).second.pose;
+                        geometry_msgs::PoseWithCovariance abZjl = (*transforms_interrobot_.transforms.find(loop_closure_2)).second.pose; 
                         geometry_msgs::PoseWithCovariance aXij, bXlk;
                         if (is_config_r12) {
                             aXij = composeOnTrajectory(i, j, 1);  
