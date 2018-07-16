@@ -14,8 +14,6 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 # Required ROS packages
 find_package(catkin REQUIRED
     geometry_msgs
-    roscpp
-    tf2
     mrpt_bridge
     )
 
@@ -35,7 +33,7 @@ endif()
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES pairwise_consistency graph_utils
-  CATKIN_DEPENDS roscpp geometry_msgs tf2 mrpt_bridge
+  CATKIN_DEPENDS geometry_msgs mrpt_bridge
 )
 
 # Overall include directories
@@ -96,7 +94,7 @@ target_link_libraries(global_map_solver
 )
 
 # Example program
-add_executable(${PROJECT_NAME}_node test/example_node.cpp)
+add_executable(${PROJECT_NAME}_node examples/example_node.cpp)
 
 target_link_libraries(${PROJECT_NAME}_node
    ${catkin_LIBRARIES}

@@ -13,7 +13,7 @@
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
-  <license>TODO</license>
+  <license>GPLv3</license>
 
 
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
@@ -32,9 +32,7 @@
   <!-- Dependencies can be catkin packages or system dependencies -->
   <!-- Examples: -->
   <!-- Use depend as a shortcut for packages that are both build and exec dependencies -->
-  <depend>roscpp</depend> 
   <depend>geometry_msgs</depend>
-  <depend>tf2</depend>
   <depend>mrpt_bridge</depend>
   <!--   Note that this is equivalent to the following: -->
   <!--   <build_depend>roscpp</build_depend> -->
