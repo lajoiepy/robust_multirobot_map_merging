@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
   // Parse the graph files
   std::cout << "Parsing of the following files : " << robot1_file_name << ", " << robot2_file_name << ", " << interrobot_file_name;
   auto start = std::chrono::high_resolution_clock::now();
-  graph_utils::parseG2ofile(interrobot_file_name, num_poses_interrobot, transforms_interrobot, loop_closures, true);
+  auto interrobot_measurements = robot_local_map::RobotMeasurements(interrobot_file_name, true);
   auto finish = std::chrono::high_resolution_clock::now();
   auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
   std::cout << " | Completed (" << milliseconds.count() << "ms)" << std::endl;
@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
   // Compute the pairwise consistency
   std::cout << "Pairwise consistency computation.";
   start = std::chrono::high_resolution_clock::now();
-  pairwise_consistency::PairwiseConsistency pairwise_consistency(robot1_local_map.getTransforms(), robot2_local_map.getTransforms(), transforms_interrobot, loop_closures, robot1_local_map.getTrajectory(), robot2_local_map.getTrajectory());
+  pairwise_consistency::PairwiseConsistency pairwise_consistency(robot1_local_map.getTransforms(), robot2_local_map.getTransforms(), interrobot_measurements.getTransforms(), interrobot_measurements.getLoopClosures(), robot1_local_map.getTrajectory(), robot2_local_map.getTrajectory());
   Eigen::MatrixXi consistency_matrix = pairwise_consistency.computeConsistentMeasurementsMatrix(THRESHOLD);
   finish = std::chrono::high_resolution_clock::now();
   milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(finish-start);
