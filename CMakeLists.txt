@@ -11,6 +11,7 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
+# Required ROS packages
 find_package(catkin REQUIRED
     geometry_msgs
     roscpp
@@ -18,6 +19,7 @@ find_package(catkin REQUIRED
     mrpt_bridge
     )
 
+# Required exernal library
 find_package(MRPT REQUIRED)
 message(STATUS "Found MRPT: " ${MRPT_VERSION})
 if("${MRPT_VERSION}" VERSION_LESS "1.9.9")
@@ -29,31 +31,36 @@ else()
   find_package(MRPT REQUIRED poses)
 endif()
 
-
+# Catkin package definition
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES ${PROJECT_NAME} graph_utils
+  LIBRARIES pairwise_consistency graph_utils
   CATKIN_DEPENDS roscpp geometry_msgs tf2 mrpt_bridge
 )
 
+# Overall include directories
 include_directories(
   include
   ${CMAKE_CURRENT_SOURCE_DIR}/src/third_parties/fast_max-clique_finder/src/
  ${catkin_INCLUDE_DIRS}
 )
 
-add_library(${PROJECT_NAME}
+# Paiwise Consistency computation library
+add_library(pairwise_consistency
     src/pairwise_consistency/pairwise_consistency.cpp
 )
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(pairwise_consistency
    ${catkin_LIBRARIES}
    graph_utils
 )
+add_dependencies(pairwise_consistency ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+# Graph utils library
 add_library(graph_utils
     src/graph_utils/graph_utils.cpp
 )
 
+# Maximum Clique Solver
 add_library(fast_max-clique_finder
     src/third_parties/fast_max-clique_finder/src/findClique.h
     src/third_parties/fast_max-clique_finder/src/graphIO.h
@@ -64,13 +71,12 @@ add_library(fast_max-clique_finder
 )
 target_compile_options(fast_max-clique_finder PRIVATE -w)
 
-add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
+# Example program
 add_executable(${PROJECT_NAME}_node test/example_node.cpp)
 
 target_link_libraries(${PROJECT_NAME}_node
    ${catkin_LIBRARIES}
-   ${PROJECT_NAME}
+   pairwise_consistency
    graph_utils
    fast_max-clique_finder
 )
