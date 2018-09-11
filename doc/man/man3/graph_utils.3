@@ -1,0 +1,102 @@
+.TH "graph_utils" 3 "Tue Sep 11 2018" "Version 0.1" "robust_multirobot_map_merging" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+graph_utils \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBTrajectory\fP"
+.br
+.ti -1c
+.RI "struct \fBTrajectoryPose\fP"
+.br
+.ti -1c
+.RI "struct \fBTransform\fP"
+.br
+.ti -1c
+.RI "struct \fBTransformMap\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef std::vector< std::pair< size_t, size_t > > \fBLoopClosures\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBparseG2ofile\fP (const std::string &file_name, size_t &num_poses, \fBTransformMap\fP &tranform_map, \fBLoopClosures\fP &loop_closures, const bool &only_loop_closures)"
+.br
+.ti -1c
+.RI "void \fBposeCompose\fP (const geometry_msgs::PoseWithCovariance &a, const geometry_msgs::PoseWithCovariance &b, geometry_msgs::PoseWithCovariance &out)"
+.br
+.ti -1c
+.RI "void \fBposeInverseCompose\fP (const geometry_msgs::PoseWithCovariance &a, const geometry_msgs::PoseWithCovariance &b, geometry_msgs::PoseWithCovariance &out)"
+.br
+.ti -1c
+.RI "void \fBposeInverse\fP (const geometry_msgs::PoseWithCovariance &a, geometry_msgs::PoseWithCovariance &out)"
+.br
+.ti -1c
+.RI "\fBTrajectory\fP \fBbuildTrajectory\fP (const \fBTransformMap\fP &transform_map)"
+.br
+.ti -1c
+.RI "void \fBprintConsistencyGraph\fP (const Eigen::MatrixXi &consistency_matrix, const std::string &file_name)"
+.br
+.ti -1c
+.RI "bool \fBisInTrajectory\fP (const \fBTrajectory\fP &trajectory, const size_t &pose_id)"
+.br
+.ti -1c
+.RI "void \fBprintConsistentLoopClosures\fP (const \fBLoopClosures\fP &loop_closures, const std::vector< int > &max_clique_data, const std::string &file_name)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef std::vector<std::pair<size_t,size_t> > \fBgraph_utils::LoopClosures\fP"
+Type defining a list of pair of poses with a loop closure 
+.PP
+Definition at line 39 of file graph_types\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBTrajectory\fP graph_utils::buildTrajectory (const \fBTransformMap\fP & transform_map)"
+This function precompute the trajectory by composing the sucessive poses\&. 
+.PP
+Definition at line 200 of file graph_utils_functions\&.cpp\&.
+.SS "bool graph_utils::isInTrajectory (const \fBTrajectory\fP & trajectory, const size_t & pose_id)"
+This function check if a pose is include in a trajectory\&. 
+.PP
+Definition at line 258 of file graph_utils_functions\&.cpp\&.
+.SS "uint8_t graph_utils::parseG2ofile (const std::string & file_name, size_t & num_poses, \fBTransformMap\fP & tranform_map, \fBLoopClosures\fP & loop_closures, const bool & only_loop_closures)"
+This function parse \&.g2o files\&. The specification of this format is available here : https://github.com/RainerKuemmerle/g2o/wiki/File-Format returns the degrees of freedom (3 in 2D, 6 in 3D) 
+.PP
+Definition at line 15 of file graph_utils_functions\&.cpp\&.
+.SS "void graph_utils::poseCompose (const geometry_msgs::PoseWithCovariance & a, const geometry_msgs::PoseWithCovariance & b, geometry_msgs::PoseWithCovariance & out)"
+This function combine to geometric poses with covariance\&. out = a + b Uses the mrpt library : https://www.mrpt.org/ 
+.PP
+Definition at line 165 of file graph_utils_functions\&.cpp\&.
+.SS "void graph_utils::poseInverse (const geometry_msgs::PoseWithCovariance & a, geometry_msgs::PoseWithCovariance & out)"
+This function invert a geometric pose with covariance\&. out = I - a Uses the mrpt library : https://www.mrpt.org/ 
+.PP
+Definition at line 177 of file graph_utils_functions\&.cpp\&.
+.SS "void graph_utils::poseInverseCompose (const geometry_msgs::PoseWithCovariance & a, const geometry_msgs::PoseWithCovariance & b, geometry_msgs::PoseWithCovariance & out)"
+This function combine to geometric poses with covariance\&. out = a - b Uses the mrpt library : https://www.mrpt.org/ 
+.PP
+Definition at line 188 of file graph_utils_functions\&.cpp\&.
+.SS "void graph_utils::printConsistencyGraph (const Eigen::MatrixXi & consistency_matrix, const std::string & file_name)"
+This function prints the consistency matrix to the format expected by the maximum clique solver Fast Max-Cliquer (http://cucis.ece.northwestern.edu/projects/MAXCLIQUE/) 
+.PP
+Definition at line 234 of file graph_utils_functions\&.cpp\&.
+.SS "void graph_utils::printConsistentLoopClosures (const \fBLoopClosures\fP & loop_closures, const std::vector< int > & max_clique_data, const std::string & file_name)"
+This function prints a list of consistent loop closures\&. 
+.PP
+Definition at line 262 of file graph_utils_functions\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for robust_multirobot_map_merging from the source code\&.

@@ -1,0 +1,192 @@
+.TH "FMC::CGraphIO" 3 "Tue Sep 11 2018" "Version 0.1" "robust_multirobot_map_merging" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FMC::CGraphIO \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <graphIO\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCGraphIO\fP ()"
+.br
+.ti -1c
+.RI "virtual \fB~CGraphIO\fP ()"
+.br
+.ti -1c
+.RI "bool \fBreadGraph\fP (string s_InputFile, float connStrength=\-DBL_MAX)"
+.br
+.ti -1c
+.RI "string \fBgetFileExtension\fP (string fileName)"
+.br
+.ti -1c
+.RI "bool \fBReadMatrixMarketAdjacencyGraph\fP (string s_InputFile, float connStrength=\-DBL_MAX)"
+.br
+.ti -1c
+.RI "bool \fBReadMeTiSAdjacencyGraph\fP (string s_InputFile)"
+.br
+.ti -1c
+.RI "void \fBCalculateVertexDegrees\fP ()"
+.br
+.ti -1c
+.RI "int \fBGetVertexCount\fP ()"
+.br
+.ti -1c
+.RI "int \fBGetEdgeCount\fP ()"
+.br
+.ti -1c
+.RI "int \fBGetMaximumVertexDegree\fP ()"
+.br
+.ti -1c
+.RI "int \fBGetMinimumVertexDegree\fP ()"
+.br
+.ti -1c
+.RI "double \fBGetAverageVertexDegree\fP ()"
+.br
+.ti -1c
+.RI "string \fBGetInputFile\fP ()"
+.br
+.ti -1c
+.RI "vector< int > * \fBGetVerticesPtr\fP ()"
+.br
+.ti -1c
+.RI "vector< int > * \fBGetEdgesPtr\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBm_i_MaximumVertexDegree\fP"
+.br
+.ti -1c
+.RI "int \fBm_i_MinimumVertexDegree\fP"
+.br
+.ti -1c
+.RI "double \fBm_d_AverageVertexDegree\fP"
+.br
+.ti -1c
+.RI "string \fBm_s_InputFile\fP"
+.br
+.ti -1c
+.RI "vector< int > \fBm_vi_Vertices\fP"
+.br
+.ti -1c
+.RI "vector< int > \fBm_vi_OrderedVertices\fP"
+.br
+.ti -1c
+.RI "vector< int > \fBm_vi_Edges\fP"
+.br
+.ti -1c
+.RI "vector< double > \fBm_vd_Values\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 38 of file graphIO\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "FMC::CGraphIO::CGraphIO ()\fC [inline]\fP"
+
+.PP
+Definition at line 42 of file graphIO\&.h\&.
+.SS "FMC::CGraphIO::~CGraphIO ()\fC [virtual]\fP"
+
+.PP
+Definition at line 23 of file graphIO\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void FMC::CGraphIO::CalculateVertexDegrees ()"
+
+.PP
+Definition at line 194 of file graphIO\&.cpp\&.
+.SS "double FMC::CGraphIO::GetAverageVertexDegree ()\fC [inline]\fP"
+
+.PP
+Definition at line 55 of file graphIO\&.h\&.
+.SS "int FMC::CGraphIO::GetEdgeCount ()\fC [inline]\fP"
+
+.PP
+Definition at line 52 of file graphIO\&.h\&.
+.SS "vector<int>* FMC::CGraphIO::GetEdgesPtr ()\fC [inline]\fP"
+
+.PP
+Definition at line 59 of file graphIO\&.h\&.
+.SS "string FMC::CGraphIO::getFileExtension (string fileName)"
+
+.PP
+Definition at line 225 of file graphIO\&.cpp\&.
+.SS "string FMC::CGraphIO::GetInputFile ()\fC [inline]\fP"
+
+.PP
+Definition at line 56 of file graphIO\&.h\&.
+.SS "int FMC::CGraphIO::GetMaximumVertexDegree ()\fC [inline]\fP"
+
+.PP
+Definition at line 53 of file graphIO\&.h\&.
+.SS "int FMC::CGraphIO::GetMinimumVertexDegree ()\fC [inline]\fP"
+
+.PP
+Definition at line 54 of file graphIO\&.h\&.
+.SS "int FMC::CGraphIO::GetVertexCount ()\fC [inline]\fP"
+
+.PP
+Definition at line 51 of file graphIO\&.h\&.
+.SS "vector<int>* FMC::CGraphIO::GetVerticesPtr ()\fC [inline]\fP"
+
+.PP
+Definition at line 58 of file graphIO\&.h\&.
+.SS "bool FMC::CGraphIO::readGraph (string s_InputFile, float connStrength = \fC\-DBL_MAX\fP)"
+
+.PP
+Definition at line 31 of file graphIO\&.cpp\&.
+.SS "bool FMC::CGraphIO::ReadMatrixMarketAdjacencyGraph (string s_InputFile, float connStrength = \fC\-DBL_MAX\fP)"
+
+.PP
+Definition at line 48 of file graphIO\&.cpp\&.
+.SS "bool FMC::CGraphIO::ReadMeTiSAdjacencyGraph (string s_InputFile)"
+
+.PP
+Definition at line 189 of file graphIO\&.cpp\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "double FMC::CGraphIO::m_d_AverageVertexDegree"
+
+.PP
+Definition at line 64 of file graphIO\&.h\&.
+.SS "int FMC::CGraphIO::m_i_MaximumVertexDegree"
+
+.PP
+Definition at line 62 of file graphIO\&.h\&.
+.SS "int FMC::CGraphIO::m_i_MinimumVertexDegree"
+
+.PP
+Definition at line 63 of file graphIO\&.h\&.
+.SS "string FMC::CGraphIO::m_s_InputFile"
+
+.PP
+Definition at line 66 of file graphIO\&.h\&.
+.SS "vector<double> FMC::CGraphIO::m_vd_Values"
+
+.PP
+Definition at line 71 of file graphIO\&.h\&.
+.SS "vector<int> FMC::CGraphIO::m_vi_Edges"
+
+.PP
+Definition at line 70 of file graphIO\&.h\&.
+.SS "vector<int> FMC::CGraphIO::m_vi_OrderedVertices"
+
+.PP
+Definition at line 69 of file graphIO\&.h\&.
+.SS "vector<int> FMC::CGraphIO::m_vi_Vertices"
+
+.PP
+Definition at line 68 of file graphIO\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for robust_multirobot_map_merging from the source code\&.

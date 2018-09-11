@@ -1,0 +1,20 @@
+<map id="global_map_solver::GlobalMapSolver::solveGlobalMap" name="global_map_solver::GlobalMapSolver::solveGlobalMap">
+<area shape="rect" id="node2" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="pairwise_consistency\l::PairwiseConsistency\l::computeConsistentMeasurements\lMatrix" alt="" coords="276,63,505,134"/>
+<area shape="rect" id="node6" href="$namespacegraph__utils.html#aa63b9e9c4cf0a0db956aa09fea329328" title="graph_utils::printConsistency\lGraph" alt="" coords="295,231,486,273"/>
+<area shape="rect" id="node7" href="$class_f_m_c_1_1_c_graph_i_o.html#af72262867f739bed6c6875042cea2380" title="FMC::CGraphIO::readGraph" alt="" coords="297,297,484,324"/>
+<area shape="rect" id="node12" href="$namespace_f_m_c.html#afdcd92e82049d498ddc50e934b171cf4" title="FMC::maxClique" alt="" coords="330,381,451,408"/>
+<area shape="rect" id="node18" href="$namespacegraph__utils.html#a4150234137044c02b51071ff0b4f0588" title="graph_utils::printConsistent\lLoopClosures" alt="" coords="300,433,481,474"/>
+<area shape="rect" id="node19" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a7eb762acb6c383a9e167a49e1c99905b" title="pairwise_consistency\l::PairwiseConsistency\l::getLoopClosures" alt="" coords="314,497,467,553"/>
+<area shape="rect" id="node3" href="$namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="graph_utils::isInTrajectory" alt="" coords="595,5,767,32"/>
+<area shape="rect" id="node4" href="$namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="graph_utils::poseCompose" alt="" coords="593,56,770,83"/>
+<area shape="rect" id="node5" href="$namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="graph_utils::poseInverse\lCompose" alt="" coords="599,107,763,149"/>
+<area shape="rect" id="node8" href="$class_f_m_c_1_1_c_graph_i_o.html#ae800f96ed7c3484effe64a6d5b0646b9" title="FMC::CGraphIO::getFileExtension" alt="" coords="570,173,793,200"/>
+<area shape="rect" id="node9" href="$class_f_m_c_1_1_c_graph_i_o.html#ab0d9d8ee2319d816029775d86b2812ce" title="FMC::CGraphIO::ReadMatrix\lMarketAdjacencyGraph" alt="" coords="585,225,778,266"/>
+<area shape="rect" id="node11" href="$class_f_m_c_1_1_c_graph_i_o.html#a45d19b2b7d2b625aacfaa0a05a047473" title="FMC::CGraphIO::ReadMeTiSAdjacency\lGraph" alt="" coords="553,290,809,331"/>
+<area shape="rect" id="node10" href="$class_f_m_c_1_1_c_graph_i_o.html#a3be1248d6e69f0898af9dfe26680bc37" title="FMC::CGraphIO::Calculate\lVertexDegrees" alt="" coords="873,225,1054,266"/>
+<area shape="rect" id="node13" href="$class_f_m_c_1_1_c_graph_i_o.html#a6c82c4cd4de1f422f9b45e9f5ec81a4a" title="FMC::CGraphIO::GetVerticesPtr" alt="" coords="857,556,1069,583"/>
+<area shape="rect" id="node14" href="$class_f_m_c_1_1_c_graph_i_o.html#aebb794fe2e64a927db7b611b539b0d5a" title="FMC::CGraphIO::GetEdgesPtr" alt="" coords="863,373,1064,400"/>
+<area shape="rect" id="node15" href="$class_f_m_c_1_1_c_graph_i_o.html#ae78143c82f98205cccd1b84de891b8c4" title="FMC::CGraphIO::GetVertex\lCount" alt="" coords="871,427,1056,469"/>
+<area shape="rect" id="node16" href="$namespace_f_m_c.html#aa7d80a52a09b80fb9e44366ec4c55fa1" title="FMC::getDegree" alt="" coords="904,497,1023,524"/>
+<area shape="rect" id="node17" href="$namespace_f_m_c.html#ae4bcb51fb7975a85989698d9f7d443f3" title="FMC::maxCliqueHelper" alt="" coords="602,457,761,484"/>
+</map>

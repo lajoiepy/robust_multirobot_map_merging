@@ -1,0 +1,59 @@
+.TH "include/graph_utils/graph_utils_functions.h" 3 "Tue Sep 11 2018" "Version 0.1" "robust_multirobot_map_merging" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/graph_utils/graph_utils_functions.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'graph_utils/graph_types\&.h'\fP
+.br
+\fC#include <mrpt/poses/CPose3D\&.h>\fP
+.br
+\fC#include <mrpt/poses/CPose3DPDFGaussian\&.h>\fP
+.br
+\fC#include <mrpt_bridge/pose\&.h>\fP
+.br
+\fC#include <iostream>\fP
+.br
+\fC#include <fstream>\fP
+.br
+
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBgraph_utils\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBgraph_utils::parseG2ofile\fP (const std::string &file_name, size_t &num_poses, TransformMap &tranform_map, LoopClosures &loop_closures, const bool &only_loop_closures)"
+.br
+.ti -1c
+.RI "void \fBgraph_utils::poseCompose\fP (const geometry_msgs::PoseWithCovariance &a, const geometry_msgs::PoseWithCovariance &b, geometry_msgs::PoseWithCovariance &out)"
+.br
+.ti -1c
+.RI "void \fBgraph_utils::poseInverseCompose\fP (const geometry_msgs::PoseWithCovariance &a, const geometry_msgs::PoseWithCovariance &b, geometry_msgs::PoseWithCovariance &out)"
+.br
+.ti -1c
+.RI "void \fBgraph_utils::poseInverse\fP (const geometry_msgs::PoseWithCovariance &a, geometry_msgs::PoseWithCovariance &out)"
+.br
+.ti -1c
+.RI "Trajectory \fBgraph_utils::buildTrajectory\fP (const TransformMap &transform_map)"
+.br
+.ti -1c
+.RI "void \fBgraph_utils::printConsistencyGraph\fP (const Eigen::MatrixXi &consistency_matrix, const std::string &file_name)"
+.br
+.ti -1c
+.RI "bool \fBgraph_utils::isInTrajectory\fP (const Trajectory &trajectory, const size_t &pose_id)"
+.br
+.ti -1c
+.RI "void \fBgraph_utils::printConsistentLoopClosures\fP (const LoopClosures &loop_closures, const std::vector< int > &max_clique_data, const std::string &file_name)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for robust_multirobot_map_merging from the source code\&.

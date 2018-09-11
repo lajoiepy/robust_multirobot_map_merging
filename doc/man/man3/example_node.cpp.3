@@ -1,0 +1,69 @@
+.TH "examples/example_node.cpp" 3 "Tue Sep 11 2018" "Version 0.1" "robust_multirobot_map_merging" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+examples/example_node.cpp \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'graph_utils/graph_utils_functions\&.h'\fP
+.br
+\fC#include 'pairwise_consistency/pairwise_consistency\&.h'\fP
+.br
+\fC#include 'robot_local_map/robot_local_map\&.h'\fP
+.br
+\fC#include 'global_map_solver/global_map_solver\&.h'\fP
+.br
+\fC#include 'findClique\&.h'\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <iostream>\fP
+.br
+\fC#include <eigen3/Eigen/Geometry>\fP
+.br
+\fC#include <chrono>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTHRESHOLD\fP   1\&.635"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmain\fP (int argc, char *argv[])"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const std::string \fBCONSISTENCY_MATRIX_FILE_NAME\fP = 'consistency_matrix\&.clq\&.mtx'"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define THRESHOLD   1\&.635"
+
+.PP
+Definition at line 14 of file example_node\&.cpp\&.
+.SH "Function Documentation"
+.PP 
+.SS "int main (int argc, char * argv[])"
+
+.PP
+Definition at line 18 of file example_node\&.cpp\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const std::string CONSISTENCY_MATRIX_FILE_NAME = 'consistency_matrix\&.clq\&.mtx'"
+
+.PP
+Definition at line 16 of file example_node\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for robust_multirobot_map_merging from the source code\&.

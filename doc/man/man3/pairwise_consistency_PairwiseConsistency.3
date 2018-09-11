@@ -1,0 +1,48 @@
+.TH "pairwise_consistency::PairwiseConsistency" 3 "Tue Sep 11 2018" "Version 0.1" "robust_multirobot_map_merging" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pairwise_consistency::PairwiseConsistency \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pairwise_consistency\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPairwiseConsistency\fP (const \fBgraph_utils::TransformMap\fP &transforms_robot1, const \fBgraph_utils::TransformMap\fP &transforms_robot2, const \fBgraph_utils::TransformMap\fP &transforms_interrobot, const \fBgraph_utils::LoopClosures\fP &loop_closures, const \fBgraph_utils::Trajectory\fP &trajectory_robot1, const \fBgraph_utils::Trajectory\fP &trajectory_robot2, uint8_t nb_degree_freedom)"
+.br
+.ti -1c
+.RI "Eigen::MatrixXi \fBcomputeConsistentMeasurementsMatrix\fP ()"
+.br
+.ti -1c
+.RI "const \fBgraph_utils::LoopClosures\fP & \fBgetLoopClosures\fP () const "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class for the computation of the pairwise consistency of loop closure edges 
+.PP
+Definition at line 16 of file pairwise_consistency\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "pairwise_consistency::PairwiseConsistency::PairwiseConsistency (const \fBgraph_utils::TransformMap\fP & transforms_robot1, const \fBgraph_utils::TransformMap\fP & transforms_robot2, const \fBgraph_utils::TransformMap\fP & transforms_interrobot, const \fBgraph_utils::LoopClosures\fP & loop_closures, const \fBgraph_utils::Trajectory\fP & trajectory_robot1, const \fBgraph_utils::Trajectory\fP & trajectory_robot2, uint8_t nb_degree_freedom)\fC [inline]\fP"
+Constructor 
+.PP
+Definition at line 21 of file pairwise_consistency\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "Eigen::MatrixXi pairwise_consistency::PairwiseConsistency::computeConsistentMeasurementsMatrix ()"
+Computation of the consistency matrix 
+.PP
+Definition at line 7 of file pairwise_consistency\&.cpp\&.
+.SS "const \fBgraph_utils::LoopClosures\fP & pairwise_consistency::PairwiseConsistency::getLoopClosures () const"
+Accessors 
+.PP
+Definition at line 125 of file pairwise_consistency\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for robust_multirobot_map_merging from the source code\&.

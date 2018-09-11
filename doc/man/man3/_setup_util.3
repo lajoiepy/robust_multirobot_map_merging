@@ -1,0 +1,184 @@
+.TH "_setup_util" 3 "Tue Sep 11 2018" "Version 0.1" "robust_multirobot_map_merging" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_setup_util \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBrollback_env_variables\fP (\fBenviron\fP, env_var_subfolders)"
+.br
+.ti -1c
+.RI "def \fBprepend_env_variables\fP (\fBenviron\fP, env_var_subfolders, workspaces)"
+.br
+.ti -1c
+.RI "def \fBassignment\fP (key, value)"
+.br
+.ti -1c
+.RI "def \fBcomment\fP (msg)"
+.br
+.ti -1c
+.RI "def \fBprepend\fP (\fBenviron\fP, key, prefix)"
+.br
+.ti -1c
+.RI "def \fBfind_env_hooks\fP (\fBenviron\fP, cmake_prefix_path)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "string \fBCATKIN_MARKER_FILE\fP = '\&.catkin'"
+.br
+.ti -1c
+.RI "\fBsystem\fP = platform\&.system()"
+.br
+.ti -1c
+.RI "tuple \fBIS_DARWIN\fP = (\fBsystem\fP == 'Darwin')"
+.br
+.ti -1c
+.RI "tuple \fBIS_WINDOWS\fP = (\fBsystem\fP == 'Windows')"
+.br
+.ti -1c
+.RI "dictionary \fBENV_VAR_SUBFOLDERS\fP"
+.br
+.ti -1c
+.RI "\fBargs\fP = _parse_arguments()"
+.br
+.ti -1c
+.RI "\fBe\fP"
+.br
+.ti -1c
+.RI "\fBfile\fP"
+.br
+.ti -1c
+.RI "string \fBCMAKE_PREFIX_PATH\fP = '/opt/ros/kinetic'"
+.br
+.ti -1c
+.RI "\fBbase_path\fP = os\&.path\&.dirname(__file__)"
+.br
+.ti -1c
+.RI "\fBenviron\fP = dict(os\&.environ)"
+.br
+.ti -1c
+.RI "list \fBlines\fP = []"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "def _setup_util\&.assignment ( key,  value)"
+
+.PP
+Definition at line 175 of file _setup_util\&.py\&.
+.SS "def _setup_util\&.comment ( msg)"
+
+.PP
+Definition at line 182 of file _setup_util\&.py\&.
+.SS "def _setup_util\&.find_env_hooks ( environ,  cmake_prefix_path)"
+
+.PP
+.nf
+Generate shell code with found environment hooks
+for the all workspaces.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 198 of file _setup_util\&.py\&.
+.SS "def _setup_util\&.prepend ( environ,  key,  prefix)"
+
+.PP
+Definition at line 189 of file _setup_util\&.py\&.
+.SS "def _setup_util\&.prepend_env_variables ( environ,  env_var_subfolders,  workspaces)"
+
+.PP
+.nf
+Generate shell code to prepend environment variables
+for the all workspaces.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 129 of file _setup_util\&.py\&.
+.SS "def _setup_util\&.rollback_env_variables ( environ,  env_var_subfolders)"
+
+.PP
+.nf
+Generate shell code to reset environment variables
+by unrolling modifications based on all workspaces in CMAKE_PREFIX_PATH.
+This does not cover modifications performed by environment hooks.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 62 of file _setup_util\&.py\&.
+.SH "Variable Documentation"
+.PP 
+.SS "_setup_util\&.args = _parse_arguments()"
+
+.PP
+Definition at line 259 of file _setup_util\&.py\&.
+.SS "_setup_util\&.base_path = os\&.path\&.dirname(__file__)"
+
+.PP
+Definition at line 267 of file _setup_util\&.py\&.
+.SS "string _setup_util\&.CATKIN_MARKER_FILE = '\&.catkin'"
+
+.PP
+Definition at line 46 of file _setup_util\&.py\&.
+.SS "string _setup_util\&.CMAKE_PREFIX_PATH = '/opt/ros/kinetic'"
+
+.PP
+Definition at line 265 of file _setup_util\&.py\&.
+.SS "_setup_util\&.e"
+
+.PP
+Definition at line 261 of file _setup_util\&.py\&.
+.SS "dictionary _setup_util\&.ENV_VAR_SUBFOLDERS"
+\fBInitial value:\fP
+.PP
+.nf
+1 = {
+2     'CMAKE_PREFIX_PATH': '',
+3     'LD_LIBRARY_PATH' if not IS_DARWIN else 'DYLD_LIBRARY_PATH': ['lib', os\&.path\&.join('lib', 'x86_64-linux-gnu')],
+4     'PATH': 'bin',
+5     'PKG_CONFIG_PATH': [os\&.path\&.join('lib', 'pkgconfig'), os\&.path\&.join('lib', 'x86_64-linux-gnu', 'pkgconfig')],
+6     'PYTHONPATH': 'lib/python2\&.7/dist-packages',
+7 }
+.fi
+.PP
+Definition at line 53 of file _setup_util\&.py\&.
+.SS "_setup_util\&.environ = dict(os\&.environ)"
+
+.PP
+Definition at line 272 of file _setup_util\&.py\&.
+.SS "_setup_util\&.file"
+
+.PP
+Definition at line 261 of file _setup_util\&.py\&.
+.SS "tuple _setup_util\&.IS_DARWIN = (\fBsystem\fP == 'Darwin')"
+
+.PP
+Definition at line 49 of file _setup_util\&.py\&.
+.SS "tuple _setup_util\&.IS_WINDOWS = (\fBsystem\fP == 'Windows')"
+
+.PP
+Definition at line 50 of file _setup_util\&.py\&.
+.SS "list _setup_util\&.lines = []"
+
+.PP
+Definition at line 273 of file _setup_util\&.py\&.
+.SS "_setup_util\&.system = platform\&.system()"
+
+.PP
+Definition at line 48 of file _setup_util\&.py\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for robust_multirobot_map_merging from the source code\&.

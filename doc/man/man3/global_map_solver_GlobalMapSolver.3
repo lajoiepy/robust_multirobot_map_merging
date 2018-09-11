@@ -1,0 +1,61 @@
+.TH "global_map_solver::GlobalMapSolver" 3 "Tue Sep 11 2018" "Version 0.1" "robust_multirobot_map_merging" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+global_map_solver::GlobalMapSolver \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <global_map_solver\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGlobalMapSolver\fP (const \fBrobot_local_map::RobotLocalMap\fP &robot1_local_map, const \fBrobot_local_map::RobotLocalMap\fP &robot2_local_map, const \fBrobot_local_map::RobotMeasurements\fP &interrobot_measurements)"
+.br
+.ti -1c
+.RI "int \fBsolveGlobalMap\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const std::string \fBCONSISTENCY_MATRIX_FILE_NAME\fP = std::string('consistency_matrix\&.clq\&.mtx')"
+.br
+.ti -1c
+.RI "static const std::string \fBCONSISTENCY_LOOP_CLOSURES_FILE_NAME\fP = std::string('consistent_loop_closures\&.txt')"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class that computes the global map of multiple robots\&. 
+.PP
+Definition at line 14 of file global_map_solver\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "global_map_solver::GlobalMapSolver::GlobalMapSolver (const \fBrobot_local_map::RobotLocalMap\fP & robot1_local_map, const \fBrobot_local_map::RobotLocalMap\fP & robot2_local_map, const \fBrobot_local_map::RobotMeasurements\fP & interrobot_measurements)"
+Constructor 
+.PP
+Definition at line 11 of file global_map_solver\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "int global_map_solver::GlobalMapSolver::solveGlobalMap ()"
+Functions that solves the global maps according to the current constraints returns the size of the maximum clique\&. 
+.PP
+Definition at line 19 of file global_map_solver\&.cpp\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "const std::string global_map_solver::GlobalMapSolver::CONSISTENCY_LOOP_CLOSURES_FILE_NAME = std::string('consistent_loop_closures\&.txt')\fC [static]\fP"
+File name in which the consistent loop closures will be saved 
+.PP
+Definition at line 24 of file global_map_solver\&.h\&.
+.SS "const std::string global_map_solver::GlobalMapSolver::CONSISTENCY_MATRIX_FILE_NAME = std::string('consistency_matrix\&.clq\&.mtx')\fC [static]\fP"
+File name in which the consistency matrix will be saved 
+.PP
+Definition at line 19 of file global_map_solver\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for robust_multirobot_map_merging from the source code\&.

@@ -1,0 +1,148 @@
+.TH "build/CMakeFiles/3.5.2/CompilerIdC/CMakeCCompilerId.c" 3 "Tue Sep 11 2018" "Version 0.1" "robust_multirobot_map_merging" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+build/CMakeFiles/3.5.2/CompilerIdC/CMakeCCompilerId.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCOMPILER_ID\fP   ''"
+.br
+.ti -1c
+.RI "#define \fBSTRINGIFY_HELPER\fP(X)   #X"
+.br
+.ti -1c
+.RI "#define \fBSTRINGIFY\fP(X)   \fBSTRINGIFY_HELPER\fP(X)"
+.br
+.ti -1c
+.RI "#define \fBPLATFORM_ID\fP   ''"
+.br
+.ti -1c
+.RI "#define \fBARCHITECTURE_ID\fP   ''"
+.br
+.ti -1c
+.RI "#define \fBDEC\fP(n)"
+.br
+.ti -1c
+.RI "#define \fBHEX\fP(n)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmain\fP (int argc, char *argv[])"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "char const * \fBinfo_compiler\fP = 'INFO' ':' 'compiler[' COMPILER_ID ']'"
+.br
+.ti -1c
+.RI "char const * \fBinfo_platform\fP = 'INFO' ':' 'platform[' PLATFORM_ID ']'"
+.br
+.ti -1c
+.RI "char const * \fBinfo_arch\fP = 'INFO' ':' 'arch[' ARCHITECTURE_ID ']'"
+.br
+.ti -1c
+.RI "const char * \fBinfo_language_dialect_default\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ARCHITECTURE_ID   ''"
+
+.PP
+Definition at line 435 of file CMakeCCompilerId\&.c\&.
+.SS "#define COMPILER_ID   ''"
+
+.PP
+Definition at line 268 of file CMakeCCompilerId\&.c\&.
+.SS "#define DEC(n)"
+\fBValue:\fP
+.PP
+.nf
+('0' + (((n) / 10000000)%10)), \
+  ('0' + (((n) / 1000000)%10)),  \
+  ('0' + (((n) / 100000)%10)),   \
+  ('0' + (((n) / 10000)%10)),    \
+  ('0' + (((n) / 1000)%10)),     \
+  ('0' + (((n) / 100)%10)),      \
+  ('0' + (((n) / 10)%10)),       \
+  ('0' +  ((n) % 10))
+.fi
+.PP
+Definition at line 439 of file CMakeCCompilerId\&.c\&.
+.SS "#define HEX(n)"
+\fBValue:\fP
+.PP
+.nf
+('0' + ((n)>>28 & 0xF)), \
+  ('0' + ((n)>>24 & 0xF)), \
+  ('0' + ((n)>>20 & 0xF)), \
+  ('0' + ((n)>>16 & 0xF)), \
+  ('0' + ((n)>>12 & 0xF)), \
+  ('0' + ((n)>>8  & 0xF)), \
+  ('0' + ((n)>>4  & 0xF)), \
+  ('0' + ((n)     & 0xF))
+.fi
+.PP
+Definition at line 450 of file CMakeCCompilerId\&.c\&.
+.SS "#define PLATFORM_ID   ''"
+
+.PP
+Definition at line 385 of file CMakeCCompilerId\&.c\&.
+.SS "#define STRINGIFY(X)   \fBSTRINGIFY_HELPER\fP(X)"
+
+.PP
+Definition at line 289 of file CMakeCCompilerId\&.c\&.
+.SS "#define STRINGIFY_HELPER(X)   #X"
+
+.PP
+Definition at line 288 of file CMakeCCompilerId\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "int main (int argc, char * argv[])"
+
+.PP
+Definition at line 522 of file CMakeCCompilerId\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "char const* info_arch = 'INFO' ':' 'arch[' ARCHITECTURE_ID ']'"
+
+.PP
+Definition at line 501 of file CMakeCCompilerId\&.c\&.
+.SS "char const* info_compiler = 'INFO' ':' 'compiler[' COMPILER_ID ']'"
+
+.PP
+Definition at line 275 of file CMakeCCompilerId\&.c\&.
+.SS "const char* info_language_dialect_default"
+\fBInitial value:\fP
+.PP
+.nf
+= "INFO" ":" "dialect_default["
+
+  "90"
+
+
+
+
+
+
+"]"
+.fi
+.PP
+Definition at line 506 of file CMakeCCompilerId\&.c\&.
+.SS "char const* info_platform = 'INFO' ':' 'platform[' PLATFORM_ID ']'"
+
+.PP
+Definition at line 500 of file CMakeCCompilerId\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for robust_multirobot_map_merging from the source code\&.

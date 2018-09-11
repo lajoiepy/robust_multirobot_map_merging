@@ -1,0 +1,47 @@
+.TH "md__r_e_a_d_m_e" 3 "Tue Sep 11 2018" "Version 0.1" "robust_multirobot_map_merging" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__r_e_a_d_m_e \- Robust Multi-Robot Map Merging 
+This repository contains an implementation of the robust map merging method presented in 
+.PP
+.nf
+1 J\&. G\&. Mangelson, D\&. Dominic, R\&. M\&. Eustice, and R\&. Vasudevan, 
+2 “Pairwise Consistent Measurement Set Maximization for Robust Multi-robot Map Merging\&.”, ICRA 2018\&.
+
+.fi
+.PP
+.PP
+The \fBpurpose of this package\fP is to find a subset of inliers in a large set of inter-robot loop closures\&. Due to large measurement errors and perceptual aliasing in multi-robot applications, we need a \fBrobust method\fP to select which measurements to trust\&.
+.PP
+.SS "Requirements"
+.PP
+.IP "\(bu" 2
+\fBgeometry_msgs\fP (http://wiki.ros.org/geometry_msgs)
+.IP "\(bu" 2
+\fBMRPT\fP (https://www.mrpt.org/)
+.IP "\(bu" 2
+\fBmrpt_bridge\fP (http://wiki.ros.org/mrpt_bridge)
+.PP
+.PP
+.SS "Example"
+.PP
+An example of usage of the libraries is available in the \fCexamples/\fP folder\&.
+.PP
+.SS "Build"
+.PP
+.IP "\(bu" 2
+Clone this repository in the source folder of your ROS workspace\&.
+.IP "\(bu" 2
+Build using \fCcatkin build\fP or \fCcatkin_make\fP\&.
+.PP
+.PP
+\fIYou can also build it normally using cmake\&.\fP
+.PP
+.SS "Try It!"
+.PP
+.IP "\(bu" 2
+Launch with \fCrosrun robust_multirobot_map_merging robust_multirobot_map_merging_node <trajectory robot1 \&.g2o file> <trajectory robot2 \&.g2o file> <inter robot loop closures \&.g2o file>\fP
+.PP
+.PP
+\fISome \&.g2o files are available for testing in the \fCpose_graph_datasets/\fP folder\&.\fP 
