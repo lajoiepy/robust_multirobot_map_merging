@@ -1,20 +1,24 @@
 // Copyright (C) 2018 by Pierre-Yves Lajoie <lajoie.py@gmail.com>
 
+/** \file example_node.cpp
+ *  \brief Example of the package utilisation.
+ */ 
+
 #include "graph_utils/graph_utils_functions.h"
 #include "pairwise_consistency/pairwise_consistency.h"
 #include "robot_local_map/robot_local_map.h"
 #include "global_map_solver/global_map_solver.h"
 #include "findClique.h"
-
 #include <string>
 #include <iostream>
 #include <eigen3/Eigen/Geometry>
 #include <chrono>
 
-#define THRESHOLD 1.635
-
-const std::string CONSISTENCY_MATRIX_FILE_NAME = "consistency_matrix.clq.mtx";
-
+/** \brief Main function of an example program using this package.
+ * 
+ * In this example, we use 3 input files  <trajectory robot1 .g2o file> <trajectory robot2 .g2o file> <inter robot loop closures .g2o file>
+ * to produce a resulting global pose graph.
+ */ 
 int main(int argc, char* argv[])
 {
   std::cout << "---------------------------------------------------------" << std::endl;

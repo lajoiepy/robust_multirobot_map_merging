@@ -1,5 +1,5 @@
 <map id="pairwise_consistency::PairwiseConsistency::computeConsistentMeasurementsMatrix" name="pairwise_consistency::PairwiseConsistency::computeConsistentMeasurementsMatrix">
-<area shape="rect" id="node2" href="$namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="graph_utils::isInTrajectory" alt="" coords="285,5,457,32"/>
-<area shape="rect" id="node3" href="$namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="graph_utils::poseCompose" alt="" coords="283,56,460,83"/>
-<area shape="rect" id="node4" href="$namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="graph_utils::poseInverse\lCompose" alt="" coords="289,107,453,149"/>
+<area shape="rect" id="node2" href="$namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="This function check if a pose is include in a trajectory. " alt="" coords="285,5,457,32"/>
+<area shape="rect" id="node3" href="$namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="283,56,460,83"/>
+<area shape="rect" id="node4" href="$namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="289,107,453,149"/>
 </map>

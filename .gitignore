@@ -33,3 +33,7 @@
 
 # VScode editor
 .vscode*
+
+# CLion
+cmake-build-debug*
+.idea*

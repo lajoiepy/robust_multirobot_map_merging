@@ -1,3 +1,4 @@
+# Copyright (C) 2018 by Pierre-Yves Lajoie <lajoie.py@gmail.com>
 cmake_minimum_required(VERSION 2.8.3)
 project(robust_multirobot_map_merging)
 

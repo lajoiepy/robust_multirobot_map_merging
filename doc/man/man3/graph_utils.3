@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-graph_utils \- 
+graph_utils \- This namespace encapsulates utility functions to manipulate graphs\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -12,15 +13,19 @@ graph_utils \-
 .ti -1c
 .RI "struct \fBTrajectory\fP"
 .br
+.RI "\fIStructure defining a robot trajectory\&. \fP"
 .ti -1c
 .RI "struct \fBTrajectoryPose\fP"
 .br
+.RI "\fIStructure defining a pose in a robot trajectory\&. \fP"
 .ti -1c
 .RI "struct \fBTransform\fP"
 .br
+.RI "\fIStructure defining a transformation between two poses\&. \fP"
 .ti -1c
-.RI "struct \fBTransformMap\fP"
+.RI "struct \fBTransforms\fP"
 .br
+.RI "\fIStructure defining a std::map of transformations\&. \fP"
 .in -1c
 .SS "Typedefs"
 
@@ -28,73 +33,186 @@ graph_utils \-
 .ti -1c
 .RI "typedef std::vector< std::pair< size_t, size_t > > \fBLoopClosures\fP"
 .br
+.RI "\fItype to store poses IDs of loop closures\&. \fP"
 .in -1c
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "uint8_t \fBparseG2ofile\fP (const std::string &file_name, size_t &num_poses, \fBTransformMap\fP &tranform_map, \fBLoopClosures\fP &loop_closures, const bool &only_loop_closures)"
+.RI "uint8_t \fBparseG2ofile\fP (const std::string &file_name, size_t &num_poses, \fBTransforms\fP &tranforms, \fBLoopClosures\fP &loop_closures, const bool &only_loop_closures)"
 .br
+.RI "\fIThis function parse \&.g2o files\&. \fP"
 .ti -1c
 .RI "void \fBposeCompose\fP (const geometry_msgs::PoseWithCovariance &a, const geometry_msgs::PoseWithCovariance &b, geometry_msgs::PoseWithCovariance &out)"
 .br
+.RI "\fIThis function compose (+) geometric poses with covariance\&. \fP"
 .ti -1c
 .RI "void \fBposeInverseCompose\fP (const geometry_msgs::PoseWithCovariance &a, const geometry_msgs::PoseWithCovariance &b, geometry_msgs::PoseWithCovariance &out)"
 .br
+.RI "\fIThis function compose (-) geometric poses with covariance\&. \fP"
 .ti -1c
 .RI "void \fBposeInverse\fP (const geometry_msgs::PoseWithCovariance &a, geometry_msgs::PoseWithCovariance &out)"
 .br
+.RI "\fIThis function invert a geometric pose with covariance\&. \fP"
 .ti -1c
-.RI "\fBTrajectory\fP \fBbuildTrajectory\fP (const \fBTransformMap\fP &transform_map)"
+.RI "\fBTrajectory\fP \fBbuildTrajectory\fP (const \fBTransforms\fP &transforms)"
 .br
+.RI "\fIThis function precompute the trajectory by composing the successive poses\&. \fP"
 .ti -1c
 .RI "void \fBprintConsistencyGraph\fP (const Eigen::MatrixXi &consistency_matrix, const std::string &file_name)"
 .br
+.RI "\fIThis function prints the consistency matrix to the format expected by the maximum clique solver\&. \fP"
 .ti -1c
 .RI "bool \fBisInTrajectory\fP (const \fBTrajectory\fP &trajectory, const size_t &pose_id)"
 .br
+.RI "\fIThis function check if a pose is include in a trajectory\&. \fP"
 .ti -1c
 .RI "void \fBprintConsistentLoopClosures\fP (const \fBLoopClosures\fP &loop_closures, const std::vector< int > &max_clique_data, const std::string &file_name)"
 .br
+.RI "\fIThis function prints a list of consistent loop closures in a file\&. \fP"
 .in -1c
+.SH "Detailed Description"
+.PP 
+This namespace encapsulates utility functions to manipulate graphs\&. 
 .SH "Typedef Documentation"
 .PP 
-.SS "typedef std::vector<std::pair<size_t,size_t> > \fBgraph_utils::LoopClosures\fP"
-Type defining a list of pair of poses with a loop closure 
+.SS "\fBgraph_utils::LoopClosures\fP"
+
 .PP
-Definition at line 39 of file graph_types\&.h\&.
+type to store poses IDs of loop closures\&. Type defining a list of pair of poses with a loop closure 
+.PP
+Definition at line 53 of file graph_types\&.h\&.
 .SH "Function Documentation"
 .PP 
-.SS "\fBTrajectory\fP graph_utils::buildTrajectory (const \fBTransformMap\fP & transform_map)"
-This function precompute the trajectory by composing the sucessive poses\&. 
+.SS "\fBTrajectory\fP graph_utils::buildTrajectory (const \fBTransforms\fP & transforms)"
+
+.PP
+This function precompute the trajectory by composing the successive poses\&. Uses the mrpt library : https://www.mrpt.org/ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransforms\fP Odometry measurements returns the trajectory 
+.RE
+.PP
+
 .PP
 Definition at line 200 of file graph_utils_functions\&.cpp\&.
 .SS "bool graph_utils::isInTrajectory (const \fBTrajectory\fP & trajectory, const size_t & pose_id)"
+
+.PP
 This function check if a pose is include in a trajectory\&. 
 .PP
+\fBParameters:\fP
+.RS 4
+\fItrajectory\fP \fBTrajectory\fP in which to find the pose 
+.br
+\fIpose_id\fP ID of the pose to find\&. returns boolean indicating if the pose is included in the trajectory\&. 
+.RE
+.PP
+
+.PP
 Definition at line 258 of file graph_utils_functions\&.cpp\&.
-.SS "uint8_t graph_utils::parseG2ofile (const std::string & file_name, size_t & num_poses, \fBTransformMap\fP & tranform_map, \fBLoopClosures\fP & loop_closures, const bool & only_loop_closures)"
-This function parse \&.g2o files\&. The specification of this format is available here : https://github.com/RainerKuemmerle/g2o/wiki/File-Format returns the degrees of freedom (3 in 2D, 6 in 3D) 
+.SS "uint8_t graph_utils::parseG2ofile (const std::string & file_name, size_t & num_poses, \fBTransforms\fP & tranforms, \fBLoopClosures\fP & loop_closures, const bool & only_loop_closures)"
+
+.PP
+This function parse \&.g2o files\&. The specification of this format is available here : https://github.com/RainerKuemmerle/g2o/wiki/File-Format 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfile_name\fP File name 
+.br
+\fInum_poses\fP Number of poses in the file 
+.br
+\fItransforms\fP Structure containing the measurements 
+.br
+\fIloop_closures\fP IDs of the nodes involved to loop closures 
+.br
+\fIonly_loop_closures\fP If true, the file is expected to contain only loop closures 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the degrees of freedom (3 in 2D, 6 in 3D) 
+.RE
+.PP
+
 .PP
 Definition at line 15 of file graph_utils_functions\&.cpp\&.
 .SS "void graph_utils::poseCompose (const geometry_msgs::PoseWithCovariance & a, const geometry_msgs::PoseWithCovariance & b, geometry_msgs::PoseWithCovariance & out)"
-This function combine to geometric poses with covariance\&. out = a + b Uses the mrpt library : https://www.mrpt.org/ 
+
+.PP
+This function compose (+) geometric poses with covariance\&. Uses the mrpt library : https://www.mrpt.org/ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa,b\fP Geometric poses with covariance information 
+.br
+\fIout\fP a + b 
+.RE
+.PP
+
 .PP
 Definition at line 165 of file graph_utils_functions\&.cpp\&.
 .SS "void graph_utils::poseInverse (const geometry_msgs::PoseWithCovariance & a, geometry_msgs::PoseWithCovariance & out)"
-This function invert a geometric pose with covariance\&. out = I - a Uses the mrpt library : https://www.mrpt.org/ 
+
+.PP
+This function invert a geometric pose with covariance\&. Uses the mrpt library : https://www.mrpt.org/ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP Geometric poses with covariance information 
+.br
+\fIout\fP I - a 
+.RE
+.PP
+
 .PP
 Definition at line 177 of file graph_utils_functions\&.cpp\&.
 .SS "void graph_utils::poseInverseCompose (const geometry_msgs::PoseWithCovariance & a, const geometry_msgs::PoseWithCovariance & b, geometry_msgs::PoseWithCovariance & out)"
-This function combine to geometric poses with covariance\&. out = a - b Uses the mrpt library : https://www.mrpt.org/ 
+
+.PP
+This function compose (-) geometric poses with covariance\&. Uses the mrpt library : https://www.mrpt.org/ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa,b\fP Geometric poses with covariance information 
+.br
+\fIout\fP a - b 
+.RE
+.PP
+
 .PP
 Definition at line 188 of file graph_utils_functions\&.cpp\&.
 .SS "void graph_utils::printConsistencyGraph (const Eigen::MatrixXi & consistency_matrix, const std::string & file_name)"
-This function prints the consistency matrix to the format expected by the maximum clique solver Fast Max-Cliquer (http://cucis.ece.northwestern.edu/projects/MAXCLIQUE/) 
+
+.PP
+This function prints the consistency matrix to the format expected by the maximum clique solver\&. This function prints the consistency matrix to the format expected by the maximum clique solver Fast Max-Cliquer (http://cucis.ece.northwestern.edu/projects/MAXCLIQUE/) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIconsistency_matrix\fP Consistency matrix of the loop closures 
+.br
+\fIfile_name\fP Name of the file in which the consistency matrix will be saved 
+.RE
+.PP
+
 .PP
 Definition at line 234 of file graph_utils_functions\&.cpp\&.
 .SS "void graph_utils::printConsistentLoopClosures (const \fBLoopClosures\fP & loop_closures, const std::vector< int > & max_clique_data, const std::string & file_name)"
-This function prints a list of consistent loop closures\&. 
+
+.PP
+This function prints a list of consistent loop closures in a file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIloop_closures\fP Loop closures to consider 
+.br
+\fImax_clique_data\fP Max-Cliquer output data\&. 
+.br
+\fIfile_name\fP Name of the file to save the results\&. 
+.RE
+.PP
+
 .PP
 Definition at line 262 of file graph_utils_functions\&.cpp\&.
 .SH "Author"

@@ -92,82 +92,109 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">graph_utils Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This namespace encapsulates utility functions to manipulate graphs.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraph__utils_1_1_trajectory.html">Trajectory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure defining a robot trajectory.  <a href="structgraph__utils_1_1_trajectory.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraph__utils_1_1_trajectory_pose.html">TrajectoryPose</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure defining a pose in a robot trajectory.  <a href="structgraph__utils_1_1_trajectory_pose.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraph__utils_1_1_transform.html">Transform</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure defining a transformation between two poses.  <a href="structgraph__utils_1_1_transform.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraph__utils_1_1_transform_map.html">TransformMap</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraph__utils_1_1_transforms.html">Transforms</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure defining a std::map of transformations.  <a href="structgraph__utils_1_1_transforms.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:af2d4757c6f1fc2e65eec94e33884b811"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::pair&lt; size_t, size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraph__utils.html#af2d4757c6f1fc2e65eec94e33884b811">LoopClosures</a></td></tr>
-<tr class="separator:af2d4757c6f1fc2e65eec94e33884b811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a001157d8fee373f75f964349764215db"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::pair&lt; size_t, size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraph__utils.html#a001157d8fee373f75f964349764215db">LoopClosures</a></td></tr>
+<tr class="memdesc:a001157d8fee373f75f964349764215db"><td class="mdescLeft">&#160;</td><td class="mdescRight">type to store poses IDs of loop closures.  <a href="#a001157d8fee373f75f964349764215db">More...</a><br /></td></tr>
+<tr class="separator:a001157d8fee373f75f964349764215db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adac94ce4f08b336d48ad718264257c5e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraph__utils.html#adac94ce4f08b336d48ad718264257c5e">parseG2ofile</a> (const std::string &amp;file_name, size_t &amp;num_poses, <a class="el" href="structgraph__utils_1_1_transform_map.html">TransformMap</a> &amp;tranform_map, <a class="el" href="namespacegraph__utils.html#af2d4757c6f1fc2e65eec94e33884b811">LoopClosures</a> &amp;loop_closures, const bool &amp;only_loop_closures)</td></tr>
-<tr class="separator:adac94ce4f08b336d48ad718264257c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae76bf2d3bc7104b6b835416f91d5b08"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraph__utils.html#aae76bf2d3bc7104b6b835416f91d5b08">parseG2ofile</a> (const std::string &amp;file_name, size_t &amp;num_poses, <a class="el" href="structgraph__utils_1_1_transforms.html">Transforms</a> &amp;tranforms, <a class="el" href="namespacegraph__utils.html#a001157d8fee373f75f964349764215db">LoopClosures</a> &amp;loop_closures, const bool &amp;only_loop_closures)</td></tr>
+<tr class="memdesc:aae76bf2d3bc7104b6b835416f91d5b08"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function parse .g2o files.  <a href="#aae76bf2d3bc7104b6b835416f91d5b08">More...</a><br /></td></tr>
+<tr class="separator:aae76bf2d3bc7104b6b835416f91d5b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77a9dbc4f10af715a643164166092df6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6">poseCompose</a> (const geometry_msgs::PoseWithCovariance &amp;a, const geometry_msgs::PoseWithCovariance &amp;b, geometry_msgs::PoseWithCovariance &amp;out)</td></tr>
+<tr class="memdesc:a77a9dbc4f10af715a643164166092df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function compose (+) geometric poses with covariance.  <a href="#a77a9dbc4f10af715a643164166092df6">More...</a><br /></td></tr>
 <tr class="separator:a77a9dbc4f10af715a643164166092df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab870b094ec3889879a4d3d87f7815ec2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2">poseInverseCompose</a> (const geometry_msgs::PoseWithCovariance &amp;a, const geometry_msgs::PoseWithCovariance &amp;b, geometry_msgs::PoseWithCovariance &amp;out)</td></tr>
+<tr class="memdesc:ab870b094ec3889879a4d3d87f7815ec2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function compose (-) geometric poses with covariance.  <a href="#ab870b094ec3889879a4d3d87f7815ec2">More...</a><br /></td></tr>
 <tr class="separator:ab870b094ec3889879a4d3d87f7815ec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4c7fe6aabe5d48181b5dc186a09c8dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraph__utils.html#ab4c7fe6aabe5d48181b5dc186a09c8dd">poseInverse</a> (const geometry_msgs::PoseWithCovariance &amp;a, geometry_msgs::PoseWithCovariance &amp;out)</td></tr>
+<tr class="memdesc:ab4c7fe6aabe5d48181b5dc186a09c8dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function invert a geometric pose with covariance.  <a href="#ab4c7fe6aabe5d48181b5dc186a09c8dd">More...</a><br /></td></tr>
 <tr class="separator:ab4c7fe6aabe5d48181b5dc186a09c8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96aef1e7800accb5776482545add3c55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgraph__utils_1_1_trajectory.html">Trajectory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraph__utils.html#a96aef1e7800accb5776482545add3c55">buildTrajectory</a> (const <a class="el" href="structgraph__utils_1_1_transform_map.html">TransformMap</a> &amp;transform_map)</td></tr>
-<tr class="separator:a96aef1e7800accb5776482545add3c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab227f2d1d38e5bcb6a0cd9e71984538e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgraph__utils_1_1_trajectory.html">Trajectory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraph__utils.html#ab227f2d1d38e5bcb6a0cd9e71984538e">buildTrajectory</a> (const <a class="el" href="structgraph__utils_1_1_transforms.html">Transforms</a> &amp;transforms)</td></tr>
+<tr class="memdesc:ab227f2d1d38e5bcb6a0cd9e71984538e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function precompute the trajectory by composing the successive poses.  <a href="#ab227f2d1d38e5bcb6a0cd9e71984538e">More...</a><br /></td></tr>
+<tr class="separator:ab227f2d1d38e5bcb6a0cd9e71984538e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa63b9e9c4cf0a0db956aa09fea329328"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraph__utils.html#aa63b9e9c4cf0a0db956aa09fea329328">printConsistencyGraph</a> (const Eigen::MatrixXi &amp;consistency_matrix, const std::string &amp;file_name)</td></tr>
+<tr class="memdesc:aa63b9e9c4cf0a0db956aa09fea329328"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function prints the consistency matrix to the format expected by the maximum clique solver.  <a href="#aa63b9e9c4cf0a0db956aa09fea329328">More...</a><br /></td></tr>
 <tr class="separator:aa63b9e9c4cf0a0db956aa09fea329328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e9717352bed2d3c8ce7a639ea19f3b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6">isInTrajectory</a> (const <a class="el" href="structgraph__utils_1_1_trajectory.html">Trajectory</a> &amp;trajectory, const size_t &amp;pose_id)</td></tr>
+<tr class="memdesc:a5e9717352bed2d3c8ce7a639ea19f3b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function check if a pose is include in a trajectory.  <a href="#a5e9717352bed2d3c8ce7a639ea19f3b6">More...</a><br /></td></tr>
 <tr class="separator:a5e9717352bed2d3c8ce7a639ea19f3b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4150234137044c02b51071ff0b4f0588"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraph__utils.html#a4150234137044c02b51071ff0b4f0588">printConsistentLoopClosures</a> (const <a class="el" href="namespacegraph__utils.html#af2d4757c6f1fc2e65eec94e33884b811">LoopClosures</a> &amp;loop_closures, const std::vector&lt; int &gt; &amp;max_clique_data, const std::string &amp;file_name)</td></tr>
+<tr class="memitem:a4150234137044c02b51071ff0b4f0588"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraph__utils.html#a4150234137044c02b51071ff0b4f0588">printConsistentLoopClosures</a> (const <a class="el" href="namespacegraph__utils.html#a001157d8fee373f75f964349764215db">LoopClosures</a> &amp;loop_closures, const std::vector&lt; int &gt; &amp;max_clique_data, const std::string &amp;file_name)</td></tr>
+<tr class="memdesc:a4150234137044c02b51071ff0b4f0588"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function prints a list of consistent loop closures in a file.  <a href="#a4150234137044c02b51071ff0b4f0588">More...</a><br /></td></tr>
 <tr class="separator:a4150234137044c02b51071ff0b4f0588"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a class="anchor" id="af2d4757c6f1fc2e65eec94e33884b811"></a>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This namespace encapsulates utility functions to manipulate graphs. </p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="a001157d8fee373f75f964349764215db"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::vector&lt;std::pair&lt;size_t,size_t&gt; &gt; <a class="el" href="namespacegraph__utils.html#af2d4757c6f1fc2e65eec94e33884b811">graph_utils::LoopClosures</a></td>
+          <td class="memname"><a class="el" href="namespacegraph__utils.html#a001157d8fee373f75f964349764215db">graph_utils::LoopClosures</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>type to store poses IDs of loop closures. </p>
 <p>Type defining a list of pair of poses with a loop closure </p>
 
-<p>Definition at line <a class="el" href="graph__types_8h_source.html#l00039">39</a> of file <a class="el" href="graph__types_8h_source.html">graph_types.h</a>.</p>
+<p>Definition at line <a class="el" href="graph__types_8h_source.html#l00053">53</a> of file <a class="el" href="graph__types_8h_source.html">graph_types.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a96aef1e7800accb5776482545add3c55"></a>
+<a class="anchor" id="ab227f2d1d38e5bcb6a0cd9e71984538e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="structgraph__utils_1_1_trajectory.html">Trajectory</a> graph_utils::buildTrajectory </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structgraph__utils_1_1_transform_map.html">TransformMap</a> &amp;&#160;</td>
-          <td class="paramname"><em>transform_map</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structgraph__utils_1_1_transforms.html">Transforms</a> &amp;&#160;</td>
+          <td class="paramname"><em>transforms</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function precompute the trajectory by composing the sucessive poses. </p>
+
+<p>This function precompute the trajectory by composing the successive poses. </p>
+<p>Uses the mrpt library : <a href="https://www.mrpt.org/">https://www.mrpt.org/</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">transforms</td><td>Odometry measurements returns the trajectory </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="graph__utils__functions_8cpp_source.html#l00200">200</a> of file <a class="el" href="graph__utils__functions_8cpp_source.html">graph_utils_functions.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacegraph__utils_a96aef1e7800accb5776482545add3c55_cgraph.png" border="0" usemap="#namespacegraph__utils_a96aef1e7800accb5776482545add3c55_cgraph" alt=""/></div>
-<map name="namespacegraph__utils_a96aef1e7800accb5776482545add3c55_cgraph" id="namespacegraph__utils_a96aef1e7800accb5776482545add3c55_cgraph">
-<area shape="rect" id="node2" href="namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="graph_utils::poseCompose" alt="" coords="232,5,409,32"/>
+<div class="center"><img src="namespacegraph__utils_ab227f2d1d38e5bcb6a0cd9e71984538e_cgraph.png" border="0" usemap="#namespacegraph__utils_ab227f2d1d38e5bcb6a0cd9e71984538e_cgraph" alt=""/></div>
+<map name="namespacegraph__utils_ab227f2d1d38e5bcb6a0cd9e71984538e_cgraph" id="namespacegraph__utils_ab227f2d1d38e5bcb6a0cd9e71984538e_cgraph">
+<area shape="rect" id="node2" href="namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="232,5,409,32"/>
 </map>
 </div>
 </p>
@@ -175,8 +202,8 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacegraph__utils_a96aef1e7800accb5776482545add3c55_icgraph.png" border="0" usemap="#namespacegraph__utils_a96aef1e7800accb5776482545add3c55_icgraph" alt=""/></div>
-<map name="namespacegraph__utils_a96aef1e7800accb5776482545add3c55_icgraph" id="namespacegraph__utils_a96aef1e7800accb5776482545add3c55_icgraph">
+<div class="center"><img src="namespacegraph__utils_ab227f2d1d38e5bcb6a0cd9e71984538e_icgraph.png" border="0" usemap="#namespacegraph__utils_ab227f2d1d38e5bcb6a0cd9e71984538e_icgraph" alt=""/></div>
+<map name="namespacegraph__utils_ab227f2d1d38e5bcb6a0cd9e71984538e_icgraph" id="namespacegraph__utils_ab227f2d1d38e5bcb6a0cd9e71984538e_icgraph">
 <area shape="rect" id="node2" href="classrobot__local__map_1_1_robot_local_map.html#a1333b8f7f04fe200b959cba62558106b" title="robot_local_map::RobotLocal\lMap::RobotLocalMap" alt="" coords="232,5,423,47"/>
 </map>
 </div>
@@ -207,7 +234,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>This function check if a pose is include in a trajectory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">trajectory</td><td><a class="el" href="structgraph__utils_1_1_trajectory.html" title="Structure defining a robot trajectory. ">Trajectory</a> in which to find the pose </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pose_id</td><td>ID of the pose to find. returns boolean indicating if the pose is included in the trajectory. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="graph__utils__functions_8cpp_source.html#l00258">258</a> of file <a class="el" href="graph__utils__functions_8cpp_source.html">graph_utils_functions.cpp</a>.</p>
 
@@ -225,7 +260,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="adac94ce4f08b336d48ad718264257c5e"></a>
+<a class="anchor" id="aae76bf2d3bc7104b6b835416f91d5b08"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -244,13 +279,13 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structgraph__utils_1_1_transform_map.html">TransformMap</a> &amp;&#160;</td>
-          <td class="paramname"><em>tranform_map</em>, </td>
+          <td class="paramtype"><a class="el" href="structgraph__utils_1_1_transforms.html">Transforms</a> &amp;&#160;</td>
+          <td class="paramname"><em>tranforms</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacegraph__utils.html#af2d4757c6f1fc2e65eec94e33884b811">LoopClosures</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacegraph__utils.html#a001157d8fee373f75f964349764215db">LoopClosures</a> &amp;&#160;</td>
           <td class="paramname"><em>loop_closures</em>, </td>
         </tr>
         <tr>
@@ -266,16 +301,28 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function parse .g2o files. The specification of this format is available here : <a href="https://github.com/RainerKuemmerle/g2o/wiki/File-Format">https://github.com/RainerKuemmerle/g2o/wiki/File-Format</a> returns the degrees of freedom (3 in 2D, 6 in 3D) </p>
+
+<p>This function parse .g2o files. </p>
+<p>The specification of this format is available here : <a href="https://github.com/RainerKuemmerle/g2o/wiki/File-Format">https://github.com/RainerKuemmerle/g2o/wiki/File-Format</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">file_name</td><td>File name </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">num_poses</td><td>Number of poses in the file </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">transforms</td><td>Structure containing the measurements </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">loop_closures</td><td>IDs of the nodes involved to loop closures </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">only_loop_closures</td><td>If true, the file is expected to contain only loop closures </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the degrees of freedom (3 in 2D, 6 in 3D) </dd></dl>
 
 <p>Definition at line <a class="el" href="graph__utils__functions_8cpp_source.html#l00015">15</a> of file <a class="el" href="graph__utils__functions_8cpp_source.html">graph_utils_functions.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacegraph__utils_adac94ce4f08b336d48ad718264257c5e_icgraph.png" border="0" usemap="#namespacegraph__utils_adac94ce4f08b336d48ad718264257c5e_icgraph" alt=""/></div>
-<map name="namespacegraph__utils_adac94ce4f08b336d48ad718264257c5e_icgraph" id="namespacegraph__utils_adac94ce4f08b336d48ad718264257c5e_icgraph">
-<area shape="rect" id="node2" href="classrobot__local__map_1_1_robot_measurements.html#ace947dfe1dd2a75d99be4c7612d4cda2" title="robot_local_map::RobotMeasurements\l::RobotMeasurements" alt="" coords="220,5,467,47"/>
+<div class="center"><img src="namespacegraph__utils_aae76bf2d3bc7104b6b835416f91d5b08_icgraph.png" border="0" usemap="#namespacegraph__utils_aae76bf2d3bc7104b6b835416f91d5b08_icgraph" alt=""/></div>
+<map name="namespacegraph__utils_aae76bf2d3bc7104b6b835416f91d5b08_icgraph" id="namespacegraph__utils_aae76bf2d3bc7104b6b835416f91d5b08_icgraph">
+<area shape="rect" id="node2" href="classrobot__local__map_1_1_robot_measurements.html#ace947dfe1dd2a75d99be4c7612d4cda2" title="Constructor. " alt="" coords="220,5,467,47"/>
 </map>
 </div>
 </p>
@@ -311,7 +358,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function combine to geometric poses with covariance. out = a + b Uses the mrpt library : <a href="https://www.mrpt.org/">https://www.mrpt.org/</a> </p>
+
+<p>This function compose (+) geometric poses with covariance. </p>
+<p>Uses the mrpt library : <a href="https://www.mrpt.org/">https://www.mrpt.org/</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a,b</td><td>Geometric poses with covariance information </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>a + b </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="graph__utils__functions_8cpp_source.html#l00165">165</a> of file <a class="el" href="graph__utils__functions_8cpp_source.html">graph_utils_functions.cpp</a>.</p>
 
@@ -320,7 +375,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacegraph__utils_a77a9dbc4f10af715a643164166092df6_icgraph.png" border="0" usemap="#namespacegraph__utils_a77a9dbc4f10af715a643164166092df6_icgraph" alt=""/></div>
 <map name="namespacegraph__utils_a77a9dbc4f10af715a643164166092df6_icgraph" id="namespacegraph__utils_a77a9dbc4f10af715a643164166092df6_icgraph">
-<area shape="rect" id="node2" href="namespacegraph__utils.html#a96aef1e7800accb5776482545add3c55" title="graph_utils::buildTrajectory" alt="" coords="256,13,435,39"/>
+<area shape="rect" id="node2" href="namespacegraph__utils.html#ab227f2d1d38e5bcb6a0cd9e71984538e" title="This function precompute the trajectory by composing the successive poses. " alt="" coords="256,13,435,39"/>
 <area shape="rect" id="node4" href="classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="pairwise_consistency\l::PairwiseConsistency\l::computeConsistentMeasurements\lMatrix" alt="" coords="231,64,460,135"/>
 <area shape="rect" id="node3" href="classrobot__local__map_1_1_robot_local_map.html#a1333b8f7f04fe200b959cba62558106b" title="robot_local_map::RobotLocal\lMap::RobotLocalMap" alt="" coords="524,5,715,47"/>
 <area shape="rect" id="node5" href="classpairwise__consistency_1_1_pairwise_consistency.html#a4f47ff22f4a183bdd4de6e0f1887fde6" title="pairwise_consistency\l::PairwiseConsistency\l::PairwiseConsistency" alt="" coords="543,70,696,126"/>
@@ -354,7 +409,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function invert a geometric pose with covariance. out = I - a Uses the mrpt library : <a href="https://www.mrpt.org/">https://www.mrpt.org/</a> </p>
+
+<p>This function invert a geometric pose with covariance. </p>
+<p>Uses the mrpt library : <a href="https://www.mrpt.org/">https://www.mrpt.org/</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Geometric poses with covariance information </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>I - a </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="graph__utils__functions_8cpp_source.html#l00177">177</a> of file <a class="el" href="graph__utils__functions_8cpp_source.html">graph_utils_functions.cpp</a>.</p>
 
@@ -389,7 +452,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function combine to geometric poses with covariance. out = a - b Uses the mrpt library : <a href="https://www.mrpt.org/">https://www.mrpt.org/</a> </p>
+
+<p>This function compose (-) geometric poses with covariance. </p>
+<p>Uses the mrpt library : <a href="https://www.mrpt.org/">https://www.mrpt.org/</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a,b</td><td>Geometric poses with covariance information </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>a - b </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="graph__utils__functions_8cpp_source.html#l00188">188</a> of file <a class="el" href="graph__utils__functions_8cpp_source.html">graph_utils_functions.cpp</a>.</p>
 
@@ -430,7 +501,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function prints the consistency matrix to the format expected by the maximum clique solver Fast Max-Cliquer (<a href="http://cucis.ece.northwestern.edu/projects/MAXCLIQUE/">http://cucis.ece.northwestern.edu/projects/MAXCLIQUE/</a>) </p>
+
+<p>This function prints the consistency matrix to the format expected by the maximum clique solver. </p>
+<p>This function prints the consistency matrix to the format expected by the maximum clique solver Fast Max-Cliquer (<a href="http://cucis.ece.northwestern.edu/projects/MAXCLIQUE/">http://cucis.ece.northwestern.edu/projects/MAXCLIQUE/</a>) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">consistency_matrix</td><td>Consistency matrix of the loop closures </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">file_name</td><td>Name of the file in which the consistency matrix will be saved </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="graph__utils__functions_8cpp_source.html#l00234">234</a> of file <a class="el" href="graph__utils__functions_8cpp_source.html">graph_utils_functions.cpp</a>.</p>
 
@@ -453,7 +532,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void graph_utils::printConsistentLoopClosures </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacegraph__utils.html#af2d4757c6f1fc2e65eec94e33884b811">LoopClosures</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacegraph__utils.html#a001157d8fee373f75f964349764215db">LoopClosures</a> &amp;&#160;</td>
           <td class="paramname"><em>loop_closures</em>, </td>
         </tr>
         <tr>
@@ -475,7 +554,16 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function prints a list of consistent loop closures. </p>
+
+<p>This function prints a list of consistent loop closures in a file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">loop_closures</td><td>Loop closures to consider </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">max_clique_data</td><td>Max-Cliquer output data. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">file_name</td><td>Name of the file to save the results. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="graph__utils__functions_8cpp_source.html#l00262">262</a> of file <a class="el" href="graph__utils__functions_8cpp_source.html">graph_utils_functions.cpp</a>.</p>
 

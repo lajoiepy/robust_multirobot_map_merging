@@ -1,4 +1,4 @@
 <map id="robot_local_map::RobotLocalMap::RobotLocalMap" name="robot_local_map::RobotLocalMap::RobotLocalMap">
-<area shape="rect" id="node2" href="$namespacegraph__utils.html#a96aef1e7800accb5776482545add3c55" title="graph_utils::buildTrajectory" alt="" coords="244,13,423,39"/>
-<area shape="rect" id="node3" href="$namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="graph_utils::poseCompose" alt="" coords="471,13,648,39"/>
+<area shape="rect" id="node2" href="$namespacegraph__utils.html#ab227f2d1d38e5bcb6a0cd9e71984538e" title="This function precompute the trajectory by composing the successive poses. " alt="" coords="244,13,423,39"/>
+<area shape="rect" id="node3" href="$namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="471,13,648,39"/>
 </map>

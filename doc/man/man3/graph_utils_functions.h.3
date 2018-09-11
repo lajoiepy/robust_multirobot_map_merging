@@ -25,34 +25,43 @@ include/graph_utils/graph_utils_functions.h \-
 .ti -1c
 .RI " \fBgraph_utils\fP"
 .br
+.RI "\fIThis namespace encapsulates utility functions to manipulate graphs\&. \fP"
 .in -1c
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "uint8_t \fBgraph_utils::parseG2ofile\fP (const std::string &file_name, size_t &num_poses, TransformMap &tranform_map, LoopClosures &loop_closures, const bool &only_loop_closures)"
+.RI "uint8_t \fBgraph_utils::parseG2ofile\fP (const std::string &file_name, size_t &num_poses, Transforms &tranforms, LoopClosures &loop_closures, const bool &only_loop_closures)"
 .br
+.RI "\fIThis function parse \&.g2o files\&. \fP"
 .ti -1c
 .RI "void \fBgraph_utils::poseCompose\fP (const geometry_msgs::PoseWithCovariance &a, const geometry_msgs::PoseWithCovariance &b, geometry_msgs::PoseWithCovariance &out)"
 .br
+.RI "\fIThis function compose (+) geometric poses with covariance\&. \fP"
 .ti -1c
 .RI "void \fBgraph_utils::poseInverseCompose\fP (const geometry_msgs::PoseWithCovariance &a, const geometry_msgs::PoseWithCovariance &b, geometry_msgs::PoseWithCovariance &out)"
 .br
+.RI "\fIThis function compose (-) geometric poses with covariance\&. \fP"
 .ti -1c
 .RI "void \fBgraph_utils::poseInverse\fP (const geometry_msgs::PoseWithCovariance &a, geometry_msgs::PoseWithCovariance &out)"
 .br
+.RI "\fIThis function invert a geometric pose with covariance\&. \fP"
 .ti -1c
-.RI "Trajectory \fBgraph_utils::buildTrajectory\fP (const TransformMap &transform_map)"
+.RI "Trajectory \fBgraph_utils::buildTrajectory\fP (const Transforms &transforms)"
 .br
+.RI "\fIThis function precompute the trajectory by composing the successive poses\&. \fP"
 .ti -1c
 .RI "void \fBgraph_utils::printConsistencyGraph\fP (const Eigen::MatrixXi &consistency_matrix, const std::string &file_name)"
 .br
+.RI "\fIThis function prints the consistency matrix to the format expected by the maximum clique solver\&. \fP"
 .ti -1c
 .RI "bool \fBgraph_utils::isInTrajectory\fP (const Trajectory &trajectory, const size_t &pose_id)"
 .br
+.RI "\fIThis function check if a pose is include in a trajectory\&. \fP"
 .ti -1c
 .RI "void \fBgraph_utils::printConsistentLoopClosures\fP (const LoopClosures &loop_closures, const std::vector< int > &max_clique_data, const std::string &file_name)"
 .br
+.RI "\fIThis function prints a list of consistent loop closures in a file\&. \fP"
 .in -1c
 .SH "Author"
 .PP 

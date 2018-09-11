@@ -8,19 +8,29 @@
 
 #include <eigen3/Eigen/Geometry>
 
+/** \namespace pairwise_consistency
+ *  \brief This namespace encapsulates the tools for the pairwise consistency computation.
+ */
 namespace pairwise_consistency {
 
-    /**
-     * Class for the computation of the pairwise consistency of loop closure edges
+    /** \class PairwiseConsistency
+     * \brief Class for the computation of the pairwise consistency of loop closure edges
      */ 
     class PairwiseConsistency {
       public:
         /**
-         * Constructor
+         * \brief Constructor
+         * @param transforms_robot1
+         * @param transforms_robot2
+         * @param transforms_interrobot
+         * @param loop_closures
+         * @param trajectory_robot1
+         * @param trajectory_robot2
+         * @param nb_degree_freedom
          */
-        PairwiseConsistency(const graph_utils::TransformMap& transforms_robot1,
-                            const graph_utils::TransformMap& transforms_robot2,
-                            const graph_utils::TransformMap& transforms_interrobot,
+        PairwiseConsistency(const graph_utils::Transforms& transforms_robot1,
+                            const graph_utils::Transforms& transforms_robot2,
+                            const graph_utils::Transforms& transforms_interrobot,
                             const graph_utils::LoopClosures& loop_closures,
                             const graph_utils::Trajectory& trajectory_robot1,
                             const graph_utils::Trajectory& trajectory_robot2,
@@ -31,12 +41,18 @@ namespace pairwise_consistency {
                             nb_degree_freedom_(nb_degree_freedom){};
 
         /**
-         * Computation of the consistency matrix
+         * \brief Computation of the consistency matrix
+         * @returns the consistency matrix
          */ 
         Eigen::MatrixXi computeConsistentMeasurementsMatrix();
 
-        /**
+        /*
          * Accessors
+         */
+
+        /**
+         * \brief Accessor
+         * @returns list of loop closures
          */
         const graph_utils::LoopClosures& getLoopClosures() const; 
 
@@ -47,17 +63,31 @@ namespace pairwise_consistency {
                                                         const geometry_msgs::PoseWithCovariance& abZik, 
                                                         const geometry_msgs::PoseWithCovariance& abZjl);
 
-        double computeSquaredMahalanobisDistance(const geometry_msgs::PoseWithCovariance& pose);
+        /**
+         * \brief Compute the Mahalanobis Distance of the input pose (result of pose_a-pose_b)
+         *
+         * @param transform pose measurement describing the difference between two poses.
+         * @returns Mahalanobis Distance
+         */
+        double computeSquaredMahalanobisDistance(const geometry_msgs::PoseWithCovariance& transform);
 
+        /**
+         * \brief This function returns the transform the two specified poses on the desired robot trajectory
+         *
+         * @param id1 first pose ID
+         * @param id2 second pose ID
+         * @param robot_id robot ID to select to desired trajectory
+         * @return transform (pose measurements) between the two poses
+         */
         geometry_msgs::PoseWithCovariance composeOnTrajectory(const size_t& id1, const size_t& id2, const size_t& robot_id);
 
-        graph_utils::LoopClosures loop_closures_;
+        graph_utils::LoopClosures loop_closures_;///< loop_closures to consider
 
-        graph_utils::TransformMap transforms_robot1_, transforms_robot2_, transforms_interrobot_;
+        graph_utils::Transforms transforms_robot1_, transforms_robot2_, transforms_interrobot_;///< Measurements for each robot
 
-        graph_utils::Trajectory trajectory_robot1_, trajectory_robot2_;
+        graph_utils::Trajectory trajectory_robot1_, trajectory_robot2_;///< Trajectory of the robots
 
-        uint8_t nb_degree_freedom_;
+        uint8_t nb_degree_freedom_;///< Number of degree of freedom of the measurements.
     };          
 
 }

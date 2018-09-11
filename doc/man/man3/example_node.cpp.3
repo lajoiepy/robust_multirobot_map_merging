@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-examples/example_node.cpp \- 
+examples/example_node.cpp \- Example of the package utilisation\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -25,45 +26,29 @@ examples/example_node.cpp \-
 \fC#include <chrono>\fP
 .br
 
-.SS "Macros"
-
-.in +1c
-.ti -1c
-.RI "#define \fBTHRESHOLD\fP   1\&.635"
-.br
-.in -1c
 .SS "Functions"
 
 .in +1c
 .ti -1c
 .RI "int \fBmain\fP (int argc, char *argv[])"
 .br
+.RI "\fIMain function of an example program using this package\&. \fP"
 .in -1c
-.SS "Variables"
-
-.in +1c
-.ti -1c
-.RI "const std::string \fBCONSISTENCY_MATRIX_FILE_NAME\fP = 'consistency_matrix\&.clq\&.mtx'"
-.br
-.in -1c
-.SH "Macro Definition Documentation"
+.SH "Detailed Description"
 .PP 
-.SS "#define THRESHOLD   1\&.635"
+Example of the package utilisation\&. 
+
 
 .PP
-Definition at line 14 of file example_node\&.cpp\&.
+Definition in file \fBexample_node\&.cpp\fP\&.
 .SH "Function Documentation"
 .PP 
 .SS "int main (int argc, char * argv[])"
 
 .PP
-Definition at line 18 of file example_node\&.cpp\&.
-.SH "Variable Documentation"
-.PP 
-.SS "const std::string CONSISTENCY_MATRIX_FILE_NAME = 'consistency_matrix\&.clq\&.mtx'"
-
+Main function of an example program using this package\&. In this example, we use 3 input files <trajectory robot1 \&.g2o file> <trajectory robot2 \&.g2o file> <inter robot loop closures \&.g2o file> to produce a resulting global pose graph\&. 
 .PP
-Definition at line 16 of file example_node\&.cpp\&.
+Definition at line 22 of file example_node\&.cpp\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for robust_multirobot_map_merging from the source code\&.

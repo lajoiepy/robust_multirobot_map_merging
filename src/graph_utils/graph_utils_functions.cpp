@@ -13,7 +13,7 @@ using namespace mrpt::math;
 namespace graph_utils {
 
 uint8_t parseG2ofile(const std::string &file_name, size_t &num_poses, 
-    TransformMap& transform_map,
+    Transforms& transforms,
     LoopClosures& loop_closures, 
     const bool& only_loop_closures) {
 
@@ -145,15 +145,15 @@ uint8_t parseG2ofile(const std::string &file_name, size_t &num_poses,
       loop_closures.emplace_back(std::make_pair(i,j));
     } else {
       num_poses = max_pair;
-      transform_map.end_id = j;
+      transforms.end_id = j;
     }
 
     if (is_first_iteration) {
-      transform_map.start_id = i;
+      transforms.start_id = i;
       is_first_iteration = false;
     }
 
-    transform_map.transforms.emplace(std::make_pair(std::make_pair(i,j), transform));
+    transforms.transforms.emplace(std::make_pair(std::make_pair(i,j), transform));
   }
 
   infile.close();
@@ -197,11 +197,11 @@ void poseInverseCompose(const geometry_msgs::PoseWithCovariance &a,
   mrpt_bridge::convert(OUT, out);
 }
 
-Trajectory buildTrajectory(const TransformMap& transform_map) {
+Trajectory buildTrajectory(const Transforms& transforms) {
     // Initialization
     Trajectory trajectory;
-    trajectory.start_id = transform_map.start_id;
-    trajectory.end_id = transform_map.end_id;
+    trajectory.start_id = transforms.start_id;
+    trajectory.end_id = transforms.end_id;
     size_t current_pose_id = trajectory.start_id;
     geometry_msgs::PoseWithCovariance temp_pose, total_pose;
 
@@ -214,10 +214,10 @@ Trajectory buildTrajectory(const TransformMap& transform_map) {
 
     // Initialization
     std::pair<size_t, size_t> temp_pair = std::make_pair(current_pose_id, current_pose_id + 1);
-    auto temp_it = transform_map.transforms.find(temp_pair);
+    auto temp_it = transforms.transforms.find(temp_pair);
 
     // Compositions in chain on the trajectory transforms.
-    while (temp_it != transform_map.transforms.end() && !(*temp_it).second.is_loop_closure) {
+    while (temp_it != transforms.transforms.end() && !(*temp_it).second.is_loop_closure) {
         graph_utils::poseCompose(temp_pose, (*temp_it).second.pose, total_pose);             
         temp_pose = total_pose;
         current_pose_id++;
@@ -225,7 +225,7 @@ Trajectory buildTrajectory(const TransformMap& transform_map) {
         current_pose.pose = total_pose;
         trajectory.trajectory_poses.insert(std::make_pair(current_pose_id, current_pose));
         temp_pair = std::make_pair(current_pose_id, current_pose_id + 1);
-        temp_it = transform_map.transforms.find(temp_pair);
+        temp_it = transforms.transforms.find(temp_pair);
     }
 
     return trajectory;

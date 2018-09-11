@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-robot_local_map::RobotMeasurements \- 
+robot_local_map::RobotMeasurements \- Class that contains the measurements of a single robot\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -16,44 +17,57 @@ Inherited by \fBrobot_local_map::RobotLocalMap\fP\&.
 .ti -1c
 .RI "\fBRobotMeasurements\fP (const std::string &file_name, const bool &is_only_loop_closures)"
 .br
+.RI "\fIConstructor\&. \fP"
 .ti -1c
-.RI "virtual const \fBgraph_utils::TransformMap\fP & \fBgetTransforms\fP () const "
+.RI "virtual const graph_utils::TransformMap & \fBgetTransforms\fP () const "
 .br
+.RI "\fIAccessor\&. \fP"
 .ti -1c
 .RI "virtual const size_t & \fBgetNumPoses\fP () const "
 .br
+.RI "\fIAccessor\&. \fP"
 .ti -1c
 .RI "virtual const \fBgraph_utils::LoopClosures\fP & \fBgetLoopClosures\fP () const "
 .br
+.RI "\fIAccessor\&. \fP"
 .ti -1c
 .RI "virtual const uint8_t & \fBgetNbDegreeFreedom\fP () const "
 .br
+.RI "\fIAccessor\&. \fP"
 .in -1c
 .SS "Protected Attributes"
 
 .in +1c
 .ti -1c
-.RI "\fBgraph_utils::TransformMap\fP \fBtransforms_\fP"
+.RI "graph_utils::TransformMap \fBtransforms_\fP"
 .br
+.RI "\fIstd::map containing all the local measurements of the robot\&. \fP"
 .ti -1c
 .RI "size_t \fBnum_poses_\fP"
 .br
+.RI "\fINumber of poses in the map\&. \fP"
 .ti -1c
 .RI "\fBgraph_utils::LoopClosures\fP \fBloop_closures_\fP"
 .br
+.RI "\fIstd::vector containing the ID pairs of the loop closures \fP"
 .ti -1c
 .RI "uint8_t \fBnb_degree_freedom_\fP"
 .br
+.RI "\fINumber of degree of freedom of the measurements, typically 3 in 2D and 6 in 3D\&. \fP"
 .in -1c
 .SH "Detailed Description"
 .PP 
-Class that contains the local map of a single robot\&. 
+Class that contains the measurements of a single robot\&. 
+
+The measurements are in the TransformMap and LoopClosures contains the nodes IDs f the loop closures\&. 
 .PP
-Definition at line 12 of file robot_measurements\&.h\&.
+Definition at line 18 of file robot_measurements\&.h\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "robot_local_map::RobotMeasurements::RobotMeasurements (const std::string & file_name, const bool & is_only_loop_closures)"
-Constructor 
+
+.PP
+Constructor\&. 
 .PP
 Definition at line 8 of file robot_measurements\&.cpp\&.
 .SH "Member Function Documentation"
@@ -61,17 +75,53 @@ Definition at line 8 of file robot_measurements\&.cpp\&.
 .SS "const \fBgraph_utils::LoopClosures\fP & robot_local_map::RobotMeasurements::getLoopClosures () const\fC [virtual]\fP"
 
 .PP
+Accessor\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the loop closures in the robot local map 
+.RE
+.PP
+
+.PP
 Definition at line 20 of file robot_measurements\&.cpp\&.
 .SS "const uint8_t & robot_local_map::RobotMeasurements::getNbDegreeFreedom () const\fC [virtual]\fP"
+
+.PP
+Accessor\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of degree of freedom of the robot local map 
+.RE
+.PP
 
 .PP
 Definition at line 24 of file robot_measurements\&.cpp\&.
 .SS "const size_t & robot_local_map::RobotMeasurements::getNumPoses () const\fC [virtual]\fP"
 
 .PP
+Accessor\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of poses in the robot local map 
+.RE
+.PP
+
+.PP
 Definition at line 16 of file robot_measurements\&.cpp\&.
-.SS "const \fBgraph_utils::TransformMap\fP & robot_local_map::RobotMeasurements::getTransforms () const\fC [virtual]\fP"
-Accessors 
+.SS "const graph_utils::TransformMap & robot_local_map::RobotMeasurements::getTransforms () const\fC [virtual]\fP"
+
+.PP
+Accessor\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the robot measurements 
+.RE
+.PP
+
 .PP
 Definition at line 12 of file robot_measurements\&.cpp\&.
 .SH "Member Data Documentation"
@@ -79,19 +129,27 @@ Definition at line 12 of file robot_measurements\&.cpp\&.
 .SS "\fBgraph_utils::LoopClosures\fP robot_local_map::RobotMeasurements::loop_closures_\fC [protected]\fP"
 
 .PP
-Definition at line 30 of file robot_measurements\&.h\&.
+std::vector containing the ID pairs of the loop closures 
+.PP
+Definition at line 52 of file robot_measurements\&.h\&.
 .SS "uint8_t robot_local_map::RobotMeasurements::nb_degree_freedom_\fC [protected]\fP"
 
 .PP
-Definition at line 31 of file robot_measurements\&.h\&.
+Number of degree of freedom of the measurements, typically 3 in 2D and 6 in 3D\&. 
+.PP
+Definition at line 53 of file robot_measurements\&.h\&.
 .SS "size_t robot_local_map::RobotMeasurements::num_poses_\fC [protected]\fP"
 
 .PP
-Definition at line 29 of file robot_measurements\&.h\&.
-.SS "\fBgraph_utils::TransformMap\fP robot_local_map::RobotMeasurements::transforms_\fC [protected]\fP"
+Number of poses in the map\&. 
+.PP
+Definition at line 51 of file robot_measurements\&.h\&.
+.SS "graph_utils::TransformMap robot_local_map::RobotMeasurements::transforms_\fC [protected]\fP"
 
 .PP
-Definition at line 28 of file robot_measurements\&.h\&.
+std::map containing all the local measurements of the robot\&. 
+.PP
+Definition at line 50 of file robot_measurements\&.h\&.
 
 .SH "Author"
 .PP 
