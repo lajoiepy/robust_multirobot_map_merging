@@ -3,6 +3,7 @@
 #include "global_map_solver/global_map_solver.h"
 #include "findClique.h"
 
+
 namespace global_map_solver {
 
 const std::string GlobalMapSolver::CONSISTENCY_MATRIX_FILE_NAME = std::string("consistency_matrix.clq.mtx");
@@ -33,6 +34,9 @@ int GlobalMapSolver::solveGlobalMap() {
 
     // Clean up
     max_clique_data.clear();
+
+    // Optimize
+
 
     return max_clique_size;
 }
