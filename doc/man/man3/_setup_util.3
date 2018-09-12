@@ -13,7 +13,16 @@ _setup_util \-
 .RI "def \fBrollback_env_variables\fP (\fBenviron\fP, env_var_subfolders)"
 .br
 .ti -1c
+.RI "def \fB_rollback_env_variable\fP (\fBenviron\fP, name, subfolders)"
+.br
+.ti -1c
+.RI "def \fB_get_workspaces\fP (\fBenviron\fP, include_fuerte=False, include_non_existing=False)"
+.br
+.ti -1c
 .RI "def \fBprepend_env_variables\fP (\fBenviron\fP, env_var_subfolders, workspaces)"
+.br
+.ti -1c
+.RI "def \fB_prefix_env_variable\fP (\fBenviron\fP, name, paths, subfolders)"
 .br
 .ti -1c
 .RI "def \fBassignment\fP (key, value)"
@@ -26,6 +35,9 @@ _setup_util \-
 .br
 .ti -1c
 .RI "def \fBfind_env_hooks\fP (\fBenviron\fP, cmake_prefix_path)"
+.br
+.ti -1c
+.RI "def \fB_parse_arguments\fP (\fBargs\fP=None)"
 .br
 .in -1c
 .SS "Variables"
@@ -47,7 +59,7 @@ _setup_util \-
 .RI "dictionary \fBENV_VAR_SUBFOLDERS\fP"
 .br
 .ti -1c
-.RI "\fBargs\fP = _parse_arguments()"
+.RI "\fBargs\fP = \fB_parse_arguments\fP()"
 .br
 .ti -1c
 .RI "\fBe\fP"
@@ -56,7 +68,7 @@ _setup_util \-
 .RI "\fBfile\fP"
 .br
 .ti -1c
-.RI "string \fBCMAKE_PREFIX_PATH\fP = '/opt/ros/kinetic'"
+.RI "string \fBCMAKE_PREFIX_PATH\fP = ''"
 .br
 .ti -1c
 .RI "\fBbase_path\fP = os\&.path\&.dirname(__file__)"
@@ -70,6 +82,48 @@ _setup_util \-
 .in -1c
 .SH "Function Documentation"
 .PP 
+.SS "def _setup_util\&._get_workspaces ( environ,  include_fuerte = \fCFalse\fP,  include_non_existing = \fCFalse\fP)\fC [private]\fP"
+
+.PP
+.nf
+Based on CMAKE_PREFIX_PATH return all catkin workspaces.
+
+:param include_fuerte: The flag if paths starting with '/opt/ros/fuerte' should be considered workspaces, ``bool``
+
+.fi
+.PP
+ 
+.PP
+Definition at line 114 of file _setup_util\&.py\&.
+.SS "def _setup_util\&._parse_arguments ( args = \fCNone\fP)\fC [private]\fP"
+
+.PP
+Definition at line 250 of file _setup_util\&.py\&.
+.SS "def _setup_util\&._prefix_env_variable ( environ,  name,  paths,  subfolders)\fC [private]\fP"
+
+.PP
+.nf
+Return the prefix to prepend to the environment variable NAME, adding any path in NEW_PATHS_STR without creating duplicate or empty items.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 149 of file _setup_util\&.py\&.
+.SS "def _setup_util\&._rollback_env_variable ( environ,  name,  subfolders)\fC [private]\fP"
+
+.PP
+.nf
+For each catkin workspace in CMAKE_PREFIX_PATH remove the first entry from env[NAME] matching workspace + subfolder.
+
+:param subfolders: list of str '' or subfoldername that may start with '/'
+:returns: the updated value of the environment variable.
+
+.fi
+.PP
+ 
+.PP
+Definition at line 83 of file _setup_util\&.py\&.
 .SS "def _setup_util\&.assignment ( key,  value)"
 
 .PP
@@ -121,7 +175,7 @@ This does not cover modifications performed by environment hooks.
 Definition at line 62 of file _setup_util\&.py\&.
 .SH "Variable Documentation"
 .PP 
-.SS "_setup_util\&.args = _parse_arguments()"
+.SS "_setup_util\&.args = \fB_parse_arguments\fP()"
 
 .PP
 Definition at line 259 of file _setup_util\&.py\&.
@@ -133,7 +187,7 @@ Definition at line 267 of file _setup_util\&.py\&.
 
 .PP
 Definition at line 46 of file _setup_util\&.py\&.
-.SS "string _setup_util\&.CMAKE_PREFIX_PATH = '/opt/ros/kinetic'"
+.SS "string _setup_util\&.CMAKE_PREFIX_PATH = ''"
 
 .PP
 Definition at line 265 of file _setup_util\&.py\&.

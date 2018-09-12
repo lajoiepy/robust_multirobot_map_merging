@@ -92,6 +92,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classpairwise__consistency_1_1_pairwise_consistency-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">pairwise_consistency::PairwiseConsistency Class Reference</div>  </div>
@@ -102,6 +104,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="classpairwise__consistency_1_1_pairwise_consistency.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="pairwise__consistency_8h_source.html">pairwise_consistency.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for pairwise_consistency::PairwiseConsistency:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpairwise__consistency_1_1_pairwise_consistency__coll__graph.png" border="0" usemap="#pairwise__consistency_1_1_pairwise_consistency_coll__map" alt="Collaboration graph"/></div>
+<map name="pairwise__consistency_1_1_pairwise_consistency_coll__map" id="pairwise__consistency_1_1_pairwise_consistency_coll__map">
+<area shape="rect" id="node2" href="structgraph__utils_1_1_transforms.html" title="Structure defining a std::map of transformations. " alt="" coords="5,5,164,32"/>
+<area shape="rect" id="node3" href="structgraph__utils_1_1_trajectory.html" title="Structure defining a robot trajectory. " alt="" coords="188,5,339,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -114,6 +125,39 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7eb762acb6c383a9e167a49e1c99905b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacegraph__utils.html#a001157d8fee373f75f964349764215db">graph_utils::LoopClosures</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpairwise__consistency_1_1_pairwise_consistency.html#a7eb762acb6c383a9e167a49e1c99905b">getLoopClosures</a> () const </td></tr>
 <tr class="memdesc:a7eb762acb6c383a9e167a49e1c99905b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor.  <a href="#a7eb762acb6c383a9e167a49e1c99905b">More...</a><br /></td></tr>
 <tr class="separator:a7eb762acb6c383a9e167a49e1c99905b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:af3eac08aa298b40cde37fe40e930778b"><td class="memItemLeft" align="right" valign="top">geometry_msgs::PoseWithCovariance&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpairwise__consistency_1_1_pairwise_consistency.html#af3eac08aa298b40cde37fe40e930778b">computeConsistencyPose</a> (const geometry_msgs::PoseWithCovariance &amp;aXij, const geometry_msgs::PoseWithCovariance &amp;bXlk, const geometry_msgs::PoseWithCovariance &amp;abZik, const geometry_msgs::PoseWithCovariance &amp;abZjl)</td></tr>
+<tr class="memdesc:af3eac08aa298b40cde37fe40e930778b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the consistency loop : aXij + abZjl + bXlk - abZik (see references)  <a href="#af3eac08aa298b40cde37fe40e930778b">More...</a><br /></td></tr>
+<tr class="separator:af3eac08aa298b40cde37fe40e930778b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b950355e607d737fefef75bc6c45141"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpairwise__consistency_1_1_pairwise_consistency.html#a2b950355e607d737fefef75bc6c45141">computeSquaredMahalanobisDistance</a> (const geometry_msgs::PoseWithCovariance &amp;transform)</td></tr>
+<tr class="memdesc:a2b950355e607d737fefef75bc6c45141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Mahalanobis Distance of the input pose (result of pose_a-pose_b)  <a href="#a2b950355e607d737fefef75bc6c45141">More...</a><br /></td></tr>
+<tr class="separator:a2b950355e607d737fefef75bc6c45141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d713a72710457b975009c361cc69a0a"><td class="memItemLeft" align="right" valign="top">geometry_msgs::PoseWithCovariance&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpairwise__consistency_1_1_pairwise_consistency.html#a8d713a72710457b975009c361cc69a0a">composeOnTrajectory</a> (const size_t &amp;id1, const size_t &amp;id2, const size_t &amp;robot_id)</td></tr>
+<tr class="memdesc:a8d713a72710457b975009c361cc69a0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the transform the two specified poses on the desired robot trajectory.  <a href="#a8d713a72710457b975009c361cc69a0a">More...</a><br /></td></tr>
+<tr class="separator:a8d713a72710457b975009c361cc69a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ab11973e6c8de1eea7f63122511f79636"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacegraph__utils.html#a001157d8fee373f75f964349764215db">graph_utils::LoopClosures</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpairwise__consistency_1_1_pairwise_consistency.html#ab11973e6c8de1eea7f63122511f79636">loop_closures_</a></td></tr>
+<tr class="memdesc:ab11973e6c8de1eea7f63122511f79636"><td class="mdescLeft">&#160;</td><td class="mdescRight">loop_closures to consider  <a href="#ab11973e6c8de1eea7f63122511f79636">More...</a><br /></td></tr>
+<tr class="separator:ab11973e6c8de1eea7f63122511f79636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a456beabd78fda1eeaad4bd1a01cc31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgraph__utils_1_1_transforms.html">graph_utils::Transforms</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpairwise__consistency_1_1_pairwise_consistency.html#a0a456beabd78fda1eeaad4bd1a01cc31">transforms_robot1_</a></td></tr>
+<tr class="separator:a0a456beabd78fda1eeaad4bd1a01cc31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a556a33275b9e3e6bc502c0e7290f6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgraph__utils_1_1_transforms.html">graph_utils::Transforms</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpairwise__consistency_1_1_pairwise_consistency.html#a0a556a33275b9e3e6bc502c0e7290f6b">transforms_robot2_</a></td></tr>
+<tr class="separator:a0a556a33275b9e3e6bc502c0e7290f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e849d8ae6b58bc508fde6b73ad26a88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgraph__utils_1_1_transforms.html">graph_utils::Transforms</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpairwise__consistency_1_1_pairwise_consistency.html#a7e849d8ae6b58bc508fde6b73ad26a88">transforms_interrobot_</a></td></tr>
+<tr class="memdesc:a7e849d8ae6b58bc508fde6b73ad26a88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measurements for each robot.  <a href="#a7e849d8ae6b58bc508fde6b73ad26a88">More...</a><br /></td></tr>
+<tr class="separator:a7e849d8ae6b58bc508fde6b73ad26a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acae9a0ce989e180d3e27a5d8552a536f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgraph__utils_1_1_trajectory.html">graph_utils::Trajectory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpairwise__consistency_1_1_pairwise_consistency.html#acae9a0ce989e180d3e27a5d8552a536f">trajectory_robot1_</a></td></tr>
+<tr class="separator:acae9a0ce989e180d3e27a5d8552a536f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad9c51fb8839fbe5051e3d0caa2ee68f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgraph__utils_1_1_trajectory.html">graph_utils::Trajectory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpairwise__consistency_1_1_pairwise_consistency.html#aad9c51fb8839fbe5051e3d0caa2ee68f">trajectory_robot2_</a></td></tr>
+<tr class="memdesc:aad9c51fb8839fbe5051e3d0caa2ee68f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trajectory of the robots.  <a href="#aad9c51fb8839fbe5051e3d0caa2ee68f">More...</a><br /></td></tr>
+<tr class="separator:aad9c51fb8839fbe5051e3d0caa2ee68f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a939f0096ef4028834a6d52b6cfce2b99"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpairwise__consistency_1_1_pairwise_consistency.html#a939f0096ef4028834a6d52b6cfce2b99">nb_degree_freedom_</a></td></tr>
+<tr class="memdesc:a939f0096ef4028834a6d52b6cfce2b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of degree of freedom of the measurements.  <a href="#a939f0096ef4028834a6d52b6cfce2b99">More...</a><br /></td></tr>
+<tr class="separator:a939f0096ef4028834a6d52b6cfce2b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for the computation of the pairwise consistency of loop closure edges. </p>
@@ -203,11 +247,14 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classpairwise__consistency_1_1_pairwise_consistency_a1fed86a67991cd2c850ebde447d0e7c5_cgraph.png" border="0" usemap="#classpairwise__consistency_1_1_pairwise_consistency_a1fed86a67991cd2c850ebde447d0e7c5_cgraph" alt=""/></div>
 <map name="classpairwise__consistency_1_1_pairwise_consistency_a1fed86a67991cd2c850ebde447d0e7c5_cgraph" id="classpairwise__consistency_1_1_pairwise_consistency_a1fed86a67991cd2c850ebde447d0e7c5_cgraph">
-<area shape="rect" id="node2" href="classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="207,34,436,105"/>
-<area shape="rect" id="node6" href="classpairwise__consistency_1_1_pairwise_consistency.html#a7eb762acb6c383a9e167a49e1c99905b" title="Accessor. " alt="" coords="245,129,398,185"/>
-<area shape="rect" id="node3" href="namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="This function check if a pose is include in a trajectory. " alt="" coords="487,5,659,32"/>
-<area shape="rect" id="node4" href="namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="484,56,661,83"/>
-<area shape="rect" id="node5" href="namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="491,107,655,149"/>
+<area shape="rect" id="node2" href="classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="207,71,436,142"/>
+<area shape="rect" id="node4" href="classpairwise__consistency_1_1_pairwise_consistency.html#a8d713a72710457b975009c361cc69a0a" title="This function returns the transform the two specified poses on the desired robot trajectory. " alt="" coords="531,5,690,61"/>
+<area shape="rect" id="node6" href="classpairwise__consistency_1_1_pairwise_consistency.html#af3eac08aa298b40cde37fe40e930778b" title="Computes the consistency loop : aXij + abZjl + bXlk &#45; abZik (see references) " alt="" coords="519,136,702,192"/>
+<area shape="rect" id="node8" href="classpairwise__consistency_1_1_pairwise_consistency.html#a2b950355e607d737fefef75bc6c45141" title="Compute the Mahalanobis Distance of the input pose (result of pose_a&#45;pose_b) " alt="" coords="484,216,737,272"/>
+<area shape="rect" id="node9" href="classpairwise__consistency_1_1_pairwise_consistency.html#a7eb762acb6c383a9e167a49e1c99905b" title="Accessor. " alt="" coords="245,268,398,324"/>
+<area shape="rect" id="node3" href="namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="This function check if a pose is include in a trajectory. " alt="" coords="525,85,697,112"/>
+<area shape="rect" id="node5" href="namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="792,49,956,90"/>
+<area shape="rect" id="node7" href="namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="785,151,963,177"/>
 </map>
 </div>
 </p>
@@ -215,6 +262,164 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8d713a72710457b975009c361cc69a0a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">geometry_msgs::PoseWithCovariance pairwise_consistency::PairwiseConsistency::composeOnTrajectory </td>
+          <td>(</td>
+          <td class="paramtype">const size_t &amp;&#160;</td>
+          <td class="paramname"><em>id1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t &amp;&#160;</td>
+          <td class="paramname"><em>id2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t &amp;&#160;</td>
+          <td class="paramname"><em>robot_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This function returns the transform the two specified poses on the desired robot trajectory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id1</td><td>first pose ID </td></tr>
+    <tr><td class="paramname">id2</td><td>second pose ID </td></tr>
+    <tr><td class="paramname">robot_id</td><td>robot ID to select to desired trajectory </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>transform (pose measurements) between the two poses </dd></dl>
+
+<p>Definition at line <a class="el" href="pairwise__consistency_8cpp_source.html#l00107">107</a> of file <a class="el" href="pairwise__consistency_8cpp_source.html">pairwise_consistency.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpairwise__consistency_1_1_pairwise_consistency_a8d713a72710457b975009c361cc69a0a_cgraph.png" border="0" usemap="#classpairwise__consistency_1_1_pairwise_consistency_a8d713a72710457b975009c361cc69a0a_cgraph" alt=""/></div>
+<map name="classpairwise__consistency_1_1_pairwise_consistency_a8d713a72710457b975009c361cc69a0a_cgraph" id="classpairwise__consistency_1_1_pairwise_consistency_a8d713a72710457b975009c361cc69a0a_cgraph">
+<area shape="rect" id="node2" href="namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="212,13,376,54"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpairwise__consistency_1_1_pairwise_consistency_a8d713a72710457b975009c361cc69a0a_icgraph.png" border="0" usemap="#classpairwise__consistency_1_1_pairwise_consistency_a8d713a72710457b975009c361cc69a0a_icgraph" alt=""/></div>
+<map name="classpairwise__consistency_1_1_pairwise_consistency_a8d713a72710457b975009c361cc69a0a_icgraph" id="classpairwise__consistency_1_1_pairwise_consistency_a8d713a72710457b975009c361cc69a0a_icgraph">
+<area shape="rect" id="node2" href="classpairwise__consistency_1_1_pairwise_consistency.html#a1fed86a67991cd2c850ebde447d0e7c5" title="Constructor. " alt="" coords="524,5,677,61"/>
+<area shape="rect" id="node3" href="classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="212,70,441,141"/>
+<area shape="rect" id="node4" href="classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="Function that solves the global maps according to the current constraints. " alt="" coords="489,85,712,126"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af3eac08aa298b40cde37fe40e930778b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">geometry_msgs::PoseWithCovariance pairwise_consistency::PairwiseConsistency::computeConsistencyPose </td>
+          <td>(</td>
+          <td class="paramtype">const geometry_msgs::PoseWithCovariance &amp;&#160;</td>
+          <td class="paramname"><em>aXij</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const geometry_msgs::PoseWithCovariance &amp;&#160;</td>
+          <td class="paramname"><em>bXlk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const geometry_msgs::PoseWithCovariance &amp;&#160;</td>
+          <td class="paramname"><em>abZik</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const geometry_msgs::PoseWithCovariance &amp;&#160;</td>
+          <td class="paramname"><em>abZjl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the consistency loop : aXij + abZjl + bXlk - abZik (see references) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aXij</td><td>Transformation between poses i and j on robot A trajectory </td></tr>
+    <tr><td class="paramname">bXlk</td><td>Transformation between poses l and k on robot B trajectory </td></tr>
+    <tr><td class="paramname">abZik</td><td>Transformation between pose i of robot A trajectory and pose k of robot B trajectory </td></tr>
+    <tr><td class="paramname">abZjl</td><td>Transformation between pose j of robot A trajectory and pose l of robot B trajectory </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="pairwise__consistency_8cpp_source.html#l00071">71</a> of file <a class="el" href="pairwise__consistency_8cpp_source.html">pairwise_consistency.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpairwise__consistency_1_1_pairwise_consistency_af3eac08aa298b40cde37fe40e930778b_cgraph.png" border="0" usemap="#classpairwise__consistency_1_1_pairwise_consistency_af3eac08aa298b40cde37fe40e930778b_cgraph" alt=""/></div>
+<map name="classpairwise__consistency_1_1_pairwise_consistency_af3eac08aa298b40cde37fe40e930778b_cgraph" id="classpairwise__consistency_1_1_pairwise_consistency_af3eac08aa298b40cde37fe40e930778b_cgraph">
+<area shape="rect" id="node2" href="namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="236,5,413,32"/>
+<area shape="rect" id="node3" href="namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="243,57,407,98"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpairwise__consistency_1_1_pairwise_consistency_af3eac08aa298b40cde37fe40e930778b_icgraph.png" border="0" usemap="#classpairwise__consistency_1_1_pairwise_consistency_af3eac08aa298b40cde37fe40e930778b_icgraph" alt=""/></div>
+<map name="classpairwise__consistency_1_1_pairwise_consistency_af3eac08aa298b40cde37fe40e930778b_icgraph" id="classpairwise__consistency_1_1_pairwise_consistency_af3eac08aa298b40cde37fe40e930778b_icgraph">
+<area shape="rect" id="node2" href="classpairwise__consistency_1_1_pairwise_consistency.html#a1fed86a67991cd2c850ebde447d0e7c5" title="Constructor. " alt="" coords="548,5,701,61"/>
+<area shape="rect" id="node3" href="classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="236,70,465,141"/>
+<area shape="rect" id="node4" href="classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="Function that solves the global maps according to the current constraints. " alt="" coords="513,85,736,126"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a188821b4aef50f75e63d0e868585ef0f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -238,9 +443,12 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classpairwise__consistency_1_1_pairwise_consistency_a188821b4aef50f75e63d0e868585ef0f_cgraph.png" border="0" usemap="#classpairwise__consistency_1_1_pairwise_consistency_a188821b4aef50f75e63d0e868585ef0f_cgraph" alt=""/></div>
 <map name="classpairwise__consistency_1_1_pairwise_consistency_a188821b4aef50f75e63d0e868585ef0f_cgraph" id="classpairwise__consistency_1_1_pairwise_consistency_a188821b4aef50f75e63d0e868585ef0f_cgraph">
-<area shape="rect" id="node2" href="namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="This function check if a pose is include in a trajectory. " alt="" coords="285,5,457,32"/>
-<area shape="rect" id="node3" href="namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="283,56,460,83"/>
-<area shape="rect" id="node4" href="namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="289,107,453,149"/>
+<area shape="rect" id="node2" href="namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="This function check if a pose is include in a trajectory. " alt="" coords="323,5,495,32"/>
+<area shape="rect" id="node3" href="classpairwise__consistency_1_1_pairwise_consistency.html#a8d713a72710457b975009c361cc69a0a" title="This function returns the transform the two specified poses on the desired robot trajectory. " alt="" coords="330,56,489,112"/>
+<area shape="rect" id="node5" href="classpairwise__consistency_1_1_pairwise_consistency.html#af3eac08aa298b40cde37fe40e930778b" title="Computes the consistency loop : aXij + abZjl + bXlk &#45; abZik (see references) " alt="" coords="318,136,501,192"/>
+<area shape="rect" id="node7" href="classpairwise__consistency_1_1_pairwise_consistency.html#a2b950355e607d737fefef75bc6c45141" title="Compute the Mahalanobis Distance of the input pose (result of pose_a&#45;pose_b) " alt="" coords="283,216,536,272"/>
+<area shape="rect" id="node4" href="namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="591,74,755,115"/>
+<area shape="rect" id="node6" href="namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="584,151,761,177"/>
 </map>
 </div>
 </p>
@@ -252,6 +460,53 @@ Here is the caller graph for this function:</div>
 <map name="classpairwise__consistency_1_1_pairwise_consistency_a188821b4aef50f75e63d0e868585ef0f_icgraph" id="classpairwise__consistency_1_1_pairwise_consistency_a188821b4aef50f75e63d0e868585ef0f_icgraph">
 <area shape="rect" id="node2" href="classpairwise__consistency_1_1_pairwise_consistency.html#a1fed86a67991cd2c850ebde447d0e7c5" title="Constructor. " alt="" coords="317,5,471,61"/>
 <area shape="rect" id="node3" href="classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="Function that solves the global maps according to the current constraints. " alt="" coords="283,85,505,126"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b950355e607d737fefef75bc6c45141"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double pairwise_consistency::PairwiseConsistency::computeSquaredMahalanobisDistance </td>
+          <td>(</td>
+          <td class="paramtype">const geometry_msgs::PoseWithCovariance &amp;&#160;</td>
+          <td class="paramname"><em>transform</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the Mahalanobis Distance of the input pose (result of pose_a-pose_b) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">transform</td><td>pose measurement describing the difference between two poses. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Mahalanobis Distance </dd></dl>
+
+<p>Definition at line <a class="el" href="pairwise__consistency_8cpp_source.html#l00084">84</a> of file <a class="el" href="pairwise__consistency_8cpp_source.html">pairwise_consistency.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpairwise__consistency_1_1_pairwise_consistency_a2b950355e607d737fefef75bc6c45141_icgraph.png" border="0" usemap="#classpairwise__consistency_1_1_pairwise_consistency_a2b950355e607d737fefef75bc6c45141_icgraph" alt=""/></div>
+<map name="classpairwise__consistency_1_1_pairwise_consistency_a2b950355e607d737fefef75bc6c45141_icgraph" id="classpairwise__consistency_1_1_pairwise_consistency_a2b950355e607d737fefef75bc6c45141_icgraph">
+<area shape="rect" id="node2" href="classpairwise__consistency_1_1_pairwise_consistency.html#a1fed86a67991cd2c850ebde447d0e7c5" title="Constructor. " alt="" coords="619,5,772,61"/>
+<area shape="rect" id="node3" href="classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="307,70,536,141"/>
+<area shape="rect" id="node4" href="classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="Function that solves the global maps according to the current constraints. " alt="" coords="584,85,807,126"/>
 </map>
 </div>
 </p>
@@ -286,6 +541,169 @@ Here is the caller graph for this function:</div>
 </map>
 </div>
 </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ab11973e6c8de1eea7f63122511f79636"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacegraph__utils.html#a001157d8fee373f75f964349764215db">graph_utils::LoopClosures</a> pairwise_consistency::PairwiseConsistency::loop_closures_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>loop_closures to consider </p>
+
+<p>Definition at line <a class="el" href="pairwise__consistency_8h_source.html#l00097">97</a> of file <a class="el" href="pairwise__consistency_8h_source.html">pairwise_consistency.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a939f0096ef4028834a6d52b6cfce2b99"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t pairwise_consistency::PairwiseConsistency::nb_degree_freedom_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of degree of freedom of the measurements. </p>
+
+<p>Definition at line <a class="el" href="pairwise__consistency_8h_source.html#l00103">103</a> of file <a class="el" href="pairwise__consistency_8h_source.html">pairwise_consistency.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acae9a0ce989e180d3e27a5d8552a536f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgraph__utils_1_1_trajectory.html">graph_utils::Trajectory</a> pairwise_consistency::PairwiseConsistency::trajectory_robot1_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pairwise__consistency_8h_source.html#l00101">101</a> of file <a class="el" href="pairwise__consistency_8h_source.html">pairwise_consistency.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aad9c51fb8839fbe5051e3d0caa2ee68f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgraph__utils_1_1_trajectory.html">graph_utils::Trajectory</a> pairwise_consistency::PairwiseConsistency::trajectory_robot2_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trajectory of the robots. </p>
+
+<p>Definition at line <a class="el" href="pairwise__consistency_8h_source.html#l00101">101</a> of file <a class="el" href="pairwise__consistency_8h_source.html">pairwise_consistency.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7e849d8ae6b58bc508fde6b73ad26a88"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgraph__utils_1_1_transforms.html">graph_utils::Transforms</a> pairwise_consistency::PairwiseConsistency::transforms_interrobot_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Measurements for each robot. </p>
+
+<p>Definition at line <a class="el" href="pairwise__consistency_8h_source.html#l00099">99</a> of file <a class="el" href="pairwise__consistency_8h_source.html">pairwise_consistency.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0a456beabd78fda1eeaad4bd1a01cc31"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgraph__utils_1_1_transforms.html">graph_utils::Transforms</a> pairwise_consistency::PairwiseConsistency::transforms_robot1_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pairwise__consistency_8h_source.html#l00099">99</a> of file <a class="el" href="pairwise__consistency_8h_source.html">pairwise_consistency.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0a556a33275b9e3e6bc502c0e7290f6b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgraph__utils_1_1_transforms.html">graph_utils::Transforms</a> pairwise_consistency::PairwiseConsistency::transforms_robot2_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pairwise__consistency_8h_source.html#l00099">99</a> of file <a class="el" href="pairwise__consistency_8h_source.html">pairwise_consistency.h</a>.</p>
 
 </div>
 </div>

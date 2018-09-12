@@ -1,0 +1,5 @@
+<map id="pairwise_consistency::PairwiseConsistency::computeSquaredMahalanobisDistance" name="pairwise_consistency::PairwiseConsistency::computeSquaredMahalanobisDistance">
+<area shape="rect" id="node2" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a1fed86a67991cd2c850ebde447d0e7c5" title="Constructor. " alt="" coords="619,5,772,61"/>
+<area shape="rect" id="node3" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="307,70,536,141"/>
+<area shape="rect" id="node4" href="$classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="Function that solves the global maps according to the current constraints. " alt="" coords="584,85,807,126"/>
+</map>

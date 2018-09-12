@@ -65,10 +65,10 @@ namespace pairwise_consistency {
         /**
          * \brief Computes the consistency loop : aXij + abZjl + bXlk - abZik (see references)
          *
-         * @param aXij
-         * @param bXlk
-         * @param abZik
-         * @param abZjl
+         * @param aXij Transformation between poses i and j on robot A trajectory
+         * @param bXlk Transformation between poses l and k on robot B trajectory
+         * @param abZik Transformation between pose i of robot A trajectory and pose k of robot B trajectory
+         * @param abZjl Transformation between pose j of robot A trajectory and pose l of robot B trajectory
          * @return
          */
         geometry_msgs::PoseWithCovariance computeConsistencyPose(const geometry_msgs::PoseWithCovariance& aXij, 

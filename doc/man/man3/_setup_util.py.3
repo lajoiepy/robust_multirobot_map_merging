@@ -20,7 +20,16 @@ cmake-build-debug/devel/_setup_util.py \-
 .RI "def \fB_setup_util\&.rollback_env_variables\fP (environ, env_var_subfolders)"
 .br
 .ti -1c
+.RI "def \fB_setup_util\&._rollback_env_variable\fP (environ, name, subfolders)"
+.br
+.ti -1c
+.RI "def \fB_setup_util\&._get_workspaces\fP (environ, include_fuerte=False, include_non_existing=False)"
+.br
+.ti -1c
 .RI "def \fB_setup_util\&.prepend_env_variables\fP (environ, env_var_subfolders, workspaces)"
+.br
+.ti -1c
+.RI "def \fB_setup_util\&._prefix_env_variable\fP (environ, name, paths, subfolders)"
 .br
 .ti -1c
 .RI "def \fB_setup_util\&.assignment\fP (key, value)"
@@ -33,6 +42,9 @@ cmake-build-debug/devel/_setup_util.py \-
 .br
 .ti -1c
 .RI "def \fB_setup_util\&.find_env_hooks\fP (environ, cmake_prefix_path)"
+.br
+.ti -1c
+.RI "def \fB_setup_util\&._parse_arguments\fP (args=None)"
 .br
 .in -1c
 .SH "Author"

@@ -1,0 +1,4 @@
+<map id="pairwise_consistency::PairwiseConsistency::computeConsistencyPose" name="pairwise_consistency::PairwiseConsistency::computeConsistencyPose">
+<area shape="rect" id="node2" href="$namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="236,5,413,32"/>
+<area shape="rect" id="node3" href="$namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="243,57,407,98"/>
+</map>

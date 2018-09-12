@@ -1,5 +1,8 @@
 <map id="pairwise_consistency::PairwiseConsistency::computeConsistentMeasurementsMatrix" name="pairwise_consistency::PairwiseConsistency::computeConsistentMeasurementsMatrix">
-<area shape="rect" id="node2" href="$namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="This function check if a pose is include in a trajectory. " alt="" coords="285,5,457,32"/>
-<area shape="rect" id="node3" href="$namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="283,56,460,83"/>
-<area shape="rect" id="node4" href="$namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="289,107,453,149"/>
+<area shape="rect" id="node2" href="$namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="This function check if a pose is include in a trajectory. " alt="" coords="323,5,495,32"/>
+<area shape="rect" id="node3" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a8d713a72710457b975009c361cc69a0a" title="This function returns the transform the two specified poses on the desired robot trajectory. " alt="" coords="330,56,489,112"/>
+<area shape="rect" id="node5" href="$classpairwise__consistency_1_1_pairwise_consistency.html#af3eac08aa298b40cde37fe40e930778b" title="Computes the consistency loop : aXij + abZjl + bXlk &#45; abZik (see references) " alt="" coords="318,136,501,192"/>
+<area shape="rect" id="node7" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a2b950355e607d737fefef75bc6c45141" title="Compute the Mahalanobis Distance of the input pose (result of pose_a&#45;pose_b) " alt="" coords="283,216,536,272"/>
+<area shape="rect" id="node4" href="$namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="591,74,755,115"/>
+<area shape="rect" id="node6" href="$namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="584,151,761,177"/>
 </map>

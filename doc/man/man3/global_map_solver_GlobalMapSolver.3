@@ -33,6 +33,14 @@ global_map_solver::GlobalMapSolver \- Class computing the global map from multip
 .br
 .RI "\fIFile name in which the consistent loop closures will be saved\&. \fP"
 .in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBpairwise_consistency::PairwiseConsistency\fP \fBpairwise_consistency_\fP"
+.br
+.RI "\fIPairwise consistency solver\&. \fP"
+.in -1c
 .SH "Detailed Description"
 .PP 
 Class computing the global map from multiple robots local maps\&. 
@@ -86,6 +94,12 @@ Definition at line 24 of file global_map_solver\&.h\&.
 File name in which the consistency matrix will be saved\&. 
 .PP
 Definition at line 19 of file global_map_solver\&.h\&.
+.SS "\fBpairwise_consistency::PairwiseConsistency\fP global_map_solver::GlobalMapSolver::pairwise_consistency_\fC [private]\fP"
+
+.PP
+Pairwise consistency solver\&. 
+.PP
+Definition at line 45 of file global_map_solver\&.h\&.
 
 .SH "Author"
 .PP 

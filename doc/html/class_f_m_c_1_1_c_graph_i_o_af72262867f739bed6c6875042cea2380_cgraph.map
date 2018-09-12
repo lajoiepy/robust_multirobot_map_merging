@@ -1,6 +1,0 @@
-<map id="FMC::CGraphIO::readGraph" name="FMC::CGraphIO::readGraph">
-<area shape="rect" id="node2" href="$class_f_m_c_1_1_c_graph_i_o.html#ae800f96ed7c3484effe64a6d5b0646b9" title="FMC::CGraphIO::getFileExtension" alt="" coords="257,5,479,32"/>
-<area shape="rect" id="node3" href="$class_f_m_c_1_1_c_graph_i_o.html#ab0d9d8ee2319d816029775d86b2812ce" title="FMC::CGraphIO::ReadMatrix\lMarketAdjacencyGraph" alt="" coords="271,57,465,98"/>
-<area shape="rect" id="node5" href="$class_f_m_c_1_1_c_graph_i_o.html#a45d19b2b7d2b625aacfaa0a05a047473" title="FMC::CGraphIO::ReadMeTiSAdjacency\lGraph" alt="" coords="240,122,496,163"/>
-<area shape="rect" id="node4" href="$class_f_m_c_1_1_c_graph_i_o.html#a3be1248d6e69f0898af9dfe26680bc37" title="FMC::CGraphIO::Calculate\lVertexDegrees" alt="" coords="544,57,725,98"/>
-</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['usage',['usage',['../namespace_f_m_c.html#af6be9500a4149987a26b4d19e1f3cbc5',1,'FMC']]]
+  ['solveglobalmap',['solveGlobalMap',['../classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59',1,'global_map_solver::GlobalMapSolver']]]
 ];

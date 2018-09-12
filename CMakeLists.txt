@@ -92,6 +92,7 @@ target_link_libraries(global_map_solver
    graph_utils
    pairwise_consistency
    fast_max-clique_finder
+   ${PROJECT_SOURCE_DIR}/src/third_parties/g2o/lib/libg2o_core.so
 )
 
 # Example program

@@ -1,6 +1,0 @@
-<map id="FMC::maxCliqueHelper" name="FMC::maxCliqueHelper">
-<area shape="rect" id="node2" href="$class_f_m_c_1_1_c_graph_i_o.html#a6c82c4cd4de1f422f9b45e9f5ec81a4a" title="FMC::CGraphIO::GetVerticesPtr" alt="" coords="212,5,424,32"/>
-<area shape="rect" id="node3" href="$class_f_m_c_1_1_c_graph_i_o.html#aebb794fe2e64a927db7b611b539b0d5a" title="FMC::CGraphIO::GetEdgesPtr" alt="" coords="217,56,419,83"/>
-<area shape="rect" id="node4" href="$class_f_m_c_1_1_c_graph_i_o.html#ae78143c82f98205cccd1b84de891b8c4" title="FMC::CGraphIO::GetVertex\lCount" alt="" coords="225,107,411,149"/>
-<area shape="rect" id="node5" href="$namespace_f_m_c.html#aa7d80a52a09b80fb9e44366ec4c55fa1" title="FMC::getDegree" alt="" coords="259,173,377,200"/>
-</map>

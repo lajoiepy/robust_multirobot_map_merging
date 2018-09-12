@@ -1,0 +1,5 @@
+<map id="global_map_solver::GlobalMapSolver" name="global_map_solver::GlobalMapSolver">
+<area shape="rect" id="node2" href="$classpairwise__consistency_1_1_pairwise_consistency.html" title="Class for the computation of the pairwise consistency of loop closure edges. " alt="" coords="97,153,251,195"/>
+<area shape="rect" id="node3" href="$structgraph__utils_1_1_transforms.html" title="Structure defining a std::map of transformations. " alt="" coords="5,5,164,32"/>
+<area shape="rect" id="node4" href="$structgraph__utils_1_1_trajectory.html" title="Structure defining a robot trajectory. " alt="" coords="188,5,339,32"/>
+</map>

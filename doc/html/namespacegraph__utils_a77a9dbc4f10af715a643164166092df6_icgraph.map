@@ -1,7 +1,8 @@
 <map id="graph_utils::poseCompose" name="graph_utils::poseCompose">
-<area shape="rect" id="node2" href="$namespacegraph__utils.html#ab227f2d1d38e5bcb6a0cd9e71984538e" title="This function precompute the trajectory by composing the successive poses. " alt="" coords="256,13,435,39"/>
-<area shape="rect" id="node4" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="231,64,460,135"/>
-<area shape="rect" id="node3" href="$classrobot__local__map_1_1_robot_local_map.html#a1333b8f7f04fe200b959cba62558106b" title="Constructor. " alt="" coords="524,5,715,47"/>
-<area shape="rect" id="node5" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a1fed86a67991cd2c850ebde447d0e7c5" title="Constructor. " alt="" coords="543,70,696,126"/>
-<area shape="rect" id="node6" href="$classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="Function that solves the global maps according to the current constraints. " alt="" coords="508,149,731,191"/>
+<area shape="rect" id="node2" href="$namespacegraph__utils.html#ab227f2d1d38e5bcb6a0cd9e71984538e" title="This function precompute the trajectory by composing the successive poses. " alt="" coords="233,13,411,39"/>
+<area shape="rect" id="node4" href="$classpairwise__consistency_1_1_pairwise_consistency.html#af3eac08aa298b40cde37fe40e930778b" title="Computes the consistency loop : aXij + abZjl + bXlk &#45; abZik (see references) " alt="" coords="231,63,413,119"/>
+<area shape="rect" id="node3" href="$classrobot__local__map_1_1_robot_local_map.html#a1333b8f7f04fe200b959cba62558106b" title="Constructor. " alt="" coords="481,5,671,47"/>
+<area shape="rect" id="node5" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a1fed86a67991cd2c850ebde447d0e7c5" title="Constructor. " alt="" coords="773,61,927,117"/>
+<area shape="rect" id="node6" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="461,125,691,196"/>
+<area shape="rect" id="node7" href="$classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="Function that solves the global maps according to the current constraints. " alt="" coords="739,140,961,181"/>
 </map>

@@ -9,7 +9,7 @@ RobotMeasurements::RobotMeasurements(const std::string & file_name, const bool& 
     nb_degree_freedom_ = graph_utils::parseG2ofile(file_name, num_poses_, transforms_, loop_closures_, is_only_loop_closures);
 }
 
-const graph_utils::TransformMap& RobotMeasurements::getTransforms() const {
+const graph_utils::Transforms& RobotMeasurements::getTransforms() const {
     return transforms_;
 }
 

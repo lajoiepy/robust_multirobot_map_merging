@@ -1,5 +1,7 @@
 <map id="graph_utils::poseInverseCompose" name="graph_utils::poseInverseCompose">
-<area shape="rect" id="node2" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="217,34,447,105"/>
-<area shape="rect" id="node3" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a1fed86a67991cd2c850ebde447d0e7c5" title="Constructor. " alt="" coords="529,5,683,61"/>
-<area shape="rect" id="node4" href="$classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="Function that solves the global maps according to the current constraints. " alt="" coords="495,85,717,126"/>
+<area shape="rect" id="node2" href="$classpairwise__consistency_1_1_pairwise_consistency.html#af3eac08aa298b40cde37fe40e930778b" title="Computes the consistency loop : aXij + abZjl + bXlk &#45; abZik (see references) " alt="" coords="217,9,400,65"/>
+<area shape="rect" id="node6" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a8d713a72710457b975009c361cc69a0a" title="This function returns the transform the two specified poses on the desired robot trajectory. " alt="" coords="229,89,388,145"/>
+<area shape="rect" id="node3" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a1fed86a67991cd2c850ebde447d0e7c5" title="Constructor. " alt="" coords="760,85,913,141"/>
+<area shape="rect" id="node4" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="448,41,677,112"/>
+<area shape="rect" id="node5" href="$classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="Function that solves the global maps according to the current constraints. " alt="" coords="725,20,948,61"/>
 </map>

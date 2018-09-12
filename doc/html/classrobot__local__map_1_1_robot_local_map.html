@@ -92,6 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classrobot__local__map_1_1_robot_local_map-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">robot_local_map::RobotLocalMap Class Reference</div>  </div>
@@ -114,6 +115,7 @@ Collaboration diagram for robot_local_map::RobotLocalMap:</div>
 <map name="robot__local__map_1_1_robot_local_map_coll__map" id="robot__local__map_1_1_robot_local_map_coll__map">
 <area shape="rect" id="node2" href="classrobot__local__map_1_1_robot_measurements.html" title="Class that contains the measurements of a single robot. " alt="" coords="5,95,252,121"/>
 <area shape="rect" id="node3" href="structgraph__utils_1_1_transforms.html" title="Structure defining a std::map of transformations. " alt="" coords="49,5,208,32"/>
+<area shape="rect" id="node4" href="structgraph__utils_1_1_trajectory.html" title="Structure defining a robot trajectory. " alt="" coords="276,95,427,121"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -129,9 +131,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ace947dfe1dd2a75d99be4c7612d4cda2 inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot__local__map_1_1_robot_measurements.html#ace947dfe1dd2a75d99be4c7612d4cda2">RobotMeasurements</a> (const std::string &amp;file_name, const bool &amp;is_only_loop_closures)</td></tr>
 <tr class="memdesc:ace947dfe1dd2a75d99be4c7612d4cda2 inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ace947dfe1dd2a75d99be4c7612d4cda2">More...</a><br /></td></tr>
 <tr class="separator:ace947dfe1dd2a75d99be4c7612d4cda2 inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f695317420ab51592552ca0d4967c45 inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="structgraph__utils_1_1_transforms.html">graph_utils::Transforms</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot__local__map_1_1_robot_measurements.html#a7f695317420ab51592552ca0d4967c45">getTransforms</a> () const </td></tr>
-<tr class="memdesc:a7f695317420ab51592552ca0d4967c45 inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor.  <a href="#a7f695317420ab51592552ca0d4967c45">More...</a><br /></td></tr>
-<tr class="separator:a7f695317420ab51592552ca0d4967c45 inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab80fc6b92d00e5242885e8564a16eb97 inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="structgraph__utils_1_1_transforms.html">graph_utils::Transforms</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot__local__map_1_1_robot_measurements.html#ab80fc6b92d00e5242885e8564a16eb97">getTransforms</a> () const </td></tr>
+<tr class="memdesc:ab80fc6b92d00e5242885e8564a16eb97 inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor.  <a href="#ab80fc6b92d00e5242885e8564a16eb97">More...</a><br /></td></tr>
+<tr class="separator:ab80fc6b92d00e5242885e8564a16eb97 inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee58ef9703fe600e15e6d2e97e712399 inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="memItemLeft" align="right" valign="top">virtual const size_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot__local__map_1_1_robot_measurements.html#aee58ef9703fe600e15e6d2e97e712399">getNumPoses</a> () const </td></tr>
 <tr class="memdesc:aee58ef9703fe600e15e6d2e97e712399 inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor.  <a href="#aee58ef9703fe600e15e6d2e97e712399">More...</a><br /></td></tr>
 <tr class="separator:aee58ef9703fe600e15e6d2e97e712399 inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,6 +143,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0fdb1eee8a66e33d5f3a9d0e6f78995d inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="memItemLeft" align="right" valign="top">virtual const uint8_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot__local__map_1_1_robot_measurements.html#a0fdb1eee8a66e33d5f3a9d0e6f78995d">getNbDegreeFreedom</a> () const </td></tr>
 <tr class="memdesc:a0fdb1eee8a66e33d5f3a9d0e6f78995d inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor.  <a href="#a0fdb1eee8a66e33d5f3a9d0e6f78995d">More...</a><br /></td></tr>
 <tr class="separator:a0fdb1eee8a66e33d5f3a9d0e6f78995d inherit pub_methods_classrobot__local__map_1_1_robot_measurements"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aa8bb10853634b0fb775562a9682cf6f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgraph__utils_1_1_trajectory.html">graph_utils::Trajectory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot__local__map_1_1_robot_local_map.html#aa8bb10853634b0fb775562a9682cf6f7">trajectory_</a></td></tr>
+<tr class="memdesc:aa8bb10853634b0fb775562a9682cf6f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local trajectory of the robot.  <a href="#aa8bb10853634b0fb775562a9682cf6f7">More...</a><br /></td></tr>
+<tr class="separator:aa8bb10853634b0fb775562a9682cf6f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -218,6 +226,31 @@ Here is the call graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>the robot trajectory </dd></dl>
 
 <p>Definition at line <a class="el" href="robot__local__map_8cpp_source.html#l00012">12</a> of file <a class="el" href="robot__local__map_8cpp_source.html">robot_local_map.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="aa8bb10853634b0fb775562a9682cf6f7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgraph__utils_1_1_trajectory.html">graph_utils::Trajectory</a> robot_local_map::RobotLocalMap::trajectory_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Local trajectory of the robot. </p>
+
+<p>Definition at line <a class="el" href="robot__local__map_8h_source.html#l00030">30</a> of file <a class="el" href="robot__local__map_8h_source.html">robot_local_map.h</a>.</p>
 
 </div>
 </div>

@@ -1,4 +1,6 @@
 <map id="_setup_util.rollback_env_variables" name="_setup_util.rollback_env_variables">
-<area shape="rect" id="node2" href="$namespace__setup__util.html#ad56c24837fa4eddc63c03fbc7035628f" title="_setup_util.assignment" alt="" coords="188,5,344,32"/>
-<area shape="rect" id="node3" href="$namespace__setup__util.html#abe8c95c4cfe8b1374dacd5f91d984353" title="_setup_util.comment" alt="" coords="195,56,337,83"/>
+<area shape="rect" id="node2" href="$namespace__setup__util.html#af05661e87b3270e8bfd0fbc18a5eeec4" title="_setup_util._rollback\l_env_variable" alt="" coords="195,5,337,47"/>
+<area shape="rect" id="node4" href="$namespace__setup__util.html#ad56c24837fa4eddc63c03fbc7035628f" title="_setup_util.assignment" alt="" coords="188,71,344,98"/>
+<area shape="rect" id="node5" href="$namespace__setup__util.html#abe8c95c4cfe8b1374dacd5f91d984353" title="_setup_util.comment" alt="" coords="195,122,337,149"/>
+<area shape="rect" id="node3" href="$namespace__setup__util.html#ab2be07aa31918f1e1e34d6b7c4d66fcb" title="_setup_util._get_workspaces" alt="" coords="392,13,583,39"/>
 </map>

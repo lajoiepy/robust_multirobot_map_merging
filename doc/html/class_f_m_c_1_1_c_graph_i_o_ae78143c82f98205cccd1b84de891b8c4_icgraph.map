@@ -1,5 +1,0 @@
-<map id="FMC::CGraphIO::GetVertexCount" name="FMC::CGraphIO::GetVertexCount">
-<area shape="rect" id="node2" href="$namespace_f_m_c.html#ae4bcb51fb7975a85989698d9f7d443f3" title="FMC::maxCliqueHelper" alt="" coords="239,5,397,32"/>
-<area shape="rect" id="node3" href="$namespace_f_m_c.html#afdcd92e82049d498ddc50e934b171cf4" title="FMC::maxClique" alt="" coords="445,31,567,57"/>
-<area shape="rect" id="node4" href="$classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="Function that solves the global maps according to the current constraints. " alt="" coords="615,23,837,65"/>
-</map>

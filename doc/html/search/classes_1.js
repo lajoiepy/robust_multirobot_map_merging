@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['globalmapsolver',['GlobalMapSolver',['../classglobal__map__solver_1_1_global_map_solver.html',1,'global_map_solver']]]
+  ['pairwiseconsistency',['PairwiseConsistency',['../classpairwise__consistency_1_1_pairwise_consistency.html',1,'pairwise_consistency']]]
 ];

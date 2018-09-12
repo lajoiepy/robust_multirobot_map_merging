@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cgraphio',['CGraphIO',['../class_f_m_c_1_1_c_graph_i_o.html',1,'FMC']]]
+  ['globalmapsolver',['GlobalMapSolver',['../classglobal__map__solver_1_1_global_map_solver.html',1,'global_map_solver']]]
 ];

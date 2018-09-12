@@ -1,4 +1,5 @@
 <map id="robot_local_map::RobotLocalMap" name="robot_local_map::RobotLocalMap">
 <area shape="rect" id="node2" href="$classrobot__local__map_1_1_robot_measurements.html" title="Class that contains the measurements of a single robot. " alt="" coords="5,95,252,121"/>
 <area shape="rect" id="node3" href="$structgraph__utils_1_1_transforms.html" title="Structure defining a std::map of transformations. " alt="" coords="49,5,208,32"/>
+<area shape="rect" id="node4" href="$structgraph__utils_1_1_trajectory.html" title="Structure defining a robot trajectory. " alt="" coords="276,95,427,121"/>
 </map>

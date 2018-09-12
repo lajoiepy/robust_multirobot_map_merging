@@ -37,3 +37,10 @@
 # CLion
 cmake-build-debug*
 .idea*
+
+# Build artefacts
+*\build*
+*\lib
+*\bin
+*\.vs
+*\.vscode

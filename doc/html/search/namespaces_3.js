@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['pairwise_5fconsistency',['pairwise_consistency',['../namespacepairwise__consistency.html',1,'']]],
-  ['pkg',['pkg',['../namespacepkg.html',1,'']]]
+  ['robot_5flocal_5fmap',['robot_local_map',['../namespacerobot__local__map.html',1,'']]]
 ];

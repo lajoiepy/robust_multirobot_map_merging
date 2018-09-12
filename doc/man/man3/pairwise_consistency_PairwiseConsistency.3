@@ -25,6 +25,51 @@ pairwise_consistency::PairwiseConsistency \- Class for the computation of the pa
 .br
 .RI "\fIAccessor\&. \fP"
 .in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "geometry_msgs::PoseWithCovariance \fBcomputeConsistencyPose\fP (const geometry_msgs::PoseWithCovariance &aXij, const geometry_msgs::PoseWithCovariance &bXlk, const geometry_msgs::PoseWithCovariance &abZik, const geometry_msgs::PoseWithCovariance &abZjl)"
+.br
+.RI "\fIComputes the consistency loop : aXij + abZjl + bXlk - abZik (see references) \fP"
+.ti -1c
+.RI "double \fBcomputeSquaredMahalanobisDistance\fP (const geometry_msgs::PoseWithCovariance &transform)"
+.br
+.RI "\fICompute the Mahalanobis Distance of the input pose (result of pose_a-pose_b) \fP"
+.ti -1c
+.RI "geometry_msgs::PoseWithCovariance \fBcomposeOnTrajectory\fP (const size_t &id1, const size_t &id2, const size_t &robot_id)"
+.br
+.RI "\fIThis function returns the transform the two specified poses on the desired robot trajectory\&. \fP"
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBgraph_utils::LoopClosures\fP \fBloop_closures_\fP"
+.br
+.RI "\fIloop_closures to consider \fP"
+.ti -1c
+.RI "\fBgraph_utils::Transforms\fP \fBtransforms_robot1_\fP"
+.br
+.ti -1c
+.RI "\fBgraph_utils::Transforms\fP \fBtransforms_robot2_\fP"
+.br
+.ti -1c
+.RI "\fBgraph_utils::Transforms\fP \fBtransforms_interrobot_\fP"
+.br
+.RI "\fIMeasurements for each robot\&. \fP"
+.ti -1c
+.RI "\fBgraph_utils::Trajectory\fP \fBtrajectory_robot1_\fP"
+.br
+.ti -1c
+.RI "\fBgraph_utils::Trajectory\fP \fBtrajectory_robot2_\fP"
+.br
+.RI "\fITrajectory of the robots\&. \fP"
+.ti -1c
+.RI "uint8_t \fBnb_degree_freedom_\fP"
+.br
+.RI "\fINumber of degree of freedom of the measurements\&. \fP"
+.in -1c
 .SH "Detailed Description"
 .PP 
 Class for the computation of the pairwise consistency of loop closure edges\&. 
@@ -59,6 +104,51 @@ Constructor\&.
 Definition at line 32 of file pairwise_consistency\&.h\&.
 .SH "Member Function Documentation"
 .PP 
+.SS "geometry_msgs::PoseWithCovariance pairwise_consistency::PairwiseConsistency::composeOnTrajectory (const size_t & id1, const size_t & id2, const size_t & robot_id)\fC [private]\fP"
+
+.PP
+This function returns the transform the two specified poses on the desired robot trajectory\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid1\fP first pose ID 
+.br
+\fIid2\fP second pose ID 
+.br
+\fIrobot_id\fP robot ID to select to desired trajectory 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+transform (pose measurements) between the two poses 
+.RE
+.PP
+
+.PP
+Definition at line 107 of file pairwise_consistency\&.cpp\&.
+.SS "geometry_msgs::PoseWithCovariance pairwise_consistency::PairwiseConsistency::computeConsistencyPose (const geometry_msgs::PoseWithCovariance & aXij, const geometry_msgs::PoseWithCovariance & bXlk, const geometry_msgs::PoseWithCovariance & abZik, const geometry_msgs::PoseWithCovariance & abZjl)\fC [private]\fP"
+
+.PP
+Computes the consistency loop : aXij + abZjl + bXlk - abZik (see references) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaXij\fP Transformation between poses i and j on robot A trajectory 
+.br
+\fIbXlk\fP Transformation between poses l and k on robot B trajectory 
+.br
+\fIabZik\fP Transformation between pose i of robot A trajectory and pose k of robot B trajectory 
+.br
+\fIabZjl\fP Transformation between pose j of robot A trajectory and pose l of robot B trajectory 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 71 of file pairwise_consistency\&.cpp\&.
 .SS "Eigen::MatrixXi pairwise_consistency::PairwiseConsistency::computeConsistentMeasurementsMatrix ()"
 
 .PP
@@ -72,6 +162,24 @@ the consistency matrix
 
 .PP
 Definition at line 7 of file pairwise_consistency\&.cpp\&.
+.SS "double pairwise_consistency::PairwiseConsistency::computeSquaredMahalanobisDistance (const geometry_msgs::PoseWithCovariance & transform)\fC [private]\fP"
+
+.PP
+Compute the Mahalanobis Distance of the input pose (result of pose_a-pose_b) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransform\fP pose measurement describing the difference between two poses\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Mahalanobis Distance 
+.RE
+.PP
+
+.PP
+Definition at line 84 of file pairwise_consistency\&.cpp\&.
 .SS "const \fBgraph_utils::LoopClosures\fP & pairwise_consistency::PairwiseConsistency::getLoopClosures () const"
 
 .PP
@@ -85,6 +193,44 @@ list of loop closures
 
 .PP
 Definition at line 125 of file pairwise_consistency\&.cpp\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBgraph_utils::LoopClosures\fP pairwise_consistency::PairwiseConsistency::loop_closures_\fC [private]\fP"
+
+.PP
+loop_closures to consider 
+.PP
+Definition at line 97 of file pairwise_consistency\&.h\&.
+.SS "uint8_t pairwise_consistency::PairwiseConsistency::nb_degree_freedom_\fC [private]\fP"
+
+.PP
+Number of degree of freedom of the measurements\&. 
+.PP
+Definition at line 103 of file pairwise_consistency\&.h\&.
+.SS "\fBgraph_utils::Trajectory\fP pairwise_consistency::PairwiseConsistency::trajectory_robot1_\fC [private]\fP"
+
+.PP
+Definition at line 101 of file pairwise_consistency\&.h\&.
+.SS "\fBgraph_utils::Trajectory\fP pairwise_consistency::PairwiseConsistency::trajectory_robot2_\fC [private]\fP"
+
+.PP
+Trajectory of the robots\&. 
+.PP
+Definition at line 101 of file pairwise_consistency\&.h\&.
+.SS "\fBgraph_utils::Transforms\fP pairwise_consistency::PairwiseConsistency::transforms_interrobot_\fC [private]\fP"
+
+.PP
+Measurements for each robot\&. 
+.PP
+Definition at line 99 of file pairwise_consistency\&.h\&.
+.SS "\fBgraph_utils::Transforms\fP pairwise_consistency::PairwiseConsistency::transforms_robot1_\fC [private]\fP"
+
+.PP
+Definition at line 99 of file pairwise_consistency\&.h\&.
+.SS "\fBgraph_utils::Transforms\fP pairwise_consistency::PairwiseConsistency::transforms_robot2_\fC [private]\fP"
+
+.PP
+Definition at line 99 of file pairwise_consistency\&.h\&.
 
 .SH "Author"
 .PP 

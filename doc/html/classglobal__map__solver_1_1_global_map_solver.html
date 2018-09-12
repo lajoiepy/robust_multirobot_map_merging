@@ -93,6 +93,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classglobal__map__solver_1_1_global_map_solver-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">global_map_solver::GlobalMapSolver Class Reference</div>  </div>
@@ -103,6 +104,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="classglobal__map__solver_1_1_global_map_solver.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="global__map__solver_8h_source.html">global_map_solver.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for global_map_solver::GlobalMapSolver:</div>
+<div class="dyncontent">
+<div class="center"><img src="classglobal__map__solver_1_1_global_map_solver__coll__graph.png" border="0" usemap="#global__map__solver_1_1_global_map_solver_coll__map" alt="Collaboration graph"/></div>
+<map name="global__map__solver_1_1_global_map_solver_coll__map" id="global__map__solver_1_1_global_map_solver_coll__map">
+<area shape="rect" id="node2" href="classpairwise__consistency_1_1_pairwise_consistency.html" title="Class for the computation of the pairwise consistency of loop closure edges. " alt="" coords="97,153,251,195"/>
+<area shape="rect" id="node3" href="structgraph__utils_1_1_transforms.html" title="Structure defining a std::map of transformations. " alt="" coords="5,5,164,32"/>
+<area shape="rect" id="node4" href="structgraph__utils_1_1_trajectory.html" title="Structure defining a robot trajectory. " alt="" coords="188,5,339,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -121,6 +132,12 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a48202b995fc50578ec03fc17178f7e22"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classglobal__map__solver_1_1_global_map_solver.html#a48202b995fc50578ec03fc17178f7e22">CONSISTENCY_LOOP_CLOSURES_FILE_NAME</a> = std::string(&quot;consistent_loop_closures.txt&quot;)</td></tr>
 <tr class="memdesc:a48202b995fc50578ec03fc17178f7e22"><td class="mdescLeft">&#160;</td><td class="mdescRight">File name in which the consistent loop closures will be saved.  <a href="#a48202b995fc50578ec03fc17178f7e22">More...</a><br /></td></tr>
 <tr class="separator:a48202b995fc50578ec03fc17178f7e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a76ecce77b3f324ba50f25c4a029733b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpairwise__consistency_1_1_pairwise_consistency.html">pairwise_consistency::PairwiseConsistency</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classglobal__map__solver_1_1_global_map_solver.html#a76ecce77b3f324ba50f25c4a029733b6">pairwise_consistency_</a></td></tr>
+<tr class="memdesc:a76ecce77b3f324ba50f25c4a029733b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pairwise consistency solver.  <a href="#a76ecce77b3f324ba50f25c4a029733b6">More...</a><br /></td></tr>
+<tr class="separator:a76ecce77b3f324ba50f25c4a029733b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class computing the global map from multiple robots local maps. </p>
@@ -195,24 +212,16 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classglobal__map__solver_1_1_global_map_solver_a3cd22b5848f5b2b153bfe0629fdbea59_cgraph.png" border="0" usemap="#classglobal__map__solver_1_1_global_map_solver_a3cd22b5848f5b2b153bfe0629fdbea59_cgraph" alt=""/></div>
 <map name="classglobal__map__solver_1_1_global_map_solver_a3cd22b5848f5b2b153bfe0629fdbea59_cgraph" id="classglobal__map__solver_1_1_global_map_solver_a3cd22b5848f5b2b153bfe0629fdbea59_cgraph">
-<area shape="rect" id="node2" href="classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="276,63,505,134"/>
-<area shape="rect" id="node6" href="namespacegraph__utils.html#aa63b9e9c4cf0a0db956aa09fea329328" title="This function prints the consistency matrix to the format expected by the maximum clique solver..." alt="" coords="295,231,486,273"/>
-<area shape="rect" id="node7" href="class_f_m_c_1_1_c_graph_i_o.html#af72262867f739bed6c6875042cea2380" title="FMC::CGraphIO::readGraph" alt="" coords="297,297,484,324"/>
-<area shape="rect" id="node12" href="namespace_f_m_c.html#afdcd92e82049d498ddc50e934b171cf4" title="FMC::maxClique" alt="" coords="330,381,451,408"/>
-<area shape="rect" id="node18" href="namespacegraph__utils.html#a4150234137044c02b51071ff0b4f0588" title="This function prints a list of consistent loop closures in a file. " alt="" coords="300,433,481,474"/>
-<area shape="rect" id="node19" href="classpairwise__consistency_1_1_pairwise_consistency.html#a7eb762acb6c383a9e167a49e1c99905b" title="Accessor. " alt="" coords="314,497,467,553"/>
-<area shape="rect" id="node3" href="namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="This function check if a pose is include in a trajectory. " alt="" coords="595,5,767,32"/>
-<area shape="rect" id="node4" href="namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="593,56,770,83"/>
-<area shape="rect" id="node5" href="namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="599,107,763,149"/>
-<area shape="rect" id="node8" href="class_f_m_c_1_1_c_graph_i_o.html#ae800f96ed7c3484effe64a6d5b0646b9" title="FMC::CGraphIO::getFileExtension" alt="" coords="570,173,793,200"/>
-<area shape="rect" id="node9" href="class_f_m_c_1_1_c_graph_i_o.html#ab0d9d8ee2319d816029775d86b2812ce" title="FMC::CGraphIO::ReadMatrix\lMarketAdjacencyGraph" alt="" coords="585,225,778,266"/>
-<area shape="rect" id="node11" href="class_f_m_c_1_1_c_graph_i_o.html#a45d19b2b7d2b625aacfaa0a05a047473" title="FMC::CGraphIO::ReadMeTiSAdjacency\lGraph" alt="" coords="553,290,809,331"/>
-<area shape="rect" id="node10" href="class_f_m_c_1_1_c_graph_i_o.html#a3be1248d6e69f0898af9dfe26680bc37" title="FMC::CGraphIO::Calculate\lVertexDegrees" alt="" coords="873,225,1054,266"/>
-<area shape="rect" id="node13" href="class_f_m_c_1_1_c_graph_i_o.html#a6c82c4cd4de1f422f9b45e9f5ec81a4a" title="FMC::CGraphIO::GetVerticesPtr" alt="" coords="857,556,1069,583"/>
-<area shape="rect" id="node14" href="class_f_m_c_1_1_c_graph_i_o.html#aebb794fe2e64a927db7b611b539b0d5a" title="FMC::CGraphIO::GetEdgesPtr" alt="" coords="863,373,1064,400"/>
-<area shape="rect" id="node15" href="class_f_m_c_1_1_c_graph_i_o.html#ae78143c82f98205cccd1b84de891b8c4" title="FMC::CGraphIO::GetVertex\lCount" alt="" coords="871,427,1056,469"/>
-<area shape="rect" id="node16" href="namespace_f_m_c.html#aa7d80a52a09b80fb9e44366ec4c55fa1" title="FMC::getDegree" alt="" coords="904,497,1023,524"/>
-<area shape="rect" id="node17" href="namespace_f_m_c.html#ae4bcb51fb7975a85989698d9f7d443f3" title="FMC::maxCliqueHelper" alt="" coords="602,457,761,484"/>
+<area shape="rect" id="node2" href="classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="276,89,505,159"/>
+<area shape="rect" id="node9" href="namespacegraph__utils.html#aa63b9e9c4cf0a0db956aa09fea329328" title="This function prints the consistency matrix to the format expected by the maximum clique solver..." alt="" coords="295,183,486,225"/>
+<area shape="rect" id="node10" href="namespacegraph__utils.html#a4150234137044c02b51071ff0b4f0588" title="This function prints a list of consistent loop closures in a file. " alt="" coords="300,249,481,290"/>
+<area shape="rect" id="node11" href="classpairwise__consistency_1_1_pairwise_consistency.html#a7eb762acb6c383a9e167a49e1c99905b" title="Accessor. " alt="" coords="314,313,467,369"/>
+<area shape="rect" id="node3" href="namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="This function check if a pose is include in a trajectory. " alt="" coords="594,5,766,32"/>
+<area shape="rect" id="node4" href="classpairwise__consistency_1_1_pairwise_consistency.html#a8d713a72710457b975009c361cc69a0a" title="This function returns the transform the two specified poses on the desired robot trajectory. " alt="" coords="601,56,759,112"/>
+<area shape="rect" id="node6" href="classpairwise__consistency_1_1_pairwise_consistency.html#af3eac08aa298b40cde37fe40e930778b" title="Computes the consistency loop : aXij + abZjl + bXlk &#45; abZik (see references) " alt="" coords="589,136,771,192"/>
+<area shape="rect" id="node8" href="classpairwise__consistency_1_1_pairwise_consistency.html#a2b950355e607d737fefef75bc6c45141" title="Compute the Mahalanobis Distance of the input pose (result of pose_a&#45;pose_b) " alt="" coords="553,216,807,272"/>
+<area shape="rect" id="node5" href="namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="861,74,1025,115"/>
+<area shape="rect" id="node7" href="namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="855,151,1032,177"/>
 </map>
 </div>
 </p>
@@ -265,6 +274,30 @@ Here is the call graph for this function:</div>
 <p>File name in which the consistency matrix will be saved. </p>
 
 <p>Definition at line <a class="el" href="global__map__solver_8h_source.html#l00019">19</a> of file <a class="el" href="global__map__solver_8h_source.html">global_map_solver.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a76ecce77b3f324ba50f25c4a029733b6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classpairwise__consistency_1_1_pairwise_consistency.html">pairwise_consistency::PairwiseConsistency</a> global_map_solver::GlobalMapSolver::pairwise_consistency_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pairwise consistency solver. </p>
+
+<p>Definition at line <a class="el" href="global__map__solver_8h_source.html#l00045">45</a> of file <a class="el" href="global__map__solver_8h_source.html">global_map_solver.h</a>.</p>
 
 </div>
 </div>
