@@ -1,7 +1,7 @@
 <map id="graph_utils::poseCompose" name="graph_utils::poseCompose">
 <area shape="rect" id="node2" href="$namespacegraph__utils.html#ab227f2d1d38e5bcb6a0cd9e71984538e" title="This function precompute the trajectory by composing the successive poses. " alt="" coords="256,13,435,39"/>
-<area shape="rect" id="node4" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="pairwise_consistency\l::PairwiseConsistency\l::computeConsistentMeasurements\lMatrix" alt="" coords="231,64,460,135"/>
-<area shape="rect" id="node3" href="$classrobot__local__map_1_1_robot_local_map.html#a1333b8f7f04fe200b959cba62558106b" title="robot_local_map::RobotLocal\lMap::RobotLocalMap" alt="" coords="524,5,715,47"/>
-<area shape="rect" id="node5" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a4f47ff22f4a183bdd4de6e0f1887fde6" title="pairwise_consistency\l::PairwiseConsistency\l::PairwiseConsistency" alt="" coords="543,70,696,126"/>
-<area shape="rect" id="node6" href="$classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="global_map_solver::\lGlobalMapSolver::solveGlobalMap" alt="" coords="508,149,731,191"/>
+<area shape="rect" id="node4" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="231,64,460,135"/>
+<area shape="rect" id="node3" href="$classrobot__local__map_1_1_robot_local_map.html#a1333b8f7f04fe200b959cba62558106b" title="Constructor. " alt="" coords="524,5,715,47"/>
+<area shape="rect" id="node5" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a1fed86a67991cd2c850ebde447d0e7c5" title="Constructor. " alt="" coords="543,70,696,126"/>
+<area shape="rect" id="node6" href="$classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="Function that solves the global maps according to the current constraints. " alt="" coords="508,149,731,191"/>
 </map>

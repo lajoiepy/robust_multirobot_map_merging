@@ -20,13 +20,14 @@ namespace pairwise_consistency {
       public:
         /**
          * \brief Constructor
-         * @param transforms_robot1
-         * @param transforms_robot2
-         * @param transforms_interrobot
-         * @param loop_closures
-         * @param trajectory_robot1
-         * @param trajectory_robot2
-         * @param nb_degree_freedom
+         *
+         * @param transforms_robot1 Measurements of robot 1
+         * @param transforms_robot2 Measurements of robot 2
+         * @param transforms_interrobot Inter-robot measurements
+         * @param loop_closures Nodes ID in loop closures
+         * @param trajectory_robot1 Precomputed trajectory of robot 1
+         * @param trajectory_robot2 Precomputed trajectory of robot 2
+         * @param nb_degree_freedom Number of degree of freedom of the robots measurements.
          */
         PairwiseConsistency(const graph_utils::Transforms& transforms_robot1,
                             const graph_utils::Transforms& transforms_robot2,
@@ -42,6 +43,8 @@ namespace pairwise_consistency {
 
         /**
          * \brief Computation of the consistency matrix
+         *
+         *
          * @returns the consistency matrix
          */ 
         Eigen::MatrixXi computeConsistentMeasurementsMatrix();
@@ -52,12 +55,22 @@ namespace pairwise_consistency {
 
         /**
          * \brief Accessor
+         *
          * @returns list of loop closures
          */
         const graph_utils::LoopClosures& getLoopClosures() const; 
 
       private:
 
+        /**
+         * \brief Computes the consistency loop : aXij + abZjl + bXlk - abZik (see references)
+         *
+         * @param aXij
+         * @param bXlk
+         * @param abZik
+         * @param abZjl
+         * @return
+         */
         geometry_msgs::PoseWithCovariance computeConsistencyPose(const geometry_msgs::PoseWithCovariance& aXij, 
                                                         const geometry_msgs::PoseWithCovariance& bXlk, 
                                                         const geometry_msgs::PoseWithCovariance& abZik, 

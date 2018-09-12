@@ -1,3 +1,3 @@
 <map id="robot_local_map::RobotMeasurements" name="robot_local_map::RobotMeasurements">
-<area shape="rect" id="node2" href="$structgraph__utils_1_1_transform_map.html" title="graph_utils::TransformMap" alt="" coords="40,5,217,32"/>
+<area shape="rect" id="node2" href="$structgraph__utils_1_1_transforms.html" title="Structure defining a std::map of transformations. " alt="" coords="49,5,208,32"/>
 </map>

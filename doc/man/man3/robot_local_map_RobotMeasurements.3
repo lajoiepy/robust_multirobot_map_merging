@@ -1,4 +1,4 @@
-.TH "robot_local_map::RobotMeasurements" 3 "Tue Sep 11 2018" "Version 0.1" "robust_multirobot_map_merging" \" -*- nroff -*-
+.TH "robot_local_map::RobotMeasurements" 3 "Wed Sep 12 2018" "Version 0.1" "robust_multirobot_map_merging" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -19,7 +19,7 @@ Inherited by \fBrobot_local_map::RobotLocalMap\fP\&.
 .br
 .RI "\fIConstructor\&. \fP"
 .ti -1c
-.RI "virtual const graph_utils::TransformMap & \fBgetTransforms\fP () const "
+.RI "virtual const \fBgraph_utils::Transforms\fP & \fBgetTransforms\fP () const "
 .br
 .RI "\fIAccessor\&. \fP"
 .ti -1c
@@ -39,7 +39,7 @@ Inherited by \fBrobot_local_map::RobotLocalMap\fP\&.
 
 .in +1c
 .ti -1c
-.RI "graph_utils::TransformMap \fBtransforms_\fP"
+.RI "\fBgraph_utils::Transforms\fP \fBtransforms_\fP"
 .br
 .RI "\fIstd::map containing all the local measurements of the robot\&. \fP"
 .ti -1c
@@ -68,6 +68,13 @@ Definition at line 18 of file robot_measurements\&.h\&.
 
 .PP
 Constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfile_name\fP 
+.RE
+.PP
+
 .PP
 Definition at line 8 of file robot_measurements\&.cpp\&.
 .SH "Member Function Documentation"
@@ -131,25 +138,25 @@ Definition at line 12 of file robot_measurements\&.cpp\&.
 .PP
 std::vector containing the ID pairs of the loop closures 
 .PP
-Definition at line 52 of file robot_measurements\&.h\&.
+Definition at line 53 of file robot_measurements\&.h\&.
 .SS "uint8_t robot_local_map::RobotMeasurements::nb_degree_freedom_\fC [protected]\fP"
 
 .PP
 Number of degree of freedom of the measurements, typically 3 in 2D and 6 in 3D\&. 
 .PP
-Definition at line 53 of file robot_measurements\&.h\&.
+Definition at line 54 of file robot_measurements\&.h\&.
 .SS "size_t robot_local_map::RobotMeasurements::num_poses_\fC [protected]\fP"
 
 .PP
 Number of poses in the map\&. 
 .PP
-Definition at line 51 of file robot_measurements\&.h\&.
-.SS "graph_utils::TransformMap robot_local_map::RobotMeasurements::transforms_\fC [protected]\fP"
+Definition at line 52 of file robot_measurements\&.h\&.
+.SS "\fBgraph_utils::Transforms\fP robot_local_map::RobotMeasurements::transforms_\fC [protected]\fP"
 
 .PP
 std::map containing all the local measurements of the robot\&. 
 .PP
-Definition at line 50 of file robot_measurements\&.h\&.
+Definition at line 51 of file robot_measurements\&.h\&.
 
 .SH "Author"
 .PP 

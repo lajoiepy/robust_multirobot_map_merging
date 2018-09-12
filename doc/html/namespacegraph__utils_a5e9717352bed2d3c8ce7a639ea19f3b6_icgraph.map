@@ -1,5 +1,5 @@
 <map id="graph_utils::isInTrajectory" name="graph_utils::isInTrajectory">
-<area shape="rect" id="node2" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="pairwise_consistency\l::PairwiseConsistency\l::computeConsistentMeasurements\lMatrix" alt="" coords="225,34,455,105"/>
-<area shape="rect" id="node3" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a4f47ff22f4a183bdd4de6e0f1887fde6" title="pairwise_consistency\l::PairwiseConsistency\l::PairwiseConsistency" alt="" coords="537,5,691,61"/>
-<area shape="rect" id="node4" href="$classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="global_map_solver::\lGlobalMapSolver::solveGlobalMap" alt="" coords="503,85,725,126"/>
+<area shape="rect" id="node2" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="225,34,455,105"/>
+<area shape="rect" id="node3" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a1fed86a67991cd2c850ebde447d0e7c5" title="Constructor. " alt="" coords="537,5,691,61"/>
+<area shape="rect" id="node4" href="$classglobal__map__solver_1_1_global_map_solver.html#a3cd22b5848f5b2b153bfe0629fdbea59" title="Function that solves the global maps according to the current constraints. " alt="" coords="503,85,725,126"/>
 </map>

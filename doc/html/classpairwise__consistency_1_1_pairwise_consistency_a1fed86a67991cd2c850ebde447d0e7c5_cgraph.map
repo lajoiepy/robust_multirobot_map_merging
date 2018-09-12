@@ -1,0 +1,7 @@
+<map id="pairwise_consistency::PairwiseConsistency::PairwiseConsistency" name="pairwise_consistency::PairwiseConsistency::PairwiseConsistency">
+<area shape="rect" id="node2" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="207,34,436,105"/>
+<area shape="rect" id="node6" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a7eb762acb6c383a9e167a49e1c99905b" title="Accessor. " alt="" coords="245,129,398,185"/>
+<area shape="rect" id="node3" href="$namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="This function check if a pose is include in a trajectory. " alt="" coords="487,5,659,32"/>
+<area shape="rect" id="node4" href="$namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="484,56,661,83"/>
+<area shape="rect" id="node5" href="$namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="491,107,655,149"/>
+</map>

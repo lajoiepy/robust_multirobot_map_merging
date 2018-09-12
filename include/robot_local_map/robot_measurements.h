@@ -19,7 +19,7 @@ namespace robot_local_map {
       public:
         /**
          * \brief Constructor
-         * @param file_name 
+         * @param file_name
          */
         RobotMeasurements(const std::string & file_name, const bool& is_only_loop_closures);
 

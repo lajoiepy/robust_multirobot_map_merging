@@ -1,10 +1,10 @@
 <map id="global_map_solver::GlobalMapSolver::solveGlobalMap" name="global_map_solver::GlobalMapSolver::solveGlobalMap">
-<area shape="rect" id="node2" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="pairwise_consistency\l::PairwiseConsistency\l::computeConsistentMeasurements\lMatrix" alt="" coords="276,63,505,134"/>
+<area shape="rect" id="node2" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="276,63,505,134"/>
 <area shape="rect" id="node6" href="$namespacegraph__utils.html#aa63b9e9c4cf0a0db956aa09fea329328" title="This function prints the consistency matrix to the format expected by the maximum clique solver..." alt="" coords="295,231,486,273"/>
 <area shape="rect" id="node7" href="$class_f_m_c_1_1_c_graph_i_o.html#af72262867f739bed6c6875042cea2380" title="FMC::CGraphIO::readGraph" alt="" coords="297,297,484,324"/>
 <area shape="rect" id="node12" href="$namespace_f_m_c.html#afdcd92e82049d498ddc50e934b171cf4" title="FMC::maxClique" alt="" coords="330,381,451,408"/>
 <area shape="rect" id="node18" href="$namespacegraph__utils.html#a4150234137044c02b51071ff0b4f0588" title="This function prints a list of consistent loop closures in a file. " alt="" coords="300,433,481,474"/>
-<area shape="rect" id="node19" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a7eb762acb6c383a9e167a49e1c99905b" title="pairwise_consistency\l::PairwiseConsistency\l::getLoopClosures" alt="" coords="314,497,467,553"/>
+<area shape="rect" id="node19" href="$classpairwise__consistency_1_1_pairwise_consistency.html#a7eb762acb6c383a9e167a49e1c99905b" title="Accessor. " alt="" coords="314,497,467,553"/>
 <area shape="rect" id="node3" href="$namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="This function check if a pose is include in a trajectory. " alt="" coords="595,5,767,32"/>
 <area shape="rect" id="node4" href="$namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="593,56,770,83"/>
 <area shape="rect" id="node5" href="$namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="599,107,763,149"/>
