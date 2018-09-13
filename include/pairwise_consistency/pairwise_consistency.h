@@ -58,9 +58,29 @@ namespace pairwise_consistency {
          *
          * @returns list of loop closures
          */
-        const graph_utils::LoopClosures& getLoopClosures() const; 
+        const graph_utils::LoopClosures& getLoopClosures() const;
 
-      private:
+        /**
+         * \brief Accessor
+         *
+         * @returns map of the transforms of robot 1
+         */
+        const graph_utils::Transforms& getTransformsRobot1() const;
+
+        /**
+         * \brief Accessor
+         *
+         * @returns map of the transforms of robot 2
+         */
+        const graph_utils::Transforms& getTransformsRobot2() const;
+
+        /**
+         * \brief Accessor
+         *
+         * @returns map of the inter-robot transforms
+         */
+        const graph_utils::Transforms& getTransformsInterRobot() const;
+    private:
 
         /**
          * \brief Computes the consistency loop : aXij + abZjl + bXlk - abZik (see references)

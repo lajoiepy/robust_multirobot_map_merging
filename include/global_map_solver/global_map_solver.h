@@ -5,6 +5,8 @@
 
 #include "robot_local_map/robot_local_map.h"
 #include "pairwise_consistency/pairwise_consistency.h"
+#include "SESync/SESync.h"
+#include "SESync/SESync_utils.h"
 #include <string>
 
 namespace global_map_solver {
@@ -43,6 +45,16 @@ namespace global_map_solver {
 
       private:
         pairwise_consistency::PairwiseConsistency pairwise_consistency_; ///< Pairwise consistency solver.
+
+        /**
+         * \brief This functions fill the structure measurements_t whitout the spurious measurements
+         * in order to use SE-Sync.
+         *
+         * @param loop_closures List of loop closures
+         * @param max_clique_data List of valid loop closures ID
+         * @return the formatted measurements
+         */
+        SESync::measurements_t fillMeasurements(const std::vector<int>& max_clique_data);
 
     }; 
 }

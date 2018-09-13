@@ -268,4 +268,32 @@ void printConsistentLoopClosures(const LoopClosures& loop_closures, const std::v
   }
   output_file.close();
 }
+
+SESync::RelativePoseMeasurement convertTransformToRelativePoseMeasurement(const Transform& t) {
+    // A single measurement, whose values we will fill in
+    SESync::RelativePoseMeasurement measurement;
+
+    // Pose ids
+    measurement.i = t.i;
+    measurement.j = t.j;
+
+    // Raw measurements
+    measurement.t = Eigen::Vector2d(t.pose.pose.position.x, t.pose.pose.position.y);
+
+    double dtheta = 2*asin(t.pose.pose.orientation.z);
+    measurement.R = Eigen::Rotation2Dd(dtheta).toRotationMatrix();
+
+    Eigen::Matrix2d TranCov;
+    TranCov << t.pose.covariance[0], t.pose.covariance[1], t.pose.covariance[1], t.pose.covariance[7];
+    measurement.tau = 2 / TranCov.trace();
+
+    if (t.pose.covariance[35] != 0) {
+        measurement.kappa = 1 / t.pose.covariance[35];
+    } else {
+        std::cerr << "Covariance on rotation null (leads to a division by zero)" << std::endl;
+        measurement.kappa = 1000;
+    }
+    return measurement;
+}
+
 }

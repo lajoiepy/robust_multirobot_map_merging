@@ -126,4 +126,16 @@ const graph_utils::LoopClosures& PairwiseConsistency::getLoopClosures() const {
     return loop_closures_;
 }
 
+const graph_utils::Transforms& PairwiseConsistency::getTransformsRobot1() const{
+    return transforms_robot1_;
+}
+
+const graph_utils::Transforms& PairwiseConsistency::getTransformsRobot2() const{
+    return transforms_robot2_;
+}
+
+const graph_utils::Transforms& PairwiseConsistency::getTransformsInterRobot() const{
+    return transforms_interrobot_;
+}
+
 }

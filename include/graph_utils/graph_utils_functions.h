@@ -7,6 +7,8 @@
 #include <mrpt/poses/CPose3D.h>
 #include <mrpt/poses/CPose3DPDFGaussian.h>
 #include <mrpt_bridge/pose.h>
+#include "SESync/SESync.h"
+#include "SESync/SESync_utils.h"
 #include <iostream>
 #include <fstream>
 
@@ -87,6 +89,14 @@ bool isInTrajectory(const Trajectory& trajectory, const size_t& pose_id);
 * @param[in] file_name Name of the file to save the results.
 */
 void printConsistentLoopClosures(const LoopClosures& loop_closures, const std::vector<int>& max_clique_data, const std::string& file_name);
+
+/**
+ * \brief This function converts a transform in the correct format for the SE-Sync solver.
+ *
+ * @param t transform to be converted
+ * @return
+ */
+SESync::RelativePoseMeasurement convertTransformToRelativePoseMeasurement(const Transform& t);
 }
 
 #endif
