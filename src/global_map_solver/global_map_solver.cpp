@@ -2,6 +2,8 @@
 
 #include "global_map_solver/global_map_solver.h"
 #include "findClique.h"
+#include "SESync/SESync.h"
+#include "SESync/SESync_utils.h"
 
 
 namespace global_map_solver {
@@ -36,7 +38,26 @@ int GlobalMapSolver::solveGlobalMap() {
     max_clique_data.clear();
 
     // Optimize
+    SESync::measurements_t measurements;
 
+    // Fill measurements
+
+
+    // SE-Sync options
+    SESync::SESyncOpts opts;
+    opts.verbose = true;
+    opts.num_threads = 4;
+
+    /// RUN SE-SYNC!
+    SESync::SESyncResult results = SESync::SESync(measurements, opts);
+
+
+    // Write output
+    string filename = "global_pose_graph.txt";
+    cout << "Saving final poses to file: " << filename << endl;
+    ofstream poses_file(filename);
+    poses_file << results.xhat;
+    poses_file.close();
 
     return max_clique_size;
 }

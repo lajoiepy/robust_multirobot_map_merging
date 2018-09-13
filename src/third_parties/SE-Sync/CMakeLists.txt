@@ -130,7 +130,3 @@ endif()
 
 # Export the SESync and Optimization libraries to make them available to other CMake projects
 export(TARGETS SESync Optimization FILE SESync.cmake)
-
-# BUILD EXAMPLE DRIVER
-add_subdirectory(examples)
-

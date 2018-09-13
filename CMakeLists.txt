@@ -41,7 +41,9 @@ catkin_package(
 include_directories(
   include
   ${CMAKE_CURRENT_SOURCE_DIR}/src/third_parties/fast_max-clique_finder/src/
- ${catkin_INCLUDE_DIRS}
+  ${catkin_INCLUDE_DIRS}
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/third_parties/SE-Sync/SE-Sync/include/
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/third_parties/SE-Sync/Optimization/include/
 )
 
 # Paiwise Consistency computation library
@@ -87,13 +89,12 @@ target_link_libraries(robot_local_map
 add_library(global_map_solver
 src/global_map_solver/global_map_solver.cpp
 )
-find_library(SESync sesync REQUIRED)
 target_link_libraries(global_map_solver
    ${catkin_LIBRARIES}
    graph_utils
    pairwise_consistency
    fast_max-clique_finder
-   ${PROJECT_SOURCE_DIR}/src/third_parties/SE-Sync/build/lib/libSESync.so
+   ${CMAKE_CURRENT_SOURCE_DIR}/src/third_parties/SE-Sync/build/lib/libSESync.so
 )
 
 # Example program
