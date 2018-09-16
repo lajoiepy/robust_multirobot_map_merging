@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['features',['features',['../feature__tests_8c.html#a1582568e32f689337602a16bf8a5bff0',1,'features():&#160;feature_tests.c'],['../feature__tests_8cxx.html#a1582568e32f689337602a16bf8a5bff0',1,'features():&#160;feature_tests.cxx']]],
-  ['file',['file',['../namespace__setup__util.html#aea63a1b32cc79bc3d872ab7cb30dd07e',1,'_setup_util']]]
+  ['loop_5fclosures_5f',['loop_closures_',['../classpairwise__consistency_1_1_pairwise_consistency.html#ab11973e6c8de1eea7f63122511f79636',1,'pairwise_consistency::PairwiseConsistency::loop_closures_()'],['../classrobot__local__map_1_1_robot_measurements.html#a66cddad2f31f6bc69e7db267b8715907',1,'robot_local_map::RobotMeasurements::loop_closures_()']]]
 ];

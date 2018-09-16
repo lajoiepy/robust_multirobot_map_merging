@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>robust_multirobot_map_merging: src/global_map_solver/global_map_solver.cpp File Reference</title>
+<title>Robust Multi-Robot Map Merging: /home/lajoiepy/Documents/master/mit/baseline_ws/src/robust_multirobot_map_merging/src/global_map_solver/global_map_solver.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,10 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">robust_multirobot_map_merging
-   &#160;<span id="projectnumber">0.1</span>
+   <div id="projectname">Robust Multi-Robot Map Merging
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">This package serves as back-end for multi-robot mapping</div>
   </td>
  </tr>
  </tbody>
@@ -40,7 +39,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -65,7 +63,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -96,22 +93,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="global__map__solver_8h_source.html">global_map_solver/global_map_solver.h</a>&quot;</code><br />
 <code>#include &quot;findClique.h&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for global_map_solver.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="global__map__solver_8cpp__incl.png" border="0" usemap="#src_2global__map__solver_2global__map__solver_8cpp" alt=""/></div>
-<map name="src_2global__map__solver_2global__map__solver_8cpp" id="src_2global__map__solver_2global__map__solver_8cpp">
-<area shape="rect" id="node2" href="global__map__solver_8h.html" title="global_map_solver/global\l_map_solver.h" alt="" coords="601,95,769,136"/>
-<area shape="rect" id="node3" href="robot__local__map_8h.html" title="robot_local_map/robot\l_local_map.h" alt="" coords="254,184,405,225"/>
-<area shape="rect" id="node9" href="pairwise__consistency_8h.html" title="pairwise_consistency\l/pairwise_consistency.h" alt="" coords="604,184,767,225"/>
-<area shape="rect" id="node4" href="robot__measurements_8h.html" title="robot_local_map/robot\l_measurements.h" alt="" coords="103,273,254,315"/>
-<area shape="rect" id="node5" href="graph__types_8h.html" title="graph_utils/graph_types.h" alt="" coords="5,363,176,389"/>
-<area shape="rect" id="node10" href="graph__utils__functions_8h.html" title="graph_utils/graph_utils\l_functions.h" alt="" coords="520,273,672,315"/>
+<div class="center"><img src="global__map__solver_8cpp__incl.png" border="0" usemap="#_2home_2lajoiepy_2_documents_2master_2mit_2baseline__ws_2src_2robust__multirobot__map__merging_2src_2global__map__solver_2global__map__solver_8cpp" alt=""/></div>
+<map name="_2home_2lajoiepy_2_documents_2master_2mit_2baseline__ws_2src_2robust__multirobot__map__merging_2src_2global__map__solver_2global__map__solver_8cpp" id="_2home_2lajoiepy_2_documents_2master_2mit_2baseline__ws_2src_2robust__multirobot__map__merging_2src_2global__map__solver_2global__map__solver_8cpp">
+<area shape="rect" id="node2" href="global__map__solver_8h.html" title="global_map_solver/global\l_map_solver.h" alt="" coords="911,139,1079,180"/>
+<area shape="rect" id="node3" href="robot__local__map_8h.html" title="robot_local_map/robot\l_local_map.h" alt="" coords="358,228,509,269"/>
+<area shape="rect" id="node9" href="pairwise__consistency_8h.html" title="pairwise_consistency\l/pairwise_consistency.h" alt="" coords="705,228,868,269"/>
+<area shape="rect" id="node4" href="robot__measurements_8h.html" title="robot_local_map/robot\l_measurements.h" alt="" coords="67,317,218,359"/>
+<area shape="rect" id="node5" href="graph__types_8h.html" title="graph_utils/graph_types.h" alt="" coords="52,407,223,433"/>
+<area shape="rect" id="node10" href="graph__utils__functions_8h.html" title="graph_utils/graph_utils\l_functions.h" alt="" coords="576,317,728,359"/>
 </map>
 </div>
-</div>
-<p><a href="global__map__solver_8cpp_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceglobal__map__solver"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceglobal__map__solver.html">global_map_solver</a></td></tr>

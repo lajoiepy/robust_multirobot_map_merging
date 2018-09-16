@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['getloopclosures',['getLoopClosures',['../classpairwise__consistency_1_1_pairwise_consistency.html#a7eb762acb6c383a9e167a49e1c99905b',1,'pairwise_consistency::PairwiseConsistency::getLoopClosures()'],['../classrobot__local__map_1_1_robot_measurements.html#aceeca1239e7fd7a5a70a939d252ee572',1,'robot_local_map::RobotMeasurements::getLoopClosures()']]],
-  ['getnbdegreefreedom',['getNbDegreeFreedom',['../classrobot__local__map_1_1_robot_measurements.html#a0fdb1eee8a66e33d5f3a9d0e6f78995d',1,'robot_local_map::RobotMeasurements']]],
-  ['getnumposes',['getNumPoses',['../classrobot__local__map_1_1_robot_measurements.html#aee58ef9703fe600e15e6d2e97e712399',1,'robot_local_map::RobotMeasurements']]],
-  ['gettrajectory',['getTrajectory',['../classrobot__local__map_1_1_robot_local_map.html#a6b28f64b02899118a9be57e184f5ac0b',1,'robot_local_map::RobotLocalMap']]],
-  ['gettransforms',['getTransforms',['../classrobot__local__map_1_1_robot_measurements.html#ab80fc6b92d00e5242885e8564a16eb97',1,'robot_local_map::RobotMeasurements']]],
-  ['globalmapsolver',['GlobalMapSolver',['../classglobal__map__solver_1_1_global_map_solver.html#a6778be5b78052247e7954486ec1f80f1',1,'global_map_solver::GlobalMapSolver']]]
+  ['pairwiseconsistency',['PairwiseConsistency',['../classpairwise__consistency_1_1_pairwise_consistency.html#a1fed86a67991cd2c850ebde447d0e7c5',1,'pairwise_consistency::PairwiseConsistency']]],
+  ['parseg2ofile',['parseG2ofile',['../namespacegraph__utils.html#aae76bf2d3bc7104b6b835416f91d5b08',1,'graph_utils']]],
+  ['posecompose',['poseCompose',['../namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6',1,'graph_utils']]],
+  ['poseinverse',['poseInverse',['../namespacegraph__utils.html#ab4c7fe6aabe5d48181b5dc186a09c8dd',1,'graph_utils']]],
+  ['poseinversecompose',['poseInverseCompose',['../namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2',1,'graph_utils']]],
+  ['printconsistencygraph',['printConsistencyGraph',['../namespacegraph__utils.html#aa63b9e9c4cf0a0db956aa09fea329328',1,'graph_utils']]],
+  ['printconsistentloopclosures',['printConsistentLoopClosures',['../namespacegraph__utils.html#a4150234137044c02b51071ff0b4f0588',1,'graph_utils']]]
 ];

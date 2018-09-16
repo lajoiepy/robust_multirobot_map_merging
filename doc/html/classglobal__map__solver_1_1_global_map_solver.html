@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>robust_multirobot_map_merging: global_map_solver::GlobalMapSolver Class Reference</title>
+<title>Robust Multi-Robot Map Merging: global_map_solver::GlobalMapSolver Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,10 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">robust_multirobot_map_merging
-   &#160;<span id="projectnumber">0.1</span>
+   <div id="projectname">Robust Multi-Robot Map Merging
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">This package serves as back-end for multi-robot mapping</div>
   </td>
  </tr>
  </tbody>
@@ -40,7 +39,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -93,6 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classglobal__map__solver_1_1_global_map_solver-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -126,12 +125,18 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ac021490e9196a02bd53fa314d8b84655"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classglobal__map__solver_1_1_global_map_solver.html#ac021490e9196a02bd53fa314d8b84655">CONSISTENCY_MATRIX_FILE_NAME</a> = std::string(&quot;consistency_matrix.clq.mtx&quot;)</td></tr>
-<tr class="memdesc:ac021490e9196a02bd53fa314d8b84655"><td class="mdescLeft">&#160;</td><td class="mdescRight">File name in which the consistency matrix will be saved.  <a href="#ac021490e9196a02bd53fa314d8b84655">More...</a><br /></td></tr>
-<tr class="separator:ac021490e9196a02bd53fa314d8b84655"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48202b995fc50578ec03fc17178f7e22"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classglobal__map__solver_1_1_global_map_solver.html#a48202b995fc50578ec03fc17178f7e22">CONSISTENCY_LOOP_CLOSURES_FILE_NAME</a> = std::string(&quot;consistent_loop_closures.txt&quot;)</td></tr>
-<tr class="memdesc:a48202b995fc50578ec03fc17178f7e22"><td class="mdescLeft">&#160;</td><td class="mdescRight">File name in which the consistent loop closures will be saved.  <a href="#a48202b995fc50578ec03fc17178f7e22">More...</a><br /></td></tr>
-<tr class="separator:a48202b995fc50578ec03fc17178f7e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad602706da22771c9ba355d4dd03df924"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classglobal__map__solver_1_1_global_map_solver.html#ad602706da22771c9ba355d4dd03df924">CONSISTENCY_MATRIX_FILE_NAME</a> = std::string(&quot;consistency_matrix.clq.mtx&quot;)</td></tr>
+<tr class="memdesc:ad602706da22771c9ba355d4dd03df924"><td class="mdescLeft">&#160;</td><td class="mdescRight">File name in which the consistency matrix will be saved.  <a href="#ad602706da22771c9ba355d4dd03df924">More...</a><br /></td></tr>
+<tr class="separator:ad602706da22771c9ba355d4dd03df924"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b4f087af05b8eec00069dec599f2a1f"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classglobal__map__solver_1_1_global_map_solver.html#a4b4f087af05b8eec00069dec599f2a1f">CONSISTENCY_LOOP_CLOSURES_FILE_NAME</a> = std::string(&quot;consistent_loop_closures.txt&quot;)</td></tr>
+<tr class="memdesc:a4b4f087af05b8eec00069dec599f2a1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">File name in which the consistent loop closures will be saved.  <a href="#a4b4f087af05b8eec00069dec599f2a1f">More...</a><br /></td></tr>
+<tr class="separator:a4b4f087af05b8eec00069dec599f2a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a2645ec4d0433969b20272d96a01efb1f"><td class="memItemLeft" align="right" valign="top">SESync::measurements_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classglobal__map__solver_1_1_global_map_solver.html#a2645ec4d0433969b20272d96a01efb1f">fillMeasurements</a> (const std::vector&lt; int &gt; &amp;max_clique_data)</td></tr>
+<tr class="memdesc:a2645ec4d0433969b20272d96a01efb1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This functions fill the structure measurements_t whitout the spurious measurements in order to use SE-Sync.  <a href="#a2645ec4d0433969b20272d96a01efb1f">More...</a><br /></td></tr>
+<tr class="separator:a2645ec4d0433969b20272d96a01efb1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -141,8 +146,6 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class computing the global map from multiple robots local maps. </p>
-
-<p>Definition at line <a class="el" href="global__map__solver_8h_source.html#l00014">14</a> of file <a class="el" href="global__map__solver_8h_source.html">global_map_solver.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a6778be5b78052247e7954486ec1f80f1"></a>
 <div class="memitem">
@@ -184,11 +187,43 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="global__map__solver_8cpp_source.html#l00011">11</a> of file <a class="el" href="global__map__solver_8cpp_source.html">global_map_solver.cpp</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a2645ec4d0433969b20272d96a01efb1f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SESync::measurements_t global_map_solver::GlobalMapSolver::fillMeasurements </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>max_clique_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This functions fill the structure measurements_t whitout the spurious measurements in order to use SE-Sync. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">loop_closures</td><td>List of loop closures </td></tr>
+    <tr><td class="paramname">max_clique_data</td><td>List of valid loop closures ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the formatted measurements </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a3cd22b5848f5b2b153bfe0629fdbea59"></a>
 <div class="memitem">
 <div class="memproto">
@@ -204,32 +239,12 @@ Private Attributes</h2></td></tr>
 
 <p>Function that solves the global maps according to the current constraints. </p>
 <dl class="section return"><dt>Returns</dt><dd>the size of the maximum clique. </dd></dl>
-
-<p>Definition at line <a class="el" href="global__map__solver_8cpp_source.html#l00019">19</a> of file <a class="el" href="global__map__solver_8cpp_source.html">global_map_solver.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classglobal__map__solver_1_1_global_map_solver_a3cd22b5848f5b2b153bfe0629fdbea59_cgraph.png" border="0" usemap="#classglobal__map__solver_1_1_global_map_solver_a3cd22b5848f5b2b153bfe0629fdbea59_cgraph" alt=""/></div>
-<map name="classglobal__map__solver_1_1_global_map_solver_a3cd22b5848f5b2b153bfe0629fdbea59_cgraph" id="classglobal__map__solver_1_1_global_map_solver_a3cd22b5848f5b2b153bfe0629fdbea59_cgraph">
-<area shape="rect" id="node2" href="classpairwise__consistency_1_1_pairwise_consistency.html#a188821b4aef50f75e63d0e868585ef0f" title="Computation of the consistency matrix. " alt="" coords="276,89,505,159"/>
-<area shape="rect" id="node9" href="namespacegraph__utils.html#aa63b9e9c4cf0a0db956aa09fea329328" title="This function prints the consistency matrix to the format expected by the maximum clique solver..." alt="" coords="295,183,486,225"/>
-<area shape="rect" id="node10" href="namespacegraph__utils.html#a4150234137044c02b51071ff0b4f0588" title="This function prints a list of consistent loop closures in a file. " alt="" coords="300,249,481,290"/>
-<area shape="rect" id="node11" href="classpairwise__consistency_1_1_pairwise_consistency.html#a7eb762acb6c383a9e167a49e1c99905b" title="Accessor. " alt="" coords="314,313,467,369"/>
-<area shape="rect" id="node3" href="namespacegraph__utils.html#a5e9717352bed2d3c8ce7a639ea19f3b6" title="This function check if a pose is include in a trajectory. " alt="" coords="594,5,766,32"/>
-<area shape="rect" id="node4" href="classpairwise__consistency_1_1_pairwise_consistency.html#a8d713a72710457b975009c361cc69a0a" title="This function returns the transform the two specified poses on the desired robot trajectory. " alt="" coords="601,56,759,112"/>
-<area shape="rect" id="node6" href="classpairwise__consistency_1_1_pairwise_consistency.html#af3eac08aa298b40cde37fe40e930778b" title="Computes the consistency loop : aXij + abZjl + bXlk &#45; abZik (see references) " alt="" coords="589,136,771,192"/>
-<area shape="rect" id="node8" href="classpairwise__consistency_1_1_pairwise_consistency.html#a2b950355e607d737fefef75bc6c45141" title="Compute the Mahalanobis Distance of the input pose (result of pose_a&#45;pose_b) " alt="" coords="553,216,807,272"/>
-<area shape="rect" id="node5" href="namespacegraph__utils.html#ab870b094ec3889879a4d3d87f7815ec2" title="This function compose (&#45;) geometric poses with covariance. " alt="" coords="861,74,1025,115"/>
-<area shape="rect" id="node7" href="namespacegraph__utils.html#a77a9dbc4f10af715a643164166092df6" title="This function compose (+) geometric poses with covariance. " alt="" coords="855,151,1032,177"/>
-</map>
-</div>
-</p>
+<p>RUN SE-SYNC! (optimization) </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a48202b995fc50578ec03fc17178f7e22"></a>
+<a class="anchor" id="a4b4f087af05b8eec00069dec599f2a1f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -237,7 +252,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string global_map_solver::GlobalMapSolver::CONSISTENCY_LOOP_CLOSURES_FILE_NAME = std::string(&quot;consistent_loop_closures.txt&quot;)</td>
+          <td class="memname">global_map_solver::GlobalMapSolver::CONSISTENCY_LOOP_CLOSURES_FILE_NAME = std::string(&quot;consistent_loop_closures.txt&quot;)</td>
         </tr>
       </table>
   </td>
@@ -249,11 +264,9 @@ Here is the call graph for this function:</div>
 
 <p>File name in which the consistent loop closures will be saved. </p>
 
-<p>Definition at line <a class="el" href="global__map__solver_8h_source.html#l00024">24</a> of file <a class="el" href="global__map__solver_8h_source.html">global_map_solver.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="ac021490e9196a02bd53fa314d8b84655"></a>
+<a class="anchor" id="ad602706da22771c9ba355d4dd03df924"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -261,7 +274,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string global_map_solver::GlobalMapSolver::CONSISTENCY_MATRIX_FILE_NAME = std::string(&quot;consistency_matrix.clq.mtx&quot;)</td>
+          <td class="memname">global_map_solver::GlobalMapSolver::CONSISTENCY_MATRIX_FILE_NAME = std::string(&quot;consistency_matrix.clq.mtx&quot;)</td>
         </tr>
       </table>
   </td>
@@ -272,8 +285,6 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>File name in which the consistency matrix will be saved. </p>
-
-<p>Definition at line <a class="el" href="global__map__solver_8h_source.html#l00019">19</a> of file <a class="el" href="global__map__solver_8h_source.html">global_map_solver.h</a>.</p>
 
 </div>
 </div>
@@ -297,13 +308,11 @@ Here is the call graph for this function:</div>
 
 <p>Pairwise consistency solver. </p>
 
-<p>Definition at line <a class="el" href="global__map__solver_8h_source.html#l00045">45</a> of file <a class="el" href="global__map__solver_8h_source.html">global_map_solver.h</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>include/global_map_solver/<a class="el" href="global__map__solver_8h_source.html">global_map_solver.h</a></li>
-<li>src/global_map_solver/<a class="el" href="global__map__solver_8cpp_source.html">global_map_solver.cpp</a></li>
+<li>/home/lajoiepy/Documents/master/mit/baseline_ws/src/robust_multirobot_map_merging/include/global_map_solver/<a class="el" href="global__map__solver_8h_source.html">global_map_solver.h</a></li>
+<li>/home/lajoiepy/Documents/master/mit/baseline_ws/src/robust_multirobot_map_merging/src/global_map_solver/<a class="el" href="global__map__solver_8cpp.html">global_map_solver.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

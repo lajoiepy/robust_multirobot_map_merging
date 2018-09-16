@@ -1,13 +1,12 @@
-<map id="include/graph_utils/graph_types.h" name="include/graph_utils/graph_types.h">
-<area shape="rect" id="node2" href="$graph__utils__functions_8h.html" title="include/graph_utils\l/graph_utils_functions.h" alt="" coords="429,95,589,136"/>
-<area shape="rect" id="node11" href="$robot__measurements_8h.html" title="include/robot_local\l_map/robot_measurements.h" alt="" coords="185,95,376,136"/>
-<area shape="rect" id="node3" href="$example__node_8cpp.html" title="Example of the package utilisation. " alt="" coords="459,370,649,397"/>
-<area shape="rect" id="node4" href="$pairwise__consistency_8h.html" title="include/pairwise_consistency\l/pairwise_consistency.h" alt="" coords="442,184,634,225"/>
-<area shape="rect" id="node8" href="$graph__utils__functions_8cpp.html" title="src/graph_utils/graph\l_utils_functions.cpp" alt="" coords="709,184,852,225"/>
-<area shape="rect" id="node9" href="$robot__local__map_8cpp.html" title="src/robot_local_map\l/robot_local_map.cpp" alt="" coords="26,273,173,315"/>
-<area shape="rect" id="node10" href="$robot__measurements_8cpp.html" title="src/robot_local_map\l/robot_measurements.cpp" alt="" coords="194,184,367,225"/>
-<area shape="rect" id="node5" href="$global__map__solver_8h.html" title="include/global_map\l_solver/global_map_solver.h" alt="" coords="197,273,383,315"/>
-<area shape="rect" id="node7" href="$pairwise__consistency_8cpp.html" title="src/pairwise_consistency\l/pairwise_consistency.cpp" alt="" coords="407,273,583,315"/>
-<area shape="rect" id="node6" href="$global__map__solver_8cpp.html" title="src/global_map_solver\l/global_map_solver.cpp" alt="" coords="211,363,369,404"/>
-<area shape="rect" id="node12" href="$robot__local__map_8h.html" title="include/robot_local\l_map/robot_local_map.h" alt="" coords="5,184,169,225"/>
+<map id="/home/lajoiepy/Documents/master/mit/baseline_ws/src/robust_multirobot_map_merging/include/graph_utils/graph_types.h" name="/home/lajoiepy/Documents/master/mit/baseline_ws/src/robust_multirobot_map_merging/include/graph_utils/graph_types.h">
+<area shape="rect" id="node2" href="$graph__utils__functions_8h.html" title="/home/lajoiepy/Documents\l/master/mit/baseline_ws\l/src/robust_multirobot_map\l_merging/include/graph_utils\l/graph_utils_functions.h" alt="" coords="326,139,513,224"/>
+<area shape="rect" id="node10" href="$robot__measurements_8h.html" title="/home/lajoiepy/Documents\l/master/mit/baseline_ws\l/src/robust_multirobot_map\l_merging/include/robot_local\l_map/robot_measurements.h" alt="" coords="547,139,737,224"/>
+<area shape="rect" id="node3" href="$graph__utils__functions_8cpp.html" title="/home/lajoiepy/Documents\l/master/mit/baseline_ws\l/src/robust_multirobot_map\l_merging/src/graph_utils/graph\l_utils_functions.cpp" alt="" coords="319,272,519,357"/>
+<area shape="rect" id="node4" href="$robot__local__map_8cpp.html" title="/home/lajoiepy/Documents\l/master/mit/baseline_ws\l/src/robust_multirobot_map\l_merging/src/robot_local_map\l/robot_local_map.cpp" alt="" coords="689,405,885,491"/>
+<area shape="rect" id="node5" href="$robot__measurements_8cpp.html" title="/home/lajoiepy/Documents\l/master/mit/baseline_ws\l/src/robust_multirobot_map\l_merging/src/robot_local_map\l/robot_measurements.cpp" alt="" coords="544,272,740,357"/>
+<area shape="rect" id="node6" href="$pairwise__consistency_8h.html" title="/home/lajoiepy/Documents\l/master/mit/baseline_ws\l/src/robust_multirobot_map\l_merging/include/pairwise\l_consistency/pairwise_consistency.h" alt="" coords="5,272,244,357"/>
+<area shape="rect" id="node7" href="$pairwise__consistency_8cpp.html" title="/home/lajoiepy/Documents\l/master/mit/baseline_ws\l/src/robust_multirobot_map\l_merging/src/pairwise_consistency\l/pairwise_consistency.cpp" alt="" coords="11,405,238,491"/>
+<area shape="rect" id="node8" href="$global__map__solver_8h.html" title="/home/lajoiepy/Documents\l/master/mit/baseline_ws\l/src/robust_multirobot_map\l_merging/include/global_map\l_solver/global_map_solver.h" alt="" coords="404,405,595,491"/>
+<area shape="rect" id="node9" href="$global__map__solver_8cpp.html" title="/home/lajoiepy/Documents\l/master/mit/baseline_ws\l/src/robust_multirobot_map\l_merging/src/global_map_solver\l/global_map_solver.cpp" alt="" coords="395,539,604,624"/>
+<area shape="rect" id="node11" href="$robot__local__map_8h.html" title="/home/lajoiepy/Documents\l/master/mit/baseline_ws\l/src/robust_multirobot_map\l_merging/include/robot_local\l_map/robot_local_map.h" alt="" coords="765,272,951,357"/>
 </map>
