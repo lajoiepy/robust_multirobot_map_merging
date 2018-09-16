@@ -1,21 +1,5 @@
 # dmrosen 18-May-2017
-
-cmake_minimum_required(VERSION 3.1)
-
-# PROJECT CONFIGURATION
-project(SESync C CXX)
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED ON) # We require C++ 14
-
-
-# Set build type to 'RelWithDebInfo' if one was not specified by the user
-if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel." FORCE)
-  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS RelWithDebInfo Release Debug MinSizeRel)
-  message(STATUS "Setting build type to ${CMAKE_BUILD_TYPE}, as none was specified\n")
-else()
-  message(STATUS "Building in ${CMAKE_BUILD_TYPE} mode\n")
-endif()
+# lajoiepy 15-10-2017
 
 # Directory for built libraries
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/lib CACHE PATH "The directory in which to place the SE-Sync library built by this project")
@@ -23,8 +7,6 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/lib CACHE PATH "The director
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/bin CACHE PATH "The directory in which to place executables built by this project")
 
 # BUILD CONFIGURATIONS
-# Enable faster instruction sets (SIMD/AVX)
-set(ENABLE_FAST_INSTRUCTIONS ON CACHE BOOL "Enable faster instruction sets (SIMD/AVX)")
 # Enable OpenMP (if available)
 set(ENABLE_OPENMP ON CACHE BOOL "Enable OpenMP (if available)")
 # Enable code profiling using gperftools
@@ -32,11 +14,6 @@ set(ENABLE_PROFILING OFF CACHE BOOL "Enable code profiling using gperftools")
 
 # Add the .cmake files that ship with Eigen3 to the CMake module path (useful for finding other stuff)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/eigen/cmake" CACHE STRING "The CMake module path used for this project")
-
-if(${ENABLE_FAST_INSTRUCTIONS})
-message(STATUS "Enabling SIMD/AVX instruction sets")
-add_definitions(-march=native)
-endif()
 
 if(${ENABLE_PROFILING})
 message(STATUS "Enabling code profiling using Google Performance Tools")
@@ -49,7 +26,7 @@ message(STATUS "")
 # SESYNC DEPENDENCIES
 
 # FIND EIGEN3
-set( ENV{EIGEN3_ROOT_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/eigen)
+#set( ENV{EIGEN3_ROOT_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/eigen)
 find_package(Eigen3 3.3.3 REQUIRED)
 if(EIGEN3_FOUND)
 message(STATUS "Found Eigen3 library (version ${EIGEN3_VERSION})")
@@ -130,3 +107,7 @@ endif()
 
 # Export the SESync and Optimization libraries to make them available to other CMake projects
 export(TARGETS SESync Optimization FILE SESync.cmake)
+
+# BUILD EXAMPLE DRIVER
+#add_subdirectory(examples)
+

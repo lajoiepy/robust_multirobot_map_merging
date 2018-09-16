@@ -1,16 +1,22 @@
 # Copyright (C) 2018 by Pierre-Yves Lajoie <lajoie.py@gmail.com>
-cmake_minimum_required(VERSION 2.8.3)
-project(robust_multirobot_map_merging)
+cmake_minimum_required(VERSION 3.1)
+project(robust_multirobot_map_merging C CXX)
 
 ## Compile as C++14
-add_compile_options(-std=c++14)
-if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Debug)
+# BUILD CONFIGURATIONS
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# Enable faster instruction sets (SIMD/AVX)
+set(ENABLE_FAST_INSTRUCTIONS ON CACHE BOOL "Enable faster instruction sets (SIMD/AVX)")
+
+if(${ENABLE_FAST_INSTRUCTIONS})
+message(STATUS "Enabling SIMD/AVX instruction sets")
+add_definitions(-march=native)
 endif()
 
-set(CMAKE_CXX_FLAGS "-Wall -Wextra")
-set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/third_parties/SE-Sync)
+
+find_library(SESync sesync REQUIRED)
 
 # Required ROS packages
 find_package(catkin REQUIRED
@@ -94,7 +100,7 @@ target_link_libraries(global_map_solver
    graph_utils
    pairwise_consistency
    fast_max-clique_finder
-   ${CMAKE_CURRENT_SOURCE_DIR}/src/third_parties/SE-Sync/build/lib/libSESync.so
+   SESync
 )
 
 # Example program
@@ -105,4 +111,5 @@ target_link_libraries(${PROJECT_NAME}_node
    graph_utils
    robot_local_map
    global_map_solver
+   SESync
 )

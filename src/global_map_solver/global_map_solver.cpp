@@ -7,8 +7,8 @@
 
 namespace global_map_solver {
 
-const std::string GlobalMapSolver::CONSISTENCY_MATRIX_FILE_NAME = std::string("consistency_matrix.clq.mtx");
-const std::string GlobalMapSolver::CONSISTENCY_LOOP_CLOSURES_FILE_NAME = std::string("consistent_loop_closures.txt");
+const std::string GlobalMapSolver::CONSISTENCY_MATRIX_FILE_NAME = std::string("results/consistency_matrix.clq.mtx");
+const std::string GlobalMapSolver::CONSISTENCY_LOOP_CLOSURES_FILE_NAME = std::string("results/consistent_loop_closures.txt");
 
 GlobalMapSolver::GlobalMapSolver(const robot_local_map::RobotLocalMap& robot1_local_map,
                 const robot_local_map::RobotLocalMap& robot2_local_map,
@@ -61,21 +61,14 @@ int GlobalMapSolver::solveGlobalMap() {
 
     // Fill measurements
     SESync::measurements_t measurements = fillMeasurements(max_clique_data);
-
+    
     // SE-Sync options
     SESync::SESyncOpts opts;
     opts.verbose = true;
     opts.num_threads = 4;
 
     /// RUN SE-SYNC! (optimization)
-    SESync::SESyncResult results = SESync::SESync(measurements, opts);
-
-    // Write output
-    string filename = "global_pose_graph.txt";
-    cout << "Saving final poses to file: " << filename << endl;
-    ofstream poses_file(filename);
-    poses_file << results.xhat;
-    poses_file.close();
+    SESync::SESyncResult results = SESync::SESync(measurements, opts);    
 
     return max_clique_size;
 }
