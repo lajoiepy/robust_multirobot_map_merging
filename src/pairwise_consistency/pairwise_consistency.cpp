@@ -100,7 +100,7 @@ double PairwiseConsistency::computeSquaredMahalanobisDistance(const geometry_msg
     pose_vector(5) = transform.pose.orientation.z;
 
     // Computation of the squared Mahalanobis distance
-    double distance = pose_vector.transpose() * covariance_matrix * pose_vector;
+    double distance = pose_vector.transpose() * covariance_matrix.inverse() * pose_vector;
     return distance;
 }
 
